@@ -18,6 +18,9 @@
 		65510BF229F7E3D6002E15CD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 65510BF129F7E3D6002E15CD /* RxCocoa */; };
 		65510BF429F7E3D6002E15CD /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 65510BF329F7E3D6002E15CD /* RxRelay */; };
 		65510BF629F7E3D6002E15CD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 65510BF529F7E3D6002E15CD /* RxSwift */; };
+		65510C0029F7FABD002E15CD /* OnJeWaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 65510BFF29F7FABD002E15CD /* OnJeWaCore */; };
+		65510C0229F7FABD002E15CD /* OnJeWaNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 65510C0129F7FABD002E15CD /* OnJeWaNetwork */; };
+		65510C0429F7FABD002E15CD /* OnJeWaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 65510C0329F7FABD002E15CD /* OnJeWaUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 				65510BF629F7E3D6002E15CD /* RxSwift in Frameworks */,
 				65510BF429F7E3D6002E15CD /* RxRelay in Frameworks */,
 				65510BF229F7E3D6002E15CD /* RxCocoa in Frameworks */,
+				65510C0229F7FABD002E15CD /* OnJeWaNetwork in Frameworks */,
+				65510C0429F7FABD002E15CD /* OnJeWaUI in Frameworks */,
+				65510C0029F7FABD002E15CD /* OnJeWaCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +99,7 @@
 				65510BD629F7D89E002E15CD /* OnJeWaTests */,
 				65510BE029F7D89E002E15CD /* OnJeWaUITests */,
 				65510BBE29F7D89D002E15CD /* Products */,
+				65510BFE29F7FABD002E15CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +143,13 @@
 			path = OnJeWaUITests;
 			sourceTree = "<group>";
 		};
+		65510BFE29F7FABD002E15CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +170,9 @@
 				65510BF129F7E3D6002E15CD /* RxCocoa */,
 				65510BF329F7E3D6002E15CD /* RxRelay */,
 				65510BF529F7E3D6002E15CD /* RxSwift */,
+				65510BFF29F7FABD002E15CD /* OnJeWaCore */,
+				65510C0129F7FABD002E15CD /* OnJeWaNetwork */,
+				65510C0329F7FABD002E15CD /* OnJeWaUI */,
 			);
 			productName = OnJeWa;
 			productReference = 65510BBD29F7D89D002E15CD /* OnJeWa.app */;
@@ -631,6 +648,18 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 65510BF029F7E3D6002E15CD /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		65510BFF29F7FABD002E15CD /* OnJeWaCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OnJeWaCore;
+		};
+		65510C0129F7FABD002E15CD /* OnJeWaNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OnJeWaNetwork;
+		};
+		65510C0329F7FABD002E15CD /* OnJeWaUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OnJeWaUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
