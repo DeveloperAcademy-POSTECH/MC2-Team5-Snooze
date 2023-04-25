@@ -50,6 +50,9 @@
 		65510BDD29F7D89E002E15CD /* OnJeWaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnJeWaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BE129F7D89E002E15CD /* OnJeWaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnJeWaUITests.swift; sourceTree = "<group>"; };
 		65510BE329F7D89E002E15CD /* OnJeWaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnJeWaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		65510BF829F7E93C002E15CD /* OnJeWaUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OnJeWaUI; path = ../OnJeWaUI; sourceTree = "<group>"; };
+		65510BF929F7E99B002E15CD /* OnJeWaCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OnJeWaCore; path = ../OnJeWaCore; sourceTree = "<group>"; };
+		65510BFA29F7E9B2002E15CD /* OnJeWaNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OnJeWaNetwork; path = ../OnJeWaNetwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,9 @@
 		65510BB429F7D89D002E15CD = {
 			isa = PBXGroup;
 			children = (
+				65510BFA29F7E9B2002E15CD /* OnJeWaNetwork */,
+				65510BF929F7E99B002E15CD /* OnJeWaCore */,
+				65510BF829F7E93C002E15CD /* OnJeWaUI */,
 				65510BBF29F7D89D002E15CD /* OnJeWa */,
 				65510BD629F7D89E002E15CD /* OnJeWaTests */,
 				65510BE029F7D89E002E15CD /* OnJeWaUITests */,
