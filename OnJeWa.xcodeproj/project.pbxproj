@@ -89,6 +89,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6547BF3A29F8EB3600593D17 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				65510BC029F7D89D002E15CD /* AppDelegate.swift */,
+				65510BC229F7D89D002E15CD /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6547BF3B29F8EB4800593D17 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6547BF3C29F8EB5700593D17 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				65510BC429F7D89D002E15CD /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6547BF3D29F8EB6400593D17 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6547BF3E29F8EB6800593D17 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				65510BC929F7D89E002E15CD /* Assets.xcassets */,
+				65510BCB29F7D89E002E15CD /* LaunchScreen.storyboard */,
+				65510BCE29F7D89E002E15CD /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		65510BB429F7D89D002E15CD = {
 			isa = PBXGroup;
 			children = (
@@ -116,12 +157,11 @@
 		65510BBF29F7D89D002E15CD /* OnJeWa */ = {
 			isa = PBXGroup;
 			children = (
-				65510BC029F7D89D002E15CD /* AppDelegate.swift */,
-				65510BC229F7D89D002E15CD /* SceneDelegate.swift */,
-				65510BC429F7D89D002E15CD /* ViewController.swift */,
-				65510BC929F7D89E002E15CD /* Assets.xcassets */,
-				65510BCB29F7D89E002E15CD /* LaunchScreen.storyboard */,
-				65510BCE29F7D89E002E15CD /* Info.plist */,
+				6547BF3A29F8EB3600593D17 /* Application */,
+				6547BF3B29F8EB4800593D17 /* Domain */,
+				6547BF3D29F8EB6400593D17 /* Data */,
+				6547BF3C29F8EB5700593D17 /* Presentation */,
+				6547BF3E29F8EB6800593D17 /* Resource */,
 			);
 			path = OnJeWa;
 			sourceTree = "<group>";
@@ -463,7 +503,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OnJeWa/Info.plist;
+				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -490,7 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OnJeWa/Info.plist;
+				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
