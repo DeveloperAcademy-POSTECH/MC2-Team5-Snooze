@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6547BF6A2A0000BB00593D17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6547BF692A0000BB00593D17 /* GoogleService-Info.plist */; };
+		02030D852A012CFE00B3583A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02030D842A012CFE00B3583A /* GoogleService-Info.plist */; };
 		6547BF6D2A0001FD00593D17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */; };
 		6547BF6F2A0001FD00593D17 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6E2A0001FD00593D17 /* FirebaseAuth */; };
 		6547BF712A0001FD00593D17 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF702A0001FD00593D17 /* FirebaseDatabase */; };
@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6547BF692A0000BB00593D17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		02030D842A012CFE00B3583A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BC029F7D89D002E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65510BC229F7D89D002E15CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		65510BBF29F7D89D002E15CD /* OnJeWa */ = {
 			isa = PBXGroup;
 			children = (
-				6547BF692A0000BB00593D17 /* GoogleService-Info.plist */,
+				02030D842A012CFE00B3583A /* GoogleService-Info.plist */,
 				6547BF3A29F8EB3600593D17 /* Application */,
 				6547BF3B29F8EB4800593D17 /* Domain */,
 				6547BF3D29F8EB6400593D17 /* Data */,
@@ -331,8 +331,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				65510BCD29F7D89E002E15CD /* LaunchScreen.storyboard in Resources */,
+				02030D852A012CFE00B3583A /* GoogleService-Info.plist in Resources */,
 				65510BCA29F7D89E002E15CD /* Assets.xcassets in Resources */,
-				6547BF6A2A0000BB00593D17 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
