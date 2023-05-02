@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		02030D852A012CFE00B3583A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02030D842A012CFE00B3583A /* GoogleService-Info.plist */; };
+		02030DA72A0139F600B3583A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02030DA62A0139F600B3583A /* WidgetKit.framework */; };
+		02030DA92A0139F600B3583A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02030DA82A0139F600B3583A /* SwiftUI.framework */; };
+		02030DAC2A0139F600B3583A /* OnjewaWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02030DAB2A0139F600B3583A /* OnjewaWidgetBundle.swift */; };
+		02030DAE2A0139F600B3583A /* OnjewaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02030DAD2A0139F600B3583A /* OnjewaWidget.swift */; };
+		02030DB02A0139F700B3583A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02030DAF2A0139F700B3583A /* Assets.xcassets */; };
+		02030DB42A0139F700B3583A /* OnjewaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 02030DA52A0139F600B3583A /* OnjewaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6547BF6D2A0001FD00593D17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */; };
 		6547BF6F2A0001FD00593D17 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6E2A0001FD00593D17 /* FirebaseAuth */; };
 		6547BF712A0001FD00593D17 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF702A0001FD00593D17 /* FirebaseDatabase */; };
@@ -32,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		02030DB22A0139F700B3583A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65510BB529F7D89D002E15CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02030DA42A0139F600B3583A;
+			remoteInfo = OnjewaWidgetExtension;
+		};
 		65510BD429F7D89E002E15CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 65510BB529F7D89D002E15CD /* Project object */;
@@ -48,8 +61,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		02030DB52A0139F700B3583A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				02030DB42A0139F700B3583A /* OnjewaWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		02030D842A012CFE00B3583A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		02030DA52A0139F600B3583A /* OnjewaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OnjewaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		02030DA62A0139F600B3583A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		02030DA82A0139F600B3583A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		02030DAB2A0139F600B3583A /* OnjewaWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnjewaWidgetBundle.swift; sourceTree = "<group>"; };
+		02030DAD2A0139F600B3583A /* OnjewaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnjewaWidget.swift; sourceTree = "<group>"; };
+		02030DAF2A0139F700B3583A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02030DB12A0139F700B3583A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BC029F7D89D002E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65510BC229F7D89D002E15CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +102,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		02030DA22A0139F600B3583A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02030DA92A0139F600B3583A /* SwiftUI.framework in Frameworks */,
+				02030DA72A0139F600B3583A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65510BBA29F7D89D002E15CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,6 +148,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02030DAA2A0139F600B3583A /* OnjewaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				02030DAB2A0139F600B3583A /* OnjewaWidgetBundle.swift */,
+				02030DAD2A0139F600B3583A /* OnjewaWidget.swift */,
+				02030DAF2A0139F700B3583A /* Assets.xcassets */,
+				02030DB12A0139F700B3583A /* Info.plist */,
+			);
+			path = OnjewaWidget;
+			sourceTree = "<group>";
+		};
 		6547BF3A29F8EB3600593D17 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +209,7 @@
 				65510BBF29F7D89D002E15CD /* OnJeWa */,
 				65510BD629F7D89E002E15CD /* OnJeWaTests */,
 				65510BE029F7D89E002E15CD /* OnJeWaUITests */,
+				02030DAA2A0139F600B3583A /* OnjewaWidget */,
 				65510BBE29F7D89D002E15CD /* Products */,
 				65510BFE29F7FABD002E15CD /* Frameworks */,
 			);
@@ -166,6 +221,7 @@
 				65510BBD29F7D89D002E15CD /* OnJeWa.app */,
 				65510BD329F7D89E002E15CD /* OnJeWaTests.xctest */,
 				65510BDD29F7D89E002E15CD /* OnJeWaUITests.xctest */,
+				02030DA52A0139F600B3583A /* OnjewaWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +259,8 @@
 		65510BFE29F7FABD002E15CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02030DA62A0139F600B3583A /* WidgetKit.framework */,
+				02030DA82A0139F600B3583A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,6 +268,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		02030DA42A0139F600B3583A /* OnjewaWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02030DB82A0139F700B3583A /* Build configuration list for PBXNativeTarget "OnjewaWidgetExtension" */;
+			buildPhases = (
+				02030DA12A0139F600B3583A /* Sources */,
+				02030DA22A0139F600B3583A /* Frameworks */,
+				02030DA32A0139F600B3583A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OnjewaWidgetExtension;
+			productName = OnjewaWidgetExtension;
+			productReference = 02030DA52A0139F600B3583A /* OnjewaWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		65510BBC29F7D89D002E15CD /* OnJeWa */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65510BE729F7D89E002E15CD /* Build configuration list for PBXNativeTarget "OnJeWa" */;
@@ -217,10 +292,12 @@
 				65510BB929F7D89D002E15CD /* Sources */,
 				65510BBA29F7D89D002E15CD /* Frameworks */,
 				65510BBB29F7D89D002E15CD /* Resources */,
+				02030DB52A0139F700B3583A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				02030DB32A0139F700B3583A /* PBXTargetDependency */,
 			);
 			name = OnJeWa;
 			packageProductDependencies = (
@@ -285,9 +362,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					02030DA42A0139F600B3583A = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					65510BBC29F7D89D002E15CD = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -321,11 +401,20 @@
 				65510BBC29F7D89D002E15CD /* OnJeWa */,
 				65510BD229F7D89E002E15CD /* OnJeWaTests */,
 				65510BDC29F7D89E002E15CD /* OnJeWaUITests */,
+				02030DA42A0139F600B3583A /* OnjewaWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		02030DA32A0139F600B3583A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02030DB02A0139F700B3583A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65510BBB29F7D89D002E15CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +442,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02030DA12A0139F600B3583A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02030DAC2A0139F600B3583A /* OnjewaWidgetBundle.swift in Sources */,
+				02030DAE2A0139F600B3583A /* OnjewaWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65510BB929F7D89D002E15CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,6 +481,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		02030DB32A0139F700B3583A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02030DA42A0139F600B3583A /* OnjewaWidgetExtension */;
+			targetProxy = 02030DB22A0139F700B3583A /* PBXContainerItemProxy */;
+		};
 		65510BD529F7D89E002E15CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 65510BBC29F7D89D002E15CD /* OnJeWa */;
@@ -407,6 +510,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		02030DB62A0139F700B3583A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnjewaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OnjewaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa.OnjewaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		02030DB72A0139F700B3583A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnjewaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OnjewaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa.OnjewaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		65510BE529F7D89E002E15CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -524,6 +681,7 @@
 		65510BE829F7D89E002E15CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -551,6 +709,7 @@
 		65510BE929F7D89E002E15CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,6 +809,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		02030DB82A0139F700B3583A /* Build configuration list for PBXNativeTarget "OnjewaWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02030DB62A0139F700B3583A /* Debug */,
+				02030DB72A0139F700B3583A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		65510BB829F7D89D002E15CD /* Build configuration list for PBXProject "OnJeWa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
