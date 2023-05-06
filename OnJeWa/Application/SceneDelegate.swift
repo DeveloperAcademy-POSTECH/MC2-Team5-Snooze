@@ -20,7 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ViewController()
+        let mainViewController = ChooseAnimalTypeViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
     }
