@@ -15,6 +15,8 @@
 		6547BF752A0001FD00593D17 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF742A0001FD00593D17 /* FirebaseFirestore */; };
 		6547BF772A0001FD00593D17 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF762A0001FD00593D17 /* FirebaseFunctions */; };
 		6547BF792A0001FD00593D17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF782A0001FD00593D17 /* FirebaseStorage */; };
+		6547BF9F2A037D6F00593D17 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6547BFA12A037D7D00593D17 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC029F7D89D002E15CD /* AppDelegate.swift */; };
 		65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC229F7D89D002E15CD /* SceneDelegate.swift */; };
 		65510BC529F7D89D002E15CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC429F7D89D002E15CD /* ViewController.swift */; };
@@ -29,6 +31,10 @@
 		65510C0029F7FABD002E15CD /* OnJeWaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 65510BFF29F7FABD002E15CD /* OnJeWaCore */; };
 		65510C0229F7FABD002E15CD /* OnJeWaNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 65510C0129F7FABD002E15CD /* OnJeWaNetwork */; };
 		65510C0429F7FABD002E15CD /* OnJeWaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 65510C0329F7FABD002E15CD /* OnJeWaUI */; };
+		655E855D2A037FA400BD992F /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E855C2A037FA400BD992F /* FirstOnboardingView.swift */; };
+		655E855F2A037FAE00BD992F /* SecondOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E855E2A037FAE00BD992F /* SecondOnboardingView.swift */; };
+		655E85612A037FB800BD992F /* ThirdOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85602A037FB800BD992F /* ThirdOnboardingView.swift */; };
+		655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85622A037FE200BD992F /* FourOnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +71,10 @@
 		65510BFB29F7F399002E15CD /* OnJeWaUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnJeWaUI; sourceTree = "<group>"; };
 		65510BFC29F7F3B9002E15CD /* OnJeWaNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnJeWaNetwork; sourceTree = "<group>"; };
 		65510BFD29F7F3E6002E15CD /* OnJeWaCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnJeWaCore; sourceTree = "<group>"; };
+		655E855C2A037FA400BD992F /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
+		655E855E2A037FAE00BD992F /* SecondOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingView.swift; sourceTree = "<group>"; };
+		655E85602A037FB800BD992F /* ThirdOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingView.swift; sourceTree = "<group>"; };
+		655E85622A037FE200BD992F /* FourOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourOnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				65510BC429F7D89D002E15CD /* ViewController.swift */,
+				6547BF9A2A037D2000593D17 /* OnboardingScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -144,6 +155,41 @@
 				65510BCE29F7D89E002E15CD /* Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		6547BF9A2A037D2000593D17 /* OnboardingScene */ = {
+			isa = PBXGroup;
+			children = (
+				6547BF9D2A037D5400593D17 /* ViewController */,
+				6547BF9C2A037D4C00593D17 /* ViewModel */,
+				6547BF9B2A037D4600593D17 /* View */,
+			);
+			path = OnboardingScene;
+			sourceTree = "<group>";
+		};
+		6547BF9B2A037D4600593D17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				655E855C2A037FA400BD992F /* FirstOnboardingView.swift */,
+				655E855E2A037FAE00BD992F /* SecondOnboardingView.swift */,
+				655E85602A037FB800BD992F /* ThirdOnboardingView.swift */,
+				655E85622A037FE200BD992F /* FourOnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6547BF9C2A037D4C00593D17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6547BF9D2A037D5400593D17 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		65510BB429F7D89D002E15CD = {
@@ -357,9 +403,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				655E855F2A037FAE00BD992F /* SecondOnboardingView.swift in Sources */,
+				655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */,
+				6547BFA12A037D7D00593D17 /* (null) in Sources */,
 				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
+				655E855D2A037FA400BD992F /* FirstOnboardingView.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
+				655E85612A037FB800BD992F /* ThirdOnboardingView.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
+				6547BF9F2A037D6F00593D17 /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +580,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -555,6 +608,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
