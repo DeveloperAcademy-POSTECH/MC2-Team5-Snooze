@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 struct Profile {
-    var animalType: String?
+    var petType: String?
     var profileImage: UIImage?
     var name: String?
     var year: String?

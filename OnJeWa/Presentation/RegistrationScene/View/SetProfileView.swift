@@ -89,21 +89,23 @@ final class SetProfileView: BaseView {
     }()
     
     var yearDropDown: DropDown = {
-        let dropdown = DropDown(data: ["나이","1","2","3","4","5","6","7","8","9","10"], contentHeight: 150)
+        let dropdown = DropDown(data: ["나이","1","2","3","4","5","6","7","8","9","10"],
+                                contentHeight: 150)
         return dropdown
     }()
     
     var monthDropDown: DropDown = {
-        let dropdown = DropDown(data: ["월", "1","2","3","4","5","6","7","8","9","10"], contentHeight: 150)
+        let dropdown = DropDown(data: ["월", "1","2","3","4","5","6","7","8","9","10"],
+                                contentHeight: 150)
         return dropdown
     }()
     
     var dayDropDown: DropDown = {
-        let dropdown = DropDown(data: ["일", "1","2","3","4","5","6","7","8","9","10"], contentHeight: 150)
+        let dropdown = DropDown(data: ["일", "1","2","3","4","5","6","7","8","9","10"],
+                                contentHeight: 150)
         return dropdown
     }()
     
-    // 수정 : cornerRadius
     let nextButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -133,10 +135,9 @@ final class SetProfileView: BaseView {
 }
 
 extension SetProfileView: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            return
-        }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         profileImageView.image = image
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
         profileImageView.clipsToBounds = true
@@ -153,27 +154,22 @@ extension SetProfileView: UIImagePickerControllerDelegate & UINavigationControll
 }
 
 extension SetProfileView: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         
-        // 현재 입력된 텍스트와 변경된 텍스트를 합칩니다.
         let currentText = textField.text ?? ""
         let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
         
-        // 변경된 텍스트를 콘솔에 출력합니다.
         if newText.isEmpty {
-            print("isEmpty \(newText)")
             delegate?.changedTextField(nameValue: newText)
         } else {
-            print("not isEmpty \(newText)")
             delegate?.changedTextField(nameValue: newText)
         }
         
-        // true를 반환하여 텍스트 필드가 변경된 텍스트를 반영하도록 합니다.
         return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        print("clear")
         delegate?.changedTextField(nameValue: "")
         return true
     }
@@ -181,24 +177,29 @@ extension SetProfileView: UITextFieldDelegate {
 
 private extension SetProfileView {
     func setupView() {
+        
+        findTownTextField.delegate = self
+        findTownTextField.placeholder = "이름"
+        
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                          action: #selector(profileImageViewTapped))
+        profileImageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         [yearDropDown, monthDropDown, dayDropDown].forEach {
             dropDownStackView.addArrangedSubview($0)
         }
         
-        [setProfileTitle, profileImageView, photoIcon, findTownTextField, dropDownStackView, nextButton].forEach {
+        [setProfileTitle, profileImageView, photoIcon, findTownTextField,
+         dropDownStackView, nextButton].forEach {
             backgroundView.addSubview($0)
         }
         
         addSubview(backgroundView)
-        
-        findTownTextField.delegate = self
-        
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageViewTapped))
-        profileImageView.addGestureRecognizer(tapGestureRecognizer)
-        
-        findTownTextField.placeholder = "이름"
     }
     
     func setupLayout() {
@@ -211,36 +212,49 @@ private extension SetProfileView {
         
         NSLayoutConstraint.activate([
             profileImageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            profileImageView.topAnchor.constraint(equalTo: setProfileTitle.bottomAnchor, constant: 32),
+            profileImageView.topAnchor.constraint(equalTo: setProfileTitle.bottomAnchor,
+                                                  constant: 32),
             profileImageView.widthAnchor.constraint(equalToConstant: 125),
             profileImageView.heightAnchor.constraint(equalToConstant: 125),
         ])
         
         NSLayoutConstraint.activate([
-            photoIcon.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor,constant: 40),
-            photoIcon.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: -32),
+            photoIcon.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor,
+                                               constant: 40),
+            photoIcon.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,
+                                           constant: -32),
             photoIcon.widthAnchor.constraint(equalToConstant: 40),
             photoIcon.heightAnchor.constraint(equalToConstant: 40),
         ])
         
         NSLayoutConstraint.activate([
-            findTownTextField.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 32),
-            findTownTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20),
-            findTownTextField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20)
-        ])
-        
-        yearDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor, multiplier: 1.8/4).isActive = true
-        monthDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor, multiplier: 1/4).isActive = true
-        dayDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor, multiplier: 1/4).isActive = true
-        
-        NSLayoutConstraint.activate([
-            dropDownStackView.topAnchor.constraint(equalTo: findTownTextField.bottomAnchor, constant: 16),
-            dropDownStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20),
-            dropDownStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20),
+            findTownTextField.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,
+                                                   constant: 32),
+            findTownTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                       constant: 20),
+            findTownTextField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
+                                                        constant: -20)
         ])
         
         NSLayoutConstraint.activate([
-            // 수정 : 버튼 height
+            yearDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor,
+                                                multiplier: 1.8/4),
+            monthDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor,
+                                                 multiplier: 1/4),
+            dayDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor,
+                                               multiplier: 1/4)
+        ])
+        
+        NSLayoutConstraint.activate([
+            dropDownStackView.topAnchor.constraint(equalTo: findTownTextField.bottomAnchor,
+                                                   constant: 16),
+            dropDownStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                       constant: 20),
+            dropDownStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
+                                                        constant: -20),
+        ])
+        
+        NSLayoutConstraint.activate([
             nextButton.heightAnchor.constraint(equalToConstant: 60),
             nextButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
                                                constant: -54),

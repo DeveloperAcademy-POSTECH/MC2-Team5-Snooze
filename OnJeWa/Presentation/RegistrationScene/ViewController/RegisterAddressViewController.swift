@@ -11,8 +11,7 @@ import CoreLocation
 import OnJeWaCore
 import OnJeWaUI
 
-// 웹뷰로 부터 주소 데이터를 받아옴
-protocol LocationAndYearsDelegate: AnyObject {
+protocol KakaoAddressViewDelegate: AnyObject {
     func dismissKakaoAddressWebView(address: String, coordinates: CLLocationCoordinate2D)
 }
 
@@ -36,10 +35,6 @@ final class RegisterAddressViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
-
-        registerAddressView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +44,6 @@ final class RegisterAddressViewController: BaseViewController {
         appearance.backgroundColor = .white
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
     }
     
     //MARK: - Views
@@ -60,6 +54,9 @@ final class RegisterAddressViewController: BaseViewController {
     //MARK: - Functions
     
     override func setupView() {
+        
+        registerAddressView.delegate = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
         
         [registerAddressView].forEach {
@@ -68,7 +65,6 @@ final class RegisterAddressViewController: BaseViewController {
     }
     
     override func setLayout() {
-        registerAddressView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             registerAddressView.topAnchor.constraint(equalTo: view.topAnchor),
             registerAddressView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -80,11 +76,10 @@ final class RegisterAddressViewController: BaseViewController {
 
 extension RegisterAddressViewController: RegisterAddressViewDelegate {
     func didTapNextButton() {
-        print("didTapNextButton")
+        // profile 세팅하고 메인으로 넘어가기
     }
     
     func didSetAddress() {
-        print("didSetAddress")
         let kakaoAddress = KakaoAddressViewController(webViewTitle: "카카오",
                                                       url: self.kakaoAddressUrlString,
                                                       callBackKey: "callBackHandler")
@@ -93,12 +88,9 @@ extension RegisterAddressViewController: RegisterAddressViewDelegate {
     }
 }
 
-extension RegisterAddressViewController: LocationAndYearsDelegate {
+extension RegisterAddressViewController: KakaoAddressViewDelegate {
     func dismissKakaoAddressWebView(address: String, coordinates:  CLLocationCoordinate2D) {
-        // function으로 빼기
-        print("coordinates \(coordinates)")
-        registerAddressView.addressStackView.isHidden = false
-        registerAddressView.addressTitle.text = address
-        registerAddressView.nextButton.setTitle("제리와 함께 행복한 시간을 즐겨봐요", for: .normal)
+        self.profile?.coordinate = coordinates
+        registerAddressView.updateRegisterAddressView(address: address)
     }
 }

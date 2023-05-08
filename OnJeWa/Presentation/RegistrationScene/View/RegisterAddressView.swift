@@ -123,10 +123,18 @@ final class RegisterAddressView: BaseView {
     @objc func resetButtonTapGesture(_ sender: UITapGestureRecognizer) {
         delegate?.didSetAddress()
     }
+    
+    func updateRegisterAddressView(address: String) {
+        addressStackView.isHidden = false
+        addressTitle.text = address
+        nextButton.setTitle("제리와 함께 행복한 시간을 즐겨봐요", for: .normal)
+    }
 }
 
 private extension RegisterAddressView {
     func setupView() {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
         
         resetAddressButton.addTarget(self, action: #selector(resetButtonTapGesture), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(buttonTapGesture), for: .touchUpInside)
@@ -152,11 +160,11 @@ private extension RegisterAddressView {
         
         NSLayoutConstraint.activate([
             addressStackView.topAnchor.constraint(equalTo: setAddressTitle.bottomAnchor,
-                                                 constant: 24),
+                                                  constant: 24),
             addressStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                     constant: 26),
+                                                      constant: 26),
             addressStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                                     constant: -26),
+                                                       constant: -26),
         ])
         
         NSLayoutConstraint.activate([

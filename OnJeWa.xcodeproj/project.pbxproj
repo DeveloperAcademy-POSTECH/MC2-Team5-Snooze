@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		02030D852A012CFE00B3583A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02030D842A012CFE00B3583A /* GoogleService-Info.plist */; };
-		651C76132A04A29600EDC6BC /* ChooseAnimalTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChooseAnimalTypeViewController.swift */; };
-		651C76152A04A2A400EDC6BC /* ChooseAnimalTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76142A04A2A400EDC6BC /* ChooseAnimalTypeViewModel.swift */; };
-		651C76172A04A2DF00EDC6BC /* ChooseAnimalTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76162A04A2DF00EDC6BC /* ChooseAnimalTypeView.swift */; };
+		651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */; };
+		651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */; };
+		651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */; };
 		651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76182A04A2F600EDC6BC /* SetProfileView.swift */; };
-		651C761C2A04EDB300EDC6BC /* AnimalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761B2A04EDB300EDC6BC /* AnimalType.swift */; };
+		651C761C2A04EDB300EDC6BC /* PetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761B2A04EDB300EDC6BC /* PetType.swift */; };
 		651C761E2A04F3F400EDC6BC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761D2A04F3F400EDC6BC /* Profile.swift */; };
 		651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */; };
 		651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */; };
@@ -65,11 +65,11 @@
 
 /* Begin PBXFileReference section */
 		02030D842A012CFE00B3583A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		651C76122A04A29600EDC6BC /* ChooseAnimalTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnimalTypeViewController.swift; sourceTree = "<group>"; };
-		651C76142A04A2A400EDC6BC /* ChooseAnimalTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnimalTypeViewModel.swift; sourceTree = "<group>"; };
-		651C76162A04A2DF00EDC6BC /* ChooseAnimalTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnimalTypeView.swift; sourceTree = "<group>"; };
+		651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewController.swift; sourceTree = "<group>"; };
+		651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewModel.swift; sourceTree = "<group>"; };
+		651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeView.swift; sourceTree = "<group>"; };
 		651C76182A04A2F600EDC6BC /* SetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileView.swift; sourceTree = "<group>"; };
-		651C761B2A04EDB300EDC6BC /* AnimalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalType.swift; sourceTree = "<group>"; };
+		651C761B2A04EDB300EDC6BC /* PetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetType.swift; sourceTree = "<group>"; };
 		651C761D2A04F3F400EDC6BC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewModel.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		651C760F2A04A26700EDC6BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				651C76162A04A2DF00EDC6BC /* ChooseAnimalTypeView.swift */,
+				651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */,
 				651C76182A04A2F600EDC6BC /* SetProfileView.swift */,
 				651C76322A08C2CE00EDC6BC /* SetBackgroundView.swift */,
 				651C76382A08CF8000EDC6BC /* RegisterAddressView.swift */,
@@ -159,7 +159,7 @@
 		651C76102A04A26B00EDC6BC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				651C76142A04A2A400EDC6BC /* ChooseAnimalTypeViewModel.swift */,
+				651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */,
 				651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */,
 				651C76302A08C2C100EDC6BC /* SetBackgroundViewModel.swift */,
 				651C76362A08CF7400EDC6BC /* RegisterAddressViewModel.swift */,
@@ -170,11 +170,10 @@
 		651C76112A04A27200EDC6BC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				651C76122A04A29600EDC6BC /* ChooseAnimalTypeViewController.swift */,
+				651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */,
 				651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */,
 				651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */,
 				651C76342A08CF6200EDC6BC /* RegisterAddressViewController.swift */,
-				651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -182,10 +181,18 @@
 		651C761A2A04ED9B00EDC6BC /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				651C761B2A04EDB300EDC6BC /* AnimalType.swift */,
+				651C761B2A04EDB300EDC6BC /* PetType.swift */,
 				651C761D2A04F3F400EDC6BC /* Profile.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		651C763C2A092E0100EDC6BC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		6547BF3A29F8EB3600593D17 /* Application */ = {
@@ -259,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				02030D842A012CFE00B3583A /* GoogleService-Info.plist */,
+				651C763C2A092E0100EDC6BC /* Common */,
 				6547BF3A29F8EB3600593D17 /* Application */,
 				6547BF3B29F8EB4800593D17 /* Domain */,
 				6547BF3D29F8EB6400593D17 /* Data */,
@@ -445,9 +453,9 @@
 				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
 				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
 				651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */,
-				651C76152A04A2A400EDC6BC /* ChooseAnimalTypeViewModel.swift in Sources */,
+				651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */,
 				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
-				651C76172A04A2DF00EDC6BC /* ChooseAnimalTypeView.swift in Sources */,
+				651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */,
 				651C76312A08C2C100EDC6BC /* SetBackgroundViewModel.swift in Sources */,
 				651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */,
 				651C76332A08C2CE00EDC6BC /* SetBackgroundView.swift in Sources */,
@@ -455,11 +463,11 @@
 				651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */,
 				651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */,
 				651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */,
-				651C76132A04A29600EDC6BC /* ChooseAnimalTypeViewController.swift in Sources */,
+				651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */,
 				651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
 				651C761E2A04F3F400EDC6BC /* Profile.swift in Sources */,
-				651C761C2A04EDB300EDC6BC /* AnimalType.swift in Sources */,
+				651C761C2A04EDB300EDC6BC /* PetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

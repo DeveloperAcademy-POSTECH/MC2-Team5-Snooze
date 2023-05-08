@@ -11,19 +11,19 @@ import OnJeWaCore
 import RxCocoa
 import RxSwift
 
-protocol ChooseAnimalTypeViewDelegate: AnyObject {
+protocol ChoosePetTypeViewDelegate: AnyObject {
     func didTapNextButton()
 }
 
-final class ChooseAnimalTypeView: BaseView {
+final class ChoosePetTypeView: BaseView {
     
     static var testHeightValue = 125.0
     
     //MARK: - Properties
     
-    private var petType: AnimalType = .none
-    weak var proxyDelegate: ChooseAnimalTypeViewProxyDelegate?
-    weak var delegate: ChooseAnimalTypeViewDelegate?
+    private var petType: PetType = .none
+    weak var proxyDelegate: ChoosePetTypeViewProxyDelegate?
+    weak var delegate: ChoosePetTypeViewDelegate?
     
     
     //MARK: - Life Cycle
@@ -47,7 +47,6 @@ final class ChooseAnimalTypeView: BaseView {
         return view
     }()
     
-    // 수정 : 폰트, 크기, padding
     private let registrationTitle: UILabel = {
         let attributedString = NSMutableAttributedString(string: "어떤 동물을\n기르세요?")
         let range = (attributedString.string as NSString).range(of: "동물을")
@@ -173,7 +172,6 @@ final class ChooseAnimalTypeView: BaseView {
         return label
     }()
     
-    // 수정 : cornerRadius
     let nextButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -187,7 +185,7 @@ final class ChooseAnimalTypeView: BaseView {
     
     //MARK: - Functions
     
-    @objc func stackViewTapGesture(_ sender: UITapGestureRecognizer) {
+    @objc func petTypeTapGesture(_ sender: UITapGestureRecognizer) {
         guard let sender = sender.view else { return }
         let petType = sender.tag == 1 ? "강아지" : sender.tag == 2 ? "고양이" :
         sender.tag == 3 ? "앵무새" : sender.tag == 4 ? "토끼" : "선택안함"
@@ -198,38 +196,29 @@ final class ChooseAnimalTypeView: BaseView {
         delegate?.didTapNextButton()
     }
     
-    func setupPetType(_ passedPetTpye: String) {
-        switch passedPetTpye {
+    func setupPetType(_ passedPetType: String) {
+        resetPetType()
+        switch passedPetType {
         case "강아지":
-            resetPetTpye()
-            dogImageView.layer.borderColor = UIColor.systemPink.cgColor
-            nextButton.backgroundColor = .systemPink
-            nextButton.addTarget(self, action: #selector(nextButtonTapGesture), for: .touchUpInside)
-            break
+            updateUIForPetType(dogImageView, color: .systemPink)
         case "고양이":
-            resetPetTpye()
-            catImageView.layer.borderColor = UIColor.systemPink.cgColor
-            nextButton.backgroundColor = .systemPink
-            nextButton.addTarget(self, action: #selector(nextButtonTapGesture), for: .touchUpInside)
-            break
+            updateUIForPetType(catImageView, color: .systemPink)
         case "앵무새":
-            resetPetTpye()
-            parrotImageView.layer.borderColor = UIColor.systemPink.cgColor
-            nextButton.backgroundColor = .systemPink
-            nextButton.addTarget(self, action: #selector(nextButtonTapGesture), for: .touchUpInside)
-            break
+            updateUIForPetType(parrotImageView, color: .systemPink)
         case "토끼":
-            resetPetTpye()
-            rabbitImageView.layer.borderColor = UIColor.systemPink.cgColor
-            nextButton.backgroundColor = .systemPink
-            nextButton.addTarget(self, action: #selector(nextButtonTapGesture), for: .touchUpInside)
-            break
+            updateUIForPetType(rabbitImageView, color: .systemPink)
         default:
             break
         }
     }
     
-    func resetPetTpye() {
+    private func updateUIForPetType(_ imageView: UIImageView, color: UIColor) {
+        imageView.layer.borderColor = color.cgColor
+        nextButton.backgroundColor = color
+        nextButton.addTarget(self, action: #selector(nextButtonTapGesture), for: .touchUpInside)
+    }
+    
+    private func resetPetType() {
         dogImageView.layer.borderColor = UIColor.clear.cgColor
         catImageView.layer.borderColor = UIColor.clear.cgColor
         parrotImageView.layer.borderColor = UIColor.clear.cgColor
@@ -237,14 +226,15 @@ final class ChooseAnimalTypeView: BaseView {
     }
 }
 
-private extension ChooseAnimalTypeView {
+private extension ChoosePetTypeView {
     func setupView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         
         [dogImageView, dogTitle].forEach {
             dogStackView.addArrangedSubview($0)
             dogStackView.tag = 1
             let tapGesture = UITapGestureRecognizer(target: self,
-                                                    action: #selector(stackViewTapGesture(_:)))
+                                                    action: #selector(petTypeTapGesture(_:)))
             dogStackView.addGestureRecognizer(tapGesture)
         }
         
@@ -252,7 +242,7 @@ private extension ChooseAnimalTypeView {
             catStackView.addArrangedSubview($0)
             catStackView.tag = 2
             let tapGesture = UITapGestureRecognizer(target: self,
-                                                    action: #selector(stackViewTapGesture(_:)))
+                                                    action: #selector(petTypeTapGesture(_:)))
             catStackView.addGestureRecognizer(tapGesture)
         }
         
@@ -260,7 +250,7 @@ private extension ChooseAnimalTypeView {
             parrotStackView.addArrangedSubview($0)
             parrotStackView.tag = 3
             let tapGesture = UITapGestureRecognizer(target: self,
-                                                    action: #selector(stackViewTapGesture(_:)))
+                                                    action: #selector(petTypeTapGesture(_:)))
             parrotStackView.addGestureRecognizer(tapGesture)
         }
         
@@ -268,7 +258,7 @@ private extension ChooseAnimalTypeView {
             rabbitStackView.addArrangedSubview($0)
             rabbitStackView.tag = 4
             let tapGesture = UITapGestureRecognizer(target: self,
-                                                    action: #selector(stackViewTapGesture(_:)))
+                                                    action: #selector(petTypeTapGesture(_:)))
             rabbitStackView.addGestureRecognizer(tapGesture)
         }
         
@@ -289,43 +279,51 @@ private extension ChooseAnimalTypeView {
         ])
         
         NSLayoutConstraint.activate([
-            dogStackView.topAnchor.constraint(equalTo: registrationTitle.bottomAnchor, constant: 66),
-            dogStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 46),
+            dogStackView.topAnchor.constraint(equalTo: registrationTitle.bottomAnchor,
+                                              constant: 66),
+            dogStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                  constant: 46),
         ])
         
         NSLayoutConstraint.activate([
-            dogImageView.widthAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
-            dogImageView.heightAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
+            dogImageView.widthAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
+            dogImageView.heightAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
         ])
         
         NSLayoutConstraint.activate([
-            catStackView.topAnchor.constraint(equalTo: registrationTitle.bottomAnchor, constant: 66),
-            catStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -46),
+            catStackView.topAnchor.constraint(equalTo: registrationTitle.bottomAnchor,
+                                              constant: 66),
+            catStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
+                                                   constant: -46),
         ])
         
         NSLayoutConstraint.activate([
-            catImageView.widthAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
-            catImageView.heightAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
+            catImageView.widthAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
+            catImageView.heightAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
         ])
         
         NSLayoutConstraint.activate([
-            parrotStackView.topAnchor.constraint(equalTo: dogStackView.bottomAnchor, constant: 26),
-            parrotStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 46),
+            parrotStackView.topAnchor.constraint(equalTo: dogStackView.bottomAnchor,
+                                                 constant: 26),
+            parrotStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                     constant: 46),
         ])
         
         NSLayoutConstraint.activate([
-            parrotImageView.widthAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
-            parrotImageView.heightAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
+            parrotImageView.widthAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
+            parrotImageView.heightAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
         ])
         
         NSLayoutConstraint.activate([
-            rabbitStackView.topAnchor.constraint(equalTo: catStackView.bottomAnchor, constant: 26),
-            rabbitStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -46),
+            rabbitStackView.topAnchor.constraint(equalTo: catStackView.bottomAnchor,
+                                                 constant: 26),
+            rabbitStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
+                                                      constant: -46),
         ])
         
         NSLayoutConstraint.activate([
-            rabbitImageView.widthAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
-            rabbitImageView.heightAnchor.constraint(equalToConstant: ChooseAnimalTypeView.testHeightValue),
+            rabbitImageView.widthAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
+            rabbitImageView.heightAnchor.constraint(equalToConstant: ChoosePetTypeView.testHeightValue),
         ])
         
         NSLayoutConstraint.activate([
@@ -336,7 +334,6 @@ private extension ChooseAnimalTypeView {
         ])
         
         NSLayoutConstraint.activate([
-            // 수정 : 버튼 height
             nextButton.heightAnchor.constraint(equalToConstant: 60),
             nextButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
                                                constant: -54),
@@ -350,38 +347,38 @@ private extension ChooseAnimalTypeView {
 
 //MARK: - DelegateProxy
 
-@objc protocol ChooseAnimalTypeViewProxyDelegate: AnyObject {
+@objc protocol ChoosePetTypeViewProxyDelegate: AnyObject {
     @objc optional func didSelectPetType(value: String)
 }
 
-private class InfraIconDelegateProxy: DelegateProxy<ChooseAnimalTypeView, ChooseAnimalTypeViewProxyDelegate>
-, DelegateProxyType, ChooseAnimalTypeViewProxyDelegate
+private class InfraIconDelegateProxy: DelegateProxy<ChoosePetTypeView, ChoosePetTypeViewProxyDelegate>
+, DelegateProxyType, ChoosePetTypeViewProxyDelegate
 {
     static func registerKnownImplementations() {
-        self.register { (ChooseAnimalTypeView) -> InfraIconDelegateProxy in
-            InfraIconDelegateProxy(parentObject: ChooseAnimalTypeView, delegateProxy: self)
+        self.register { (ChoosePetTypeView) -> InfraIconDelegateProxy in
+            InfraIconDelegateProxy(parentObject: ChoosePetTypeView, delegateProxy: self)
         }
     }
     
-    static func currentDelegate(for object: ChooseAnimalTypeView) -> ChooseAnimalTypeViewProxyDelegate? {
+    static func currentDelegate(for object: ChoosePetTypeView) -> ChoosePetTypeViewProxyDelegate? {
         return object.proxyDelegate
     }
     
-    static func setCurrentDelegate(_ delegate: ChooseAnimalTypeViewProxyDelegate?,
-                                   to object: ChooseAnimalTypeView)
+    static func setCurrentDelegate(_ delegate: ChoosePetTypeViewProxyDelegate?,
+                                   to object: ChoosePetTypeView)
     {
         object.proxyDelegate = delegate
     }
 }
 
-extension Reactive where Base: ChooseAnimalTypeView {
+extension Reactive where Base: ChoosePetTypeView {
     
-    var delegate : DelegateProxy<ChooseAnimalTypeView, ChooseAnimalTypeViewProxyDelegate> {
+    var delegate : DelegateProxy<ChoosePetTypeView, ChoosePetTypeViewProxyDelegate> {
         return InfraIconDelegateProxy.proxy(for: self.base)
     }
     
     var didSelectPetType: Observable<String?> {
-        return delegate.methodInvoked(#selector(ChooseAnimalTypeViewProxyDelegate.didSelectPetType(value:)))
+        return delegate.methodInvoked(#selector(ChoosePetTypeViewProxyDelegate.didSelectPetType(value:)))
             .map { petTypes in
                 return petTypes[0] as? String
             }

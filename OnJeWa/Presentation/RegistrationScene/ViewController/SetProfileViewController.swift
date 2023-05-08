@@ -30,48 +30,19 @@ final class SetProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        setProfileView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.shadowImage = UIImage()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+        setupNavigationBarAppearance()
+        registerKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    @objc func keyboardUp(notification:NSNotification) {
-        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-           let keyboardRectangle = keyboardFrame.cgRectValue
-       
-            UIView.animate(
-                withDuration: 0.3
-                , animations: {
-                    self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
-                }
-            )
-        }
-    }
-    
-    @objc func keyboardDown() {
-        self.view.transform = .identity
+        super.viewWillDisappear(animated)
+        
+        unregisterKeyboardNotifications()
     }
     
     //MARK: - Views
@@ -82,6 +53,9 @@ final class SetProfileViewController: BaseViewController {
     //MARK: - Functions
     
     override func setupView() {
+        
+        setProfileView.delegate = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
         
         [setProfileView].forEach {
@@ -90,7 +64,6 @@ final class SetProfileViewController: BaseViewController {
     }
     
     override func setLayout() {
-        setProfileView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             setProfileView.topAnchor.constraint(equalTo: view.topAnchor),
             setProfileView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -100,10 +73,12 @@ final class SetProfileViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        
+        // Input
+        
         setProfileView.yearDropDown.rx.didSelectDropDown
             .bind { [weak self] yearValue in
                 guard let yearValue else { return }
-                print("yearDropDown \(yearValue)")
                 self?.viewModel.input.yearTrigger.onNext(yearValue == "나이" ? "" : yearValue)
                 self?.profile?.year = yearValue == "나이" ? "" : yearValue
             }
@@ -112,7 +87,6 @@ final class SetProfileViewController: BaseViewController {
         setProfileView.monthDropDown.rx.didSelectDropDown
             .bind { [weak self] monthValue in
                 guard let monthValue else { return }
-                print("monthValue \(monthValue)")
                 self?.viewModel.input.monthTrigger.onNext(monthValue == "월" ? "" : monthValue)
                 self?.profile?.month = monthValue == "월" ? "" : monthValue
             }
@@ -121,17 +95,17 @@ final class SetProfileViewController: BaseViewController {
         setProfileView.dayDropDown.rx.didSelectDropDown
             .bind { [weak self] dayValue in
                 guard let dayValue else { return }
-                print("dayValue \(dayValue)")
                 self?.viewModel.input.dayTrigger.onNext(dayValue == "일" ? "" : dayValue)
                 self?.profile?.day = dayValue == "일" ? "" : dayValue
             }
             .disposed(by: disposeBag)
         
+        // Output
+        
         viewModel.output.nextButtonStatus
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: false)
             .drive { [weak self] isEnabled in
-                print("nextButtonStatus \(isEnabled)")
                 self?.setProfileView.setupNextButton(flag: isEnabled)
             }
             .disposed(by: disposeBag)
@@ -140,20 +114,64 @@ final class SetProfileViewController: BaseViewController {
 
 extension SetProfileViewController: SetProfileViewDelegate {
     func didTapNextButton() {
-        print("didTapNextButton")
-        let setBackgroundViewController = SetBackgroundViewController(profile: self.profile!)
+        guard let profile else { return }
+        let setBackgroundViewController = SetBackgroundViewController(profile: profile)
         self.navigationController?.pushViewController(setBackgroundViewController, animated: true)
     }
     
     func didSetProfileImageView(image: UIImage) {
-        print("didSetProfileImageView")
         self.profile?.profileImage = image
         self.viewModel.input.profileImageTrigger.onNext(true)
     }
     
     func changedTextField(nameValue: String) {
-        print("changedTextField \(nameValue)")
         self.viewModel.input.nameTrigger.onNext(nameValue)
         self.profile?.name = nameValue
+    }
+}
+
+extension SetProfileViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        view.endEditing(true)
+    }
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func unregisterKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.transform = .identity
+        }
     }
 }

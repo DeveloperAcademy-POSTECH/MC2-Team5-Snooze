@@ -18,9 +18,9 @@ final class SetBackgroundView: BaseView {
     
     //MARK: - Properties
     
+    private var setBackgroundImageStatus = false
     private let imagePickerController = UIImagePickerController()
     weak var delegate: SetBackgroundViewDelegate?
-    private var setBackgroundCheckFlag = false
     
     //MARK: - Life Cycle
     
@@ -51,7 +51,7 @@ final class SetBackgroundView: BaseView {
     }()
     
     private let backgroundOpaqueView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .black.withAlphaComponent(0.5)
         view.isHidden = true
@@ -75,7 +75,6 @@ final class SetBackgroundView: BaseView {
         return label
     }()
     
-    // 수정 : cornerRadius
     let nextButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -91,22 +90,21 @@ final class SetBackgroundView: BaseView {
 }
 
 extension SetBackgroundView: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            return
-        }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
         setBackgroundTitle.textColor = .white
-        setBackgroundCheckFlag = true
         nextButton.setTitle("다음", for: .normal)
         backgroundImageView.image = image
         delegate?.didSetBackgroundImageView(image: image)
+        setBackgroundImageStatus = true
         backgroundOpaqueView.isHidden = false
         picker.dismiss(animated: true, completion: nil)
     }
     
     @objc func buttonTapped() {
-        if setBackgroundCheckFlag {
+        if setBackgroundImageStatus {
             delegate?.didTapNextButton()
         } else {
             // UIViewController에서 present와 비슷한 기능으로 UIView에도 표시할 수 있도록 window에서 호출
@@ -124,6 +122,8 @@ private extension SetBackgroundView {
         
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
         
         [backgroundImageView, backgroundOpaqueView, setBackgroundTitle, nextButton].forEach {
             backgroundView.addSubview($0)

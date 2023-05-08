@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AnimalType: String, CaseIterable {
+enum PetType: String, CaseIterable {
     case dog
     case cat
     case parrot

@@ -32,10 +32,8 @@ final class SetProfileViewModel: BaseViewModel {
     }
     
     override func bind() {
-        print("bind call")
-        
         Observable.combineLatest(input.nameTrigger, input.yearTrigger, input.monthTrigger, input.dayTrigger, input.profileImageTrigger)
-            .map { [weak self] (name, year, month, day, profileImage) in
+            .map { (name, year, month, day, profileImage) in
                 let nameFlag = name == "" ? false : true
                 let yearFlag = year == "" ? false : true
                 let monthFlag = month == "" ? false : true
@@ -43,7 +41,6 @@ final class SetProfileViewModel: BaseViewModel {
                 return nameFlag && yearFlag && monthFlag && dayFlag && profileImage
             }
             .bind { [weak self] isEnabled in
-                print("combineLatest \(isEnabled)")
                 self?.output.nextButtonStatus.accept(isEnabled)
             }
             .disposed(by: disposeBag)

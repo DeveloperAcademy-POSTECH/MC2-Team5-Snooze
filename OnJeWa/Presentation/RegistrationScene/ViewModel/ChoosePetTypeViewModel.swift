@@ -11,7 +11,7 @@ import OnJeWaCore
 import RxSwift
 import RxCocoa
 
-final class ChooseAnimalTypeViewModel: BaseViewModel {
+final class ChoosePetTypeViewModel: BaseViewModel {
     struct Input {
         let petTypeTrigger = PublishSubject<String>()
     }

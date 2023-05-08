@@ -5,8 +5,6 @@
 //  Created by Kim SungHun on 2023/05/08.
 //
 
-// 공통영역으로 따로 빼기
-
 import UIKit
 import WebKit
 import CoreLocation
@@ -17,25 +15,23 @@ final class KakaoAddressViewController: BaseWebViewController {
     
     // MARK: - Properties
     
-    weak var delegate: LocationAndYearsDelegate?
+    weak var delegate: KakaoAddressViewDelegate?
     
     private var coordinates: CLLocationCoordinate2D?
     
-    private var addressEnglish = ""
+    private var addressEnglish = "" /// 기본 영문 주소
     private var roadAddress = "" /// 도로명 주소
     private var roadAddressEnglish = "" /// 영문 도로명 주소
-    private var jibunAddressEnglish = ""
-    private var autoRoadAddressEnglish = ""
-    private var autoJibunAddressEnglish = ""
-    private var sidoEnglish = ""
-    private var sigunguEnglish = ""
-    private var roadnameEnglish = ""
+    private var jibunAddressEnglish = "" /// 영문 지번 주소
+    private var autoRoadAddressEnglish = "" /// autoRoadAddress의 영문 도로명 주소
+    private var autoJibunAddressEnglish = "" /// autoJibunAddress의 영문 지번 주소
+    private var sidoEnglish = "" /// 도/시 이름의 영문
+    private var sigunguEnglish = "" /// 시/군/구 이름의 영문
+    private var roadnameEnglish = "" /// 도로명 값, 검색 결과 중 선택한 도로명주소의 "도로명의 영문" 값이 들어갑니다.(
     private var bname = "" /// 법정동/법정리 이름
     private var bname2 = "" /// 법정동/법정리 이름
     private var sido = "" /// 도/시 이름
     private var sigungu = "" /// 시/군/구 이름
-    private var longitude = 0.0 /// 경도
-    private var latitude = 0.0 /// 위도
     
     // MARK: - Life Cycle
     

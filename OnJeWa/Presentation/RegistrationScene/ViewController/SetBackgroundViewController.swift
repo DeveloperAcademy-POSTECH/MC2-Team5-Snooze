@@ -14,9 +14,9 @@ final class SetBackgroundViewController: BaseViewController {
     
     //MARK: - Properties
     
-    private var backgroundImageFlag = false
+    private var setBackgroundImageStatus = false
     private var profile: Profile?
-
+    
     //MARK: - Life Cycle
     
     init(profile: Profile) {
@@ -30,18 +30,10 @@ final class SetBackgroundViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        setBackgroundView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = backgroundImageFlag ? .black.withAlphaComponent(0.1) : .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.shadowImage = UIImage()
+        configureNavigationBar()
     }
     
     //MARK: - Views
@@ -49,10 +41,12 @@ final class SetBackgroundViewController: BaseViewController {
     private let setBackgroundView = SetBackgroundView()
     private let pageControl = OnJeWaPageControl(frame: CGRect.zero, entirePage: 4, currentPage: 3)
     
-    
     //MARK: - Functions
     
     override func setupView() {
+        
+        setBackgroundView.delegate = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
         
         [setBackgroundView].forEach {
@@ -61,7 +55,6 @@ final class SetBackgroundViewController: BaseViewController {
     }
     
     override func setLayout() {
-        setBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             setBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             setBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -69,27 +62,29 @@ final class SetBackgroundViewController: BaseViewController {
             setBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
+    
+    override func bindViewModel() { }
+    
+    private func configureNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = setBackgroundImageStatus ? .black.withAlphaComponent(0.1) : .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }
 
 extension SetBackgroundViewController: SetBackgroundViewDelegate {
     func didTapNextButton() {
-        print("didTapNextButton")
-        let registerAddressViewController = RegisterAddressViewController(profile: self.profile!)
+        guard let profile else { return }
+        let registerAddressViewController = RegisterAddressViewController(profile: profile)
         self.navigationController?.pushViewController(registerAddressViewController, animated: true)
     }
     
     func didSetBackgroundImageView(image: UIImage) {
-        print("didSetProfileImageView")
-        
-        backgroundImageFlag = true
-        
+        setBackgroundImageStatus = true
         self.profile?.backgroundImage = image
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .black.withAlphaComponent(0.1)
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.shadowImage = UIImage()
+        configureNavigationBar()
     }
 }
