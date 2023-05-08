@@ -12,7 +12,7 @@ import OnJeWaUI
 
 protocol SetProfileViewDelegate: AnyObject {
     func didTapNextButton()
-    func didSetProfileImageView()
+    func didSetProfileImageView(image: UIImage)
     func changedTextField(nameValue: String)
 }
 
@@ -140,7 +140,7 @@ extension SetProfileView: UIImagePickerControllerDelegate & UINavigationControll
         profileImageView.image = image
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
         profileImageView.clipsToBounds = true
-        delegate?.didSetProfileImageView()
+        delegate?.didSetProfileImageView(image: image)
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -242,12 +242,12 @@ private extension SetProfileView {
         NSLayoutConstraint.activate([
             // 수정 : 버튼 height
             nextButton.heightAnchor.constraint(equalToConstant: 60),
-            nextButton.bottomAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.bottomAnchor,
-                                               constant: -20),
+            nextButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
+                                               constant: -54),
             nextButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                constant: 16),
+                                                constant: 20),
             nextButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                                 constant: -16),
+                                                 constant: -20),
         ])
         
         NSLayoutConstraint.activate([

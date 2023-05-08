@@ -12,7 +12,9 @@ struct Profile {
     var animalType: String?
     var profileImage: UIImage?
     var name: String?
-    var birthDate: Date?
+    var year: String?
+    var month: String?
+    var day: String?
     var backgroundImage: UIImage?
     var coordinate: CLLocationCoordinate2D?
 }

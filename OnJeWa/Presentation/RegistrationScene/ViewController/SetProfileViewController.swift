@@ -65,7 +65,6 @@ final class SetProfileViewController: BaseViewController {
                 withDuration: 0.3
                 , animations: {
                     self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
-//                    self.view.transform = CGAffineTransform(translationX: 0, y: -100)
                 }
             )
         }
@@ -106,6 +105,7 @@ final class SetProfileViewController: BaseViewController {
                 guard let yearValue else { return }
                 print("yearDropDown \(yearValue)")
                 self?.viewModel.input.yearTrigger.onNext(yearValue == "나이" ? "" : yearValue)
+                self?.profile?.year = yearValue == "나이" ? "" : yearValue
             }
             .disposed(by: disposeBag)
         
@@ -114,6 +114,7 @@ final class SetProfileViewController: BaseViewController {
                 guard let monthValue else { return }
                 print("monthValue \(monthValue)")
                 self?.viewModel.input.monthTrigger.onNext(monthValue == "월" ? "" : monthValue)
+                self?.profile?.month = monthValue == "월" ? "" : monthValue
             }
             .disposed(by: disposeBag)
         
@@ -122,6 +123,7 @@ final class SetProfileViewController: BaseViewController {
                 guard let dayValue else { return }
                 print("dayValue \(dayValue)")
                 self?.viewModel.input.dayTrigger.onNext(dayValue == "일" ? "" : dayValue)
+                self?.profile?.day = dayValue == "일" ? "" : dayValue
             }
             .disposed(by: disposeBag)
         
@@ -139,15 +141,19 @@ final class SetProfileViewController: BaseViewController {
 extension SetProfileViewController: SetProfileViewDelegate {
     func didTapNextButton() {
         print("didTapNextButton")
+        let setBackgroundViewController = SetBackgroundViewController(profile: self.profile!)
+        self.navigationController?.pushViewController(setBackgroundViewController, animated: true)
     }
     
-    func didSetProfileImageView() {
+    func didSetProfileImageView(image: UIImage) {
         print("didSetProfileImageView")
+        self.profile?.profileImage = image
         self.viewModel.input.profileImageTrigger.onNext(true)
     }
     
     func changedTextField(nameValue: String) {
         print("changedTextField \(nameValue)")
         self.viewModel.input.nameTrigger.onNext(nameValue)
+        self.profile?.name = nameValue
     }
 }

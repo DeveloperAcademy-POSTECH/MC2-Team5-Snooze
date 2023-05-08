@@ -16,6 +16,13 @@
 		651C761E2A04F3F400EDC6BC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761D2A04F3F400EDC6BC /* Profile.swift */; };
 		651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */; };
 		651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */; };
+		651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */; };
+		651C76312A08C2C100EDC6BC /* SetBackgroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76302A08C2C100EDC6BC /* SetBackgroundViewModel.swift */; };
+		651C76332A08C2CE00EDC6BC /* SetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76322A08C2CE00EDC6BC /* SetBackgroundView.swift */; };
+		651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76342A08CF6200EDC6BC /* RegisterAddressViewController.swift */; };
+		651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76362A08CF7400EDC6BC /* RegisterAddressViewModel.swift */; };
+		651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76382A08CF8000EDC6BC /* RegisterAddressView.swift */; };
+		651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */; };
 		6547BF6D2A0001FD00593D17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */; };
 		6547BF6F2A0001FD00593D17 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6E2A0001FD00593D17 /* FirebaseAuth */; };
 		6547BF712A0001FD00593D17 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF702A0001FD00593D17 /* FirebaseDatabase */; };
@@ -66,6 +73,13 @@
 		651C761D2A04F3F400EDC6BC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewModel.swift; sourceTree = "<group>"; };
+		651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackgroundViewController.swift; sourceTree = "<group>"; };
+		651C76302A08C2C100EDC6BC /* SetBackgroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackgroundViewModel.swift; sourceTree = "<group>"; };
+		651C76322A08C2CE00EDC6BC /* SetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackgroundView.swift; sourceTree = "<group>"; };
+		651C76342A08CF6200EDC6BC /* RegisterAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressViewController.swift; sourceTree = "<group>"; };
+		651C76362A08CF7400EDC6BC /* RegisterAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressViewModel.swift; sourceTree = "<group>"; };
+		651C76382A08CF8000EDC6BC /* RegisterAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressView.swift; sourceTree = "<group>"; };
+		651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAddressViewController.swift; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BC029F7D89D002E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65510BC229F7D89D002E15CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,9 +148,10 @@
 		651C760F2A04A26700EDC6BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				651C76232A055FBA00EDC6BC /* DropDown */,
 				651C76162A04A2DF00EDC6BC /* ChooseAnimalTypeView.swift */,
 				651C76182A04A2F600EDC6BC /* SetProfileView.swift */,
+				651C76322A08C2CE00EDC6BC /* SetBackgroundView.swift */,
+				651C76382A08CF8000EDC6BC /* RegisterAddressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,6 +161,8 @@
 			children = (
 				651C76142A04A2A400EDC6BC /* ChooseAnimalTypeViewModel.swift */,
 				651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */,
+				651C76302A08C2C100EDC6BC /* SetBackgroundViewModel.swift */,
+				651C76362A08CF7400EDC6BC /* RegisterAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,6 +172,9 @@
 			children = (
 				651C76122A04A29600EDC6BC /* ChooseAnimalTypeViewController.swift */,
 				651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */,
+				651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */,
+				651C76342A08CF6200EDC6BC /* RegisterAddressViewController.swift */,
+				651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -166,13 +186,6 @@
 				651C761D2A04F3F400EDC6BC /* Profile.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		651C76232A055FBA00EDC6BC /* DropDown */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DropDown;
 			sourceTree = "<group>";
 		};
 		6547BF3A29F8EB3600593D17 /* Application */ = {
@@ -429,12 +442,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
+				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
+				651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */,
 				651C76152A04A2A400EDC6BC /* ChooseAnimalTypeViewModel.swift in Sources */,
 				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
 				651C76172A04A2DF00EDC6BC /* ChooseAnimalTypeView.swift in Sources */,
+				651C76312A08C2C100EDC6BC /* SetBackgroundViewModel.swift in Sources */,
 				651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */,
+				651C76332A08C2CE00EDC6BC /* SetBackgroundView.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
+				651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */,
 				651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */,
+				651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */,
 				651C76132A04A29600EDC6BC /* ChooseAnimalTypeViewController.swift in Sources */,
 				651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,

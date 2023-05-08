@@ -87,7 +87,7 @@ extension OnJeWaTextField {
     
     public override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
         let buttonX = self.bounds.size.width - (clearButtonWidth + insetX)
-        return CGRect(x: buttonX, y: 13.0, width: clearButtonWidth, height: clearButtonWidth)
+        return CGRect(x: buttonX, y: 21.0, width: clearButtonWidth, height: clearButtonWidth)
     }
 }
 
