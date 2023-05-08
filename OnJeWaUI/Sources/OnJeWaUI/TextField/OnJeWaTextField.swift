@@ -96,11 +96,11 @@ extension OnJeWaTextField {
 extension OnJeWaTextField {
     
     func configureUI() {
-        self.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         //        self.font = FindTownFont.label1.font
         //        self.textColor = FindTownColor.grey7.color
         //        self.tintColor = FindTownColor.primary.color
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 14
         self.layer.borderColor = UIColor.clear.cgColor
         self.backgroundColor = .gray.withAlphaComponent(0.1)
     }

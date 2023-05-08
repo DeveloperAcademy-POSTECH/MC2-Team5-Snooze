@@ -108,8 +108,9 @@ final class SetProfileView: BaseView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("다음", for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 14
         return button
     }()
     
@@ -203,9 +204,9 @@ private extension SetProfileView {
     func setupLayout() {
         NSLayoutConstraint.activate([
             setProfileTitle.topAnchor.constraint(equalTo: backgroundView.topAnchor,
-                                                 constant: UIScreen.main.bounds.size.height / 6),
+                                                 constant: 136),
             setProfileTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                     constant: 16),
+                                                     constant: 26),
         ])
         
         NSLayoutConstraint.activate([
@@ -223,9 +224,9 @@ private extension SetProfileView {
         ])
         
         NSLayoutConstraint.activate([
-            findTownTextField.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 48),
-            findTownTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
-            findTownTextField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16)
+            findTownTextField.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 32),
+            findTownTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20),
+            findTownTextField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20)
         ])
         
         yearDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor, multiplier: 1.8/4).isActive = true
@@ -233,9 +234,9 @@ private extension SetProfileView {
         dayDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor, multiplier: 1/4).isActive = true
         
         NSLayoutConstraint.activate([
-            dropDownStackView.topAnchor.constraint(equalTo: findTownTextField.bottomAnchor, constant: 12),
-            dropDownStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
-            dropDownStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
+            dropDownStackView.topAnchor.constraint(equalTo: findTownTextField.bottomAnchor, constant: 16),
+            dropDownStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20),
+            dropDownStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20),
         ])
         
         NSLayoutConstraint.activate([

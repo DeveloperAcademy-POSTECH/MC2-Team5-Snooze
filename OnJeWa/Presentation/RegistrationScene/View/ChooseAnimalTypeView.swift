@@ -70,7 +70,7 @@ final class ChooseAnimalTypeView: BaseView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 20
+        stackView.spacing = 16
         return stackView
     }()
     
@@ -88,6 +88,7 @@ final class ChooseAnimalTypeView: BaseView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "강아지"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -96,7 +97,7 @@ final class ChooseAnimalTypeView: BaseView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 20
+        stackView.spacing = 16
         return stackView
     }()
     
@@ -114,6 +115,7 @@ final class ChooseAnimalTypeView: BaseView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "고양이"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -122,7 +124,7 @@ final class ChooseAnimalTypeView: BaseView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 20
+        stackView.spacing = 16
         return stackView
     }()
     
@@ -140,6 +142,7 @@ final class ChooseAnimalTypeView: BaseView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "앵무새"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -148,7 +151,7 @@ final class ChooseAnimalTypeView: BaseView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 20
+        stackView.spacing = 16
         return stackView
     }()
     
@@ -166,6 +169,7 @@ final class ChooseAnimalTypeView: BaseView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "토끼"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -174,9 +178,10 @@ final class ChooseAnimalTypeView: BaseView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("다음", for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
-        //          button.isEnabled = false
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 14
+        button.backgroundColor = .systemGray6
         return button
     }()
     
@@ -278,14 +283,14 @@ private extension ChooseAnimalTypeView {
     func setupLayout() {
         NSLayoutConstraint.activate([
             registrationTitle.topAnchor.constraint(equalTo: backgroundView.topAnchor,
-                                                   constant: UIScreen.main.bounds.size.height / 6),
+                                                   constant: 136),
             registrationTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                       constant: 16),
+                                                       constant: 26),
         ])
         
         NSLayoutConstraint.activate([
-            dogStackView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
-            dogStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 40),
+            dogStackView.topAnchor.constraint(equalTo: registrationTitle.bottomAnchor, constant: 66),
+            dogStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 46),
         ])
         
         NSLayoutConstraint.activate([
@@ -294,8 +299,8 @@ private extension ChooseAnimalTypeView {
         ])
         
         NSLayoutConstraint.activate([
-            catStackView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
-            catStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -40),
+            catStackView.topAnchor.constraint(equalTo: registrationTitle.bottomAnchor, constant: 66),
+            catStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -46),
         ])
         
         NSLayoutConstraint.activate([
@@ -304,8 +309,8 @@ private extension ChooseAnimalTypeView {
         ])
         
         NSLayoutConstraint.activate([
-            parrotStackView.topAnchor.constraint(equalTo: dogStackView.bottomAnchor),
-            parrotStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 40),
+            parrotStackView.topAnchor.constraint(equalTo: dogStackView.bottomAnchor, constant: 26),
+            parrotStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 46),
         ])
         
         NSLayoutConstraint.activate([
@@ -314,8 +319,8 @@ private extension ChooseAnimalTypeView {
         ])
         
         NSLayoutConstraint.activate([
-            rabbitStackView.topAnchor.constraint(equalTo: catStackView.bottomAnchor),
-            rabbitStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -40),
+            rabbitStackView.topAnchor.constraint(equalTo: catStackView.bottomAnchor, constant: 26),
+            rabbitStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -46),
         ])
         
         NSLayoutConstraint.activate([
@@ -333,12 +338,12 @@ private extension ChooseAnimalTypeView {
         NSLayoutConstraint.activate([
             // 수정 : 버튼 height
             nextButton.heightAnchor.constraint(equalToConstant: 60),
-            nextButton.bottomAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.bottomAnchor,
-                                               constant: -20),
+            nextButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
+                                               constant: -54),
             nextButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                constant: 16),
+                                                constant: 20),
             nextButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                                 constant: -16),
+                                                 constant: -20),
         ])
     }
 }

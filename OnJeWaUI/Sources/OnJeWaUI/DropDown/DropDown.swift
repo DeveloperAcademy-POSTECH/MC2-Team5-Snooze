@@ -43,7 +43,7 @@ public class DropDown: UIView {
         let view = UIView()
         view.layer.borderColor = UIColor.clear.cgColor
         view.backgroundColor = .gray.withAlphaComponent(0.1)
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 14
         view.layer.borderWidth = 1
         view.isUserInteractionEnabled = true
         return view
@@ -224,7 +224,7 @@ private extension DropDown {
             textView.topAnchor.constraint(equalTo: self.topAnchor),
             textView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textView.heightAnchor.constraint(equalToConstant: 44.0)
+            textView.heightAnchor.constraint(equalToConstant: 60.0)
         ])
         
         NSLayoutConstraint.activate([
