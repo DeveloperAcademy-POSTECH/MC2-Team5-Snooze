@@ -5,7 +5,7 @@
 //  Created by 최효원 on 2023/05/04.
 //
 
-import Cocoa
+import UIKit
 
 class NavigationViewController: UIViewController {
 

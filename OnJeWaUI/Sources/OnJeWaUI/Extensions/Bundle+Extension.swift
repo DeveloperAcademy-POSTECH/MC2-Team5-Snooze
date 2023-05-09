@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+
+extension Bundle {
+  public static var OnJeWaUI: Bundle = .module
+
+}

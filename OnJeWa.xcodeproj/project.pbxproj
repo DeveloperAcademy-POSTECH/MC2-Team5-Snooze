@@ -14,6 +14,13 @@
 		02030DAE2A0139F600B3583A /* OnjewaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02030DAD2A0139F600B3583A /* OnjewaWidget.swift */; };
 		02030DB02A0139F700B3583A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02030DAF2A0139F700B3583A /* Assets.xcassets */; };
 		02030DB42A0139F700B3583A /* OnjewaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 02030DA52A0139F600B3583A /* OnjewaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		02236A372A03821E00AEEDCA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A362A03821E00AEEDCA /* UserDefaults+Extension.swift */; };
+		02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A3C2A0390FB00AEEDCA /* MainViewController.swift */; };
+		02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */; };
+		02236A412A03953500AEEDCA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A402A03953500AEEDCA /* NavigationViewController.swift */; };
+		02236A432A039A6300AEEDCA /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A422A039A6300AEEDCA /* MainModel.swift */; };
+		02236A452A039CF900AEEDCA /* WeekCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A442A039CF900AEEDCA /* WeekCollectionViewController.swift */; };
+		02236A492A0A276800AEEDCA /* Constant+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A482A0A276800AEEDCA /* Constant+Extension.swift */; };
 		6547BF6D2A0001FD00593D17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */; };
 		6547BF6F2A0001FD00593D17 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6E2A0001FD00593D17 /* FirebaseAuth */; };
 		6547BF712A0001FD00593D17 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF702A0001FD00593D17 /* FirebaseDatabase */; };
@@ -23,7 +30,7 @@
 		6547BF792A0001FD00593D17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF782A0001FD00593D17 /* FirebaseStorage */; };
 		65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC029F7D89D002E15CD /* AppDelegate.swift */; };
 		65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC229F7D89D002E15CD /* SceneDelegate.swift */; };
-		65510BC529F7D89D002E15CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC429F7D89D002E15CD /* ViewController.swift */; };
+		65510BC529F7D89D002E15CD /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC429F7D89D002E15CD /* TestViewController.swift */; };
 		65510BCA29F7D89E002E15CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65510BC929F7D89E002E15CD /* Assets.xcassets */; };
 		65510BCD29F7D89E002E15CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65510BCB29F7D89E002E15CD /* LaunchScreen.storyboard */; };
 		65510BD829F7D89E002E15CD /* OnJeWaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BD729F7D89E002E15CD /* OnJeWaTests.swift */; };
@@ -84,10 +91,19 @@
 		02030DAD2A0139F600B3583A /* OnjewaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnjewaWidget.swift; sourceTree = "<group>"; };
 		02030DAF2A0139F700B3583A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02030DB12A0139F700B3583A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02030DBA2A02C24D00B3583A /* OnJeWa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnJeWa.entitlements; sourceTree = "<group>"; };
+		02030DBB2A02CFC400B3583A /* OnjewaWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnjewaWidgetExtension.entitlements; sourceTree = "<group>"; };
+		02236A362A03821E00AEEDCA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		02236A3C2A0390FB00AEEDCA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionViewCell.swift; sourceTree = "<group>"; };
+		02236A402A03953500AEEDCA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		02236A422A039A6300AEEDCA /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		02236A442A039CF900AEEDCA /* WeekCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionViewController.swift; sourceTree = "<group>"; };
+		02236A482A0A276800AEEDCA /* Constant+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+Extension.swift"; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BC029F7D89D002E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65510BC229F7D89D002E15CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		65510BC429F7D89D002E15CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65510BC429F7D89D002E15CD /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		65510BC929F7D89E002E15CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65510BCC29F7D89E002E15CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65510BCE29F7D89E002E15CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +175,52 @@
 			path = OnjewaWidget;
 			sourceTree = "<group>";
 		};
+		02030DB92A013B9700B3583A /* LocationTest */ = {
+			isa = PBXGroup;
+			children = (
+				65510BC429F7D89D002E15CD /* TestViewController.swift */,
+				02236A362A03821E00AEEDCA /* UserDefaults+Extension.swift */,
+			);
+			path = LocationTest;
+			sourceTree = "<group>";
+		};
+		02236A382A0390C600AEEDCA /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				02236A3B2A0390EA00AEEDCA /* View */,
+				02236A3A2A0390D400AEEDCA /* ViewModel */,
+				02236A392A0390CE00AEEDCA /* ViewController */,
+				02236A422A039A6300AEEDCA /* MainModel.swift */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		02236A392A0390CE00AEEDCA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				02236A3C2A0390FB00AEEDCA /* MainViewController.swift */,
+				02236A402A03953500AEEDCA /* NavigationViewController.swift */,
+				02236A442A039CF900AEEDCA /* WeekCollectionViewController.swift */,
+				02236A482A0A276800AEEDCA /* Constant+Extension.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		02236A3A2A0390D400AEEDCA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		02236A3B2A0390EA00AEEDCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6547BF3A29F8EB3600593D17 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +240,8 @@
 		6547BF3C29F8EB5700593D17 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				65510BC429F7D89D002E15CD /* ViewController.swift */,
+				02236A382A0390C600AEEDCA /* MainScene */,
+				02030DB92A013B9700B3583A /* LocationTest */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -203,6 +266,7 @@
 		65510BB429F7D89D002E15CD = {
 			isa = PBXGroup;
 			children = (
+				02030DBB2A02CFC400B3583A /* OnjewaWidgetExtension.entitlements */,
 				65510BFD29F7F3E6002E15CD /* OnJeWaCore */,
 				65510BFC29F7F3B9002E15CD /* OnJeWaNetwork */,
 				65510BFB29F7F399002E15CD /* OnJeWaUI */,
@@ -229,6 +293,7 @@
 		65510BBF29F7D89D002E15CD /* OnJeWa */ = {
 			isa = PBXGroup;
 			children = (
+				02030DBA2A02C24D00B3583A /* OnJeWa.entitlements */,
 				02030D842A012CFE00B3583A /* GoogleService-Info.plist */,
 				6547BF3A29F8EB3600593D17 /* Application */,
 				6547BF3B29F8EB4800593D17 /* Domain */,
@@ -455,9 +520,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
+				02236A432A039A6300AEEDCA /* MainModel.swift in Sources */,
+				65510BC529F7D89D002E15CD /* TestViewController.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
+				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,
+				02236A372A03821E00AEEDCA /* UserDefaults+Extension.swift in Sources */,
+				02236A492A0A276800AEEDCA /* Constant+Extension.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
+				02236A412A03953500AEEDCA /* NavigationViewController.swift in Sources */,
+				02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */,
+				02236A452A039CF900AEEDCA /* WeekCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,8 +587,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OnjewaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnjewaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnjewaWidget;
@@ -528,7 +602,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa.OnjewaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonniiii.onjewa.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -542,8 +616,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OnjewaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnjewaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnjewaWidget;
@@ -555,7 +631,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa.OnjewaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonniiii.onjewa.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -621,6 +697,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -674,6 +751,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -684,10 +762,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "항상 위치정보를 수신합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안에만 위치정보를 수신합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -698,7 +781,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonniiii.onjewa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -712,10 +795,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "항상 위치정보를 수신합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안에만 위치정보를 수신합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -726,7 +814,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonniiii.onjewa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -741,10 +829,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = wonniiii.OnJeWaTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -760,10 +849,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = wonniiii.OnJeWaTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -778,9 +868,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = wonniiii.OnJeWaUITest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -795,9 +886,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = wonniiii.OnJeWaUITest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
