@@ -9,8 +9,8 @@ import Foundation
 
 enum UserDefaultsSetting {
     
-    @UserDefaultsWrapper(key: "UUID", defaultValue: "")
-    static var UUID
+    @UserDefaultsWrapper(key: "isRegister", defaultValue: false)
+    static var isRegister
     
     @UserDefaultsWrapper(key: "awayTime", defaultValue: 0)
     static var awayTime
