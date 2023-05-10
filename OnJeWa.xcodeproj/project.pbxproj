@@ -29,6 +29,8 @@
 		651C76872A0A10AD00EDC6BC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 651C76862A0A10AD00EDC6BC /* Realm */; };
 		651C76892A0A10AD00EDC6BC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 651C76882A0A10AD00EDC6BC /* RealmSwift */; };
 		651C768C2A0A110600EDC6BC /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = 651C768B2A0A110600EDC6BC /* Gifu */; };
+		651C76AA2A0B666200EDC6BC /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76A92A0B666200EDC6BC /* UserDefaultsWrapper.swift */; };
+		651C76AC2A0B667200EDC6BC /* UserDefaultsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76AB2A0B667200EDC6BC /* UserDefaultsSetting.swift */; };
 		6547BF9F2A037D6F00593D17 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		6547BFA12A037D7D00593D17 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC029F7D89D002E15CD /* AppDelegate.swift */; };
@@ -87,6 +89,8 @@
 		651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAddressViewController.swift; sourceTree = "<group>"; };
 		651C767E2A0A0FBE00EDC6BC /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		651C76802A0A0FC800EDC6BC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		651C76A92A0B666200EDC6BC /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		651C76AB2A0B667200EDC6BC /* UserDefaultsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSetting.swift; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BC029F7D89D002E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65510BC229F7D89D002E15CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,23 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		651C76A72A0B65BB00EDC6BC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				651C76A82A0B65C600EDC6BC /* UserDefaults */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		651C76A82A0B65C600EDC6BC /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				651C76A92A0B666200EDC6BC /* UserDefaultsWrapper.swift */,
+				651C76AB2A0B667200EDC6BC /* UserDefaultsSetting.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		6547BF3A29F8EB3600593D17 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +254,7 @@
 		6547BF3D29F8EB6400593D17 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				651C76A72A0B65BB00EDC6BC /* Storage */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -499,6 +521,7 @@
 				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
 				651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */,
 				651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */,
+				651C76AC2A0B667200EDC6BC /* UserDefaultsSetting.swift in Sources */,
 				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
 				651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */,
 				651C76312A08C2C100EDC6BC /* SetBackgroundViewModel.swift in Sources */,
@@ -511,6 +534,7 @@
 				651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */,
 				651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */,
 				651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */,
+				651C76AA2A0B666200EDC6BC /* UserDefaultsWrapper.swift in Sources */,
 				651C76812A0A0FC800EDC6BC /* OnboardingViewModel.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
 				651C761E2A04F3F400EDC6BC /* Profile.swift in Sources */,
