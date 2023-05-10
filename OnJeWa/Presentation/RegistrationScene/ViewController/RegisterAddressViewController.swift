@@ -10,6 +10,7 @@ import CoreLocation
 
 import OnJeWaCore
 import OnJeWaUI
+import OnJeWaNetwork
 
 protocol KakaoAddressViewDelegate: AnyObject {
     func dismissKakaoAddressWebView(address: String, coordinates: CLLocationCoordinate2D)
@@ -75,8 +76,17 @@ final class RegisterAddressViewController: BaseViewController {
 }
 
 extension RegisterAddressViewController: RegisterAddressViewDelegate {
+    
+    /// didTapNextButton viewModel에서 처리하도록 수정 + 메인으로 push 추가
     func didTapNextButton() {
-        // profile 세팅하고 메인으로 넘어가기
+        do {
+            try RealmManager.shared.createProfile(profile: self.profile!) {
+                UserDefaultsSetting.isRegister = true
+                UserDefaultsSetting.awayTime = 0
+            }
+        } catch let error {
+            print("Failed to create profile: \(error)")
+        }
     }
     
     func didSetAddress() {
@@ -90,7 +100,8 @@ extension RegisterAddressViewController: RegisterAddressViewDelegate {
 
 extension RegisterAddressViewController: KakaoAddressViewDelegate {
     func dismissKakaoAddressWebView(address: String, coordinates:  CLLocationCoordinate2D) {
-        self.profile?.coordinate = coordinates
+        self.profile?.longitude = coordinates.longitude
+        self.profile?.latitude = coordinates.latitude
         registerAddressView.updateRegisterAddressView(address: address)
     }
 }

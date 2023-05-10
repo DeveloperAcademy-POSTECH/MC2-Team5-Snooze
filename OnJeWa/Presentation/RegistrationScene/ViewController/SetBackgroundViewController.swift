@@ -9,6 +9,7 @@ import UIKit
 
 import OnJeWaCore
 import OnJeWaUI
+import OnJeWaNetwork
 
 final class SetBackgroundViewController: BaseViewController {
     
@@ -84,7 +85,7 @@ extension SetBackgroundViewController: SetBackgroundViewDelegate {
     
     func didSetBackgroundImageView(image: UIImage) {
         setBackgroundImageStatus = true
-        self.profile?.backgroundImage = image
+        self.profile?.backgroundImage = image.jpegData(compressionQuality: 0.5)
         configureNavigationBar()
     }
 }

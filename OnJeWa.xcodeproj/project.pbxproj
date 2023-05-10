@@ -12,7 +12,6 @@
 		651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */; };
 		651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76182A04A2F600EDC6BC /* SetProfileView.swift */; };
 		651C761C2A04EDB300EDC6BC /* PetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761B2A04EDB300EDC6BC /* PetType.swift */; };
-		651C761E2A04F3F400EDC6BC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761D2A04F3F400EDC6BC /* Profile.swift */; };
 		651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */; };
 		651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */; };
 		651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */; };
@@ -75,7 +74,6 @@
 		651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeView.swift; sourceTree = "<group>"; };
 		651C76182A04A2F600EDC6BC /* SetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileView.swift; sourceTree = "<group>"; };
 		651C761B2A04EDB300EDC6BC /* PetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetType.swift; sourceTree = "<group>"; };
-		651C761D2A04F3F400EDC6BC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewModel.swift; sourceTree = "<group>"; };
 		651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackgroundViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				651C761B2A04EDB300EDC6BC /* PetType.swift */,
-				651C761D2A04F3F400EDC6BC /* Profile.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -533,7 +530,6 @@
 				651C76AA2A0B666200EDC6BC /* UserDefaultsWrapper.swift in Sources */,
 				651C76812A0A0FC800EDC6BC /* OnboardingViewModel.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
-				651C761E2A04F3F400EDC6BC /* Profile.swift in Sources */,
 				651C761C2A04EDB300EDC6BC /* PetType.swift in Sources */,
 				655E855F2A037FAE00BD992F /* SecondOnboardingView.swift in Sources */,
 				655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */,
