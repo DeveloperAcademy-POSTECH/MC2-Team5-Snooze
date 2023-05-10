@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02030D852A012CFE00B3583A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02030D842A012CFE00B3583A /* GoogleService-Info.plist */; };
+		463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */; };
 		651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */; };
 		651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */; };
 		651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		02030D842A012CFE00B3583A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBuilder.swift; sourceTree = "<group>"; };
 		651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewController.swift; sourceTree = "<group>"; };
 		651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewModel.swift; sourceTree = "<group>"; };
 		651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */,
+				463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			files = (
 				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
 				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
+				463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */,
 				651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */,
 				651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */,
 				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
