@@ -11,9 +11,12 @@ import OnJeWaUI
 
 class MainViewController: BaseViewController {
   
-  //MARK: - UI Components
-  let weekCollectionVC = WeekCollectionViewController()
-
+  //MARK: - View Components
+  private let navigationView = NavigationView()
+  private let stopWatchView = StopWatchView()
+  private let weekCollectionView = WeekCollectionView()
+  private let tapButtonVC = TapButtonViewController()
+  
   
   //MARK: - Life Cycle
   override func viewDidLoad() {
@@ -25,22 +28,41 @@ class MainViewController: BaseViewController {
   
   override func setupView() {
     //MARK: 수정 - 배경 색상 변경 필요
-    view.backgroundColor = .white
-    
-    addChild(weekCollectionVC)
-    view.addSubview(weekCollectionVC.view)
-    weekCollectionVC.view.translatesAutoresizingMaskIntoConstraints = false
-    weekCollectionVC.didMove(toParent: self)
-
-
+    view.backgroundColor = .gray
+    [navigationView,stopWatchView, weekCollectionView, tapButtonVC.view].forEach {
+      view.addSubview($0)
+      $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+   
   }
   
   override func setLayout() {
+    
     NSLayoutConstraint.activate([
-      weekCollectionVC.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 42.adjusted),
-      weekCollectionVC.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -42.adjusted),
-      weekCollectionVC.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16.adjusted),
-      weekCollectionVC.view.heightAnchor.constraint(equalToConstant: 64.adjusted)
+      navigationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 4.adjusted),
+      navigationView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 38.adjusted),
+      navigationView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -38.adjusted),
+      navigationView.heightAnchor.constraint(equalToConstant: 29.adjusted)
+    ])
+    
+    NSLayoutConstraint.activate([
+      stopWatchView.topAnchor.constraint(equalTo: navigationView.bottomAnchor, constant: 63.adjusted),
+      stopWatchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      stopWatchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      stopWatchView.bottomAnchor.constraint(equalTo: tapButtonVC.view.topAnchor, constant: -34.adjusted)
+    ])
+
+    NSLayoutConstraint.activate([
+      tapButtonVC.view.bottomAnchor.constraint(equalTo: weekCollectionView.topAnchor, constant: -38.adjusted),
+      tapButtonVC.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 59.adjusted),
+      tapButtonVC.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -59.adjusted),
+      tapButtonVC.view.heightAnchor.constraint(equalToConstant: 76.adjusted)
+    ])
+    NSLayoutConstraint.activate([
+      weekCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 42.adjusted),
+      weekCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -42.adjusted),
+      weekCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16.adjusted),
+      weekCollectionView.heightAnchor.constraint(equalToConstant: 64.adjusted)
     ])
   }
   

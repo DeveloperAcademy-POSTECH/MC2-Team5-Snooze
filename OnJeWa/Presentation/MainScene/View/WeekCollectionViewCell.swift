@@ -29,7 +29,7 @@ class WeekCollectionViewCell: UICollectionViewCell {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    setConfig()
+    setupView()
     setLayout()
   }
   
@@ -40,7 +40,7 @@ class WeekCollectionViewCell: UICollectionViewCell {
 
 
 extension WeekCollectionViewCell {
-  private func setConfig() {
+  private func setupView() {
     contentView.backgroundColor = .clear
     [dayLabel, missionGaugeImageView].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -54,13 +54,19 @@ extension WeekCollectionViewCell {
     
     let contentViewHeight = contentView.frame.height
     let imageHeight = contentViewHeight - 29
-    NSLayoutConstraint.activate([dayLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)])
-    NSLayoutConstraint.activate([missionGaugeImageView.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 12.adjusted),
-                                 missionGaugeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                                 missionGaugeImageView.widthAnchor.constraint(equalToConstant: imageWidth.adjusted),
-                                 missionGaugeImageView.heightAnchor.constraint(equalToConstant: imageHeight.adjusted)])
+    
+    NSLayoutConstraint.activate([
+      missionGaugeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+      missionGaugeImageView.widthAnchor.constraint(equalToConstant: imageWidth.adjusted),
+      missionGaugeImageView.heightAnchor.constraint(equalToConstant: imageHeight.adjusted)])
+    
+    
+    NSLayoutConstraint.activate([
+      dayLabel.topAnchor.constraint(equalTo: missionGaugeImageView.bottomAnchor, constant: 12.adjusted),
+      dayLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+    ])
+    
   }
-  
   
   func dataBind(model: MainWeekModel) {
     dayLabel.text = model.day

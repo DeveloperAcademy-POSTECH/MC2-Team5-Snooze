@@ -17,10 +17,12 @@
 		02236A372A03821E00AEEDCA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A362A03821E00AEEDCA /* UserDefaults+Extension.swift */; };
 		02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A3C2A0390FB00AEEDCA /* MainViewController.swift */; };
 		02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */; };
-		02236A412A03953500AEEDCA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A402A03953500AEEDCA /* NavigationViewController.swift */; };
+		02236A412A03953500AEEDCA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A402A03953500AEEDCA /* NavigationView.swift */; };
 		02236A432A039A6300AEEDCA /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A422A039A6300AEEDCA /* MainModel.swift */; };
-		02236A452A039CF900AEEDCA /* WeekCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A442A039CF900AEEDCA /* WeekCollectionViewController.swift */; };
+		02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A442A039CF900AEEDCA /* WeekCollectionView.swift */; };
 		02236A492A0A276800AEEDCA /* Constant+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A482A0A276800AEEDCA /* Constant+Extension.swift */; };
+		02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722AE72A0B450C00A8D015 /* StopWatchView.swift */; };
+		02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E034E12A0A50C800692061 /* TapButtonViewController.swift */; };
 		6547BF6D2A0001FD00593D17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */; };
 		6547BF6F2A0001FD00593D17 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6E2A0001FD00593D17 /* FirebaseAuth */; };
 		6547BF712A0001FD00593D17 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF702A0001FD00593D17 /* FirebaseDatabase */; };
@@ -96,10 +98,12 @@
 		02236A362A03821E00AEEDCA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		02236A3C2A0390FB00AEEDCA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionViewCell.swift; sourceTree = "<group>"; };
-		02236A402A03953500AEEDCA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		02236A402A03953500AEEDCA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		02236A422A039A6300AEEDCA /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
-		02236A442A039CF900AEEDCA /* WeekCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionViewController.swift; sourceTree = "<group>"; };
+		02236A442A039CF900AEEDCA /* WeekCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionView.swift; sourceTree = "<group>"; };
 		02236A482A0A276800AEEDCA /* Constant+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+Extension.swift"; sourceTree = "<group>"; };
+		02722AE72A0B450C00A8D015 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
+		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BC029F7D89D002E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65510BC229F7D89D002E15CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,10 +191,11 @@
 		02236A382A0390C600AEEDCA /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
+				02236A482A0A276800AEEDCA /* Constant+Extension.swift */,
+				02236A422A039A6300AEEDCA /* MainModel.swift */,
 				02236A3B2A0390EA00AEEDCA /* View */,
 				02236A3A2A0390D400AEEDCA /* ViewModel */,
 				02236A392A0390CE00AEEDCA /* ViewController */,
-				02236A422A039A6300AEEDCA /* MainModel.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -199,9 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				02236A3C2A0390FB00AEEDCA /* MainViewController.swift */,
-				02236A402A03953500AEEDCA /* NavigationViewController.swift */,
-				02236A442A039CF900AEEDCA /* WeekCollectionViewController.swift */,
-				02236A482A0A276800AEEDCA /* Constant+Extension.swift */,
+				02E034E12A0A50C800692061 /* TapButtonViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -216,6 +219,9 @@
 		02236A3B2A0390EA00AEEDCA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02236A402A03953500AEEDCA /* NavigationView.swift */,
+				02722AE72A0B450C00A8D015 /* StopWatchView.swift */,
+				02236A442A039CF900AEEDCA /* WeekCollectionView.swift */,
 				02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */,
 			);
 			path = View;
@@ -524,12 +530,14 @@
 				65510BC529F7D89D002E15CD /* TestViewController.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,
+				02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */,
 				02236A372A03821E00AEEDCA /* UserDefaults+Extension.swift in Sources */,
 				02236A492A0A276800AEEDCA /* Constant+Extension.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
-				02236A412A03953500AEEDCA /* NavigationViewController.swift in Sources */,
+				02236A412A03953500AEEDCA /* NavigationView.swift in Sources */,
+				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
 				02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */,
-				02236A452A039CF900AEEDCA /* WeekCollectionViewController.swift in Sources */,
+				02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

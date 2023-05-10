@@ -8,9 +8,17 @@
 import UIKit
 import OnJeWaCore
 
-class WeekCollectionViewController: UIViewController {
+class WeekCollectionView: BaseView {
   
   //MARK: - UI Components
+
+  private let backgroundView: UIView = {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.backgroundColor = .clear
+    return view
+  }()
+  
   private let weekTitleLabel: UILabel = {
     let label = UILabel()
     label.text = "이번주 카키와 함께한 시간"
@@ -33,40 +41,50 @@ class WeekCollectionViewController: UIViewController {
   
   
   //MARK: - Life Cycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setConfig()
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setupView()
     register()
     setLayout()
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 
 }
 
 
 //MARK: - Extension
-
-extension WeekCollectionViewController  {
-  private func setConfig() {
-    view.backgroundColor = .white
+extension WeekCollectionView  {
+  private func setupView() {
     [weekCollectionView, weekTitleLabel].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview($0)
+      backgroundView.addSubview($0)
     }
+    addSubview(backgroundView)
 
   }
   
   private func setLayout() {
     
     NSLayoutConstraint.activate([
-      weekCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      weekCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      weekCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      weekCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+      backgroundView.topAnchor.constraint(equalTo: self.topAnchor),
+      backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+      backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+      backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
     ])
     
     NSLayoutConstraint.activate([
       weekTitleLabel.bottomAnchor.constraint(equalTo: weekCollectionView.topAnchor, constant: -16.adjusted),
-      weekTitleLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+      weekTitleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
+    ])
+    
+    NSLayoutConstraint.activate([
+      weekCollectionView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+      weekCollectionView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
+      weekCollectionView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor),
+      weekCollectionView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor)
     ])
   }
   
@@ -77,7 +95,7 @@ extension WeekCollectionViewController  {
 }
 
 
-extension WeekCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension WeekCollectionView: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -96,7 +114,7 @@ extension WeekCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
-extension WeekCollectionViewController: UICollectionViewDataSource {
+extension WeekCollectionView: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
     return mainWeekData.count
