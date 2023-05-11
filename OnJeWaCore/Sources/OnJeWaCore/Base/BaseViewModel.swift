@@ -26,5 +26,5 @@ open class BaseViewModel: ViewModelType {
       self.bind()
     }
     
-    public func bind() { }
+    open func bind() { }
 }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseCore
+import UserNotifications
 
 extension AppDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter
+            .current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            print("Permission granted : \(granted)"
+        )}
 
         return true
     }

@@ -33,6 +33,31 @@
 		6547BF752A0001FD00593D17 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF742A0001FD00593D17 /* FirebaseFirestore */; };
 		6547BF772A0001FD00593D17 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF762A0001FD00593D17 /* FirebaseFunctions */; };
 		6547BF792A0001FD00593D17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF782A0001FD00593D17 /* FirebaseStorage */; };
+		463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */; };
+		651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */; };
+		651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */; };
+		651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */; };
+		651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76182A04A2F600EDC6BC /* SetProfileView.swift */; };
+		651C761C2A04EDB300EDC6BC /* PetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761B2A04EDB300EDC6BC /* PetType.swift */; };
+		651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */; };
+		651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */; };
+		651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */; };
+		651C76312A08C2C100EDC6BC /* SetBackgroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76302A08C2C100EDC6BC /* SetBackgroundViewModel.swift */; };
+		651C76332A08C2CE00EDC6BC /* SetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76322A08C2CE00EDC6BC /* SetBackgroundView.swift */; };
+		651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76342A08CF6200EDC6BC /* RegisterAddressViewController.swift */; };
+		651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76362A08CF7400EDC6BC /* RegisterAddressViewModel.swift */; };
+		651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76382A08CF8000EDC6BC /* RegisterAddressView.swift */; };
+		651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */; };
+		651C767F2A0A0FBE00EDC6BC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C767E2A0A0FBE00EDC6BC /* OnboardingViewController.swift */; };
+		651C76812A0A0FC800EDC6BC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76802A0A0FC800EDC6BC /* OnboardingViewModel.swift */; };
+		651C76842A0A108000EDC6BC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 651C76832A0A108000EDC6BC /* Kingfisher */; };
+		651C76872A0A10AD00EDC6BC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 651C76862A0A10AD00EDC6BC /* Realm */; };
+		651C76892A0A10AD00EDC6BC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 651C76882A0A10AD00EDC6BC /* RealmSwift */; };
+		651C768C2A0A110600EDC6BC /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = 651C768B2A0A110600EDC6BC /* Gifu */; };
+		651C76AA2A0B666200EDC6BC /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76A92A0B666200EDC6BC /* UserDefaultsWrapper.swift */; };
+		651C76AC2A0B667200EDC6BC /* UserDefaultsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76AB2A0B667200EDC6BC /* UserDefaultsSetting.swift */; };
+		6547BF9F2A037D6F00593D17 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6547BFA12A037D7D00593D17 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC029F7D89D002E15CD /* AppDelegate.swift */; };
 		65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC229F7D89D002E15CD /* SceneDelegate.swift */; };
 		65510BC529F7D89D002E15CD /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65510BC429F7D89D002E15CD /* TestViewController.swift */; };
@@ -47,6 +72,10 @@
 		65510C0029F7FABD002E15CD /* OnJeWaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 65510BFF29F7FABD002E15CD /* OnJeWaCore */; };
 		65510C0229F7FABD002E15CD /* OnJeWaNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 65510C0129F7FABD002E15CD /* OnJeWaNetwork */; };
 		65510C0429F7FABD002E15CD /* OnJeWaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 65510C0329F7FABD002E15CD /* OnJeWaUI */; };
+		655E855D2A037FA400BD992F /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E855C2A037FA400BD992F /* FirstOnboardingView.swift */; };
+		655E855F2A037FAE00BD992F /* SecondOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E855E2A037FAE00BD992F /* SecondOnboardingView.swift */; };
+		655E85612A037FB800BD992F /* ThirdOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85602A037FB800BD992F /* ThirdOnboardingView.swift */; };
+		655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85622A037FE200BD992F /* FourOnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +139,25 @@
 		023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupView.swift; sourceTree = "<group>"; };
 		02722AE72A0B450C00A8D015 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
+		463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBuilder.swift; sourceTree = "<group>"; };
+		651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewController.swift; sourceTree = "<group>"; };
+		651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewModel.swift; sourceTree = "<group>"; };
+		651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeView.swift; sourceTree = "<group>"; };
+		651C76182A04A2F600EDC6BC /* SetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileView.swift; sourceTree = "<group>"; };
+		651C761B2A04EDB300EDC6BC /* PetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetType.swift; sourceTree = "<group>"; };
+		651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
+		651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewModel.swift; sourceTree = "<group>"; };
+		651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackgroundViewController.swift; sourceTree = "<group>"; };
+		651C76302A08C2C100EDC6BC /* SetBackgroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackgroundViewModel.swift; sourceTree = "<group>"; };
+		651C76322A08C2CE00EDC6BC /* SetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackgroundView.swift; sourceTree = "<group>"; };
+		651C76342A08CF6200EDC6BC /* RegisterAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressViewController.swift; sourceTree = "<group>"; };
+		651C76362A08CF7400EDC6BC /* RegisterAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressViewModel.swift; sourceTree = "<group>"; };
+		651C76382A08CF8000EDC6BC /* RegisterAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressView.swift; sourceTree = "<group>"; };
+		651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAddressViewController.swift; sourceTree = "<group>"; };
+		651C767E2A0A0FBE00EDC6BC /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		651C76802A0A0FC800EDC6BC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		651C76A92A0B666200EDC6BC /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		651C76AB2A0B667200EDC6BC /* UserDefaultsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSetting.swift; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65510BC029F7D89D002E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65510BC229F7D89D002E15CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +173,10 @@
 		65510BFB29F7F399002E15CD /* OnJeWaUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnJeWaUI; sourceTree = "<group>"; };
 		65510BFC29F7F3B9002E15CD /* OnJeWaNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnJeWaNetwork; sourceTree = "<group>"; };
 		65510BFD29F7F3E6002E15CD /* OnJeWaCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnJeWaCore; sourceTree = "<group>"; };
+		655E855C2A037FA400BD992F /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
+		655E855E2A037FAE00BD992F /* SecondOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingView.swift; sourceTree = "<group>"; };
+		655E85602A037FB800BD992F /* ThirdOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingView.swift; sourceTree = "<group>"; };
+		655E85622A037FE200BD992F /* FourOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourOnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,19 +193,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6547BF6D2A0001FD00593D17 /* FirebaseAnalytics in Frameworks */,
 				65510BF629F7E3D6002E15CD /* RxSwift in Frameworks */,
 				65510BF429F7E3D6002E15CD /* RxRelay in Frameworks */,
-				6547BF772A0001FD00593D17 /* FirebaseFunctions in Frameworks */,
+				651C76842A0A108000EDC6BC /* Kingfisher in Frameworks */,
+				651C768C2A0A110600EDC6BC /* Gifu in Frameworks */,
+				651C76892A0A10AD00EDC6BC /* RealmSwift in Frameworks */,
 				65510BF229F7E3D6002E15CD /* RxCocoa in Frameworks */,
 				65510C0229F7FABD002E15CD /* OnJeWaNetwork in Frameworks */,
 				65510C0429F7FABD002E15CD /* OnJeWaUI in Frameworks */,
-				6547BF712A0001FD00593D17 /* FirebaseDatabase in Frameworks */,
-				6547BF792A0001FD00593D17 /* FirebaseStorage in Frameworks */,
+				651C76872A0A10AD00EDC6BC /* Realm in Frameworks */,
 				65510C0029F7FABD002E15CD /* OnJeWaCore in Frameworks */,
-				6547BF6F2A0001FD00593D17 /* FirebaseAuth in Frameworks */,
-				6547BF752A0001FD00593D17 /* FirebaseFirestore in Frameworks */,
-				6547BF732A0001FD00593D17 /* FirebaseDynamicLinks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +260,45 @@
 			children = (
 				02236A3C2A0390FB00AEEDCA /* MainViewController.swift */,
 				02E034E12A0A50C800692061 /* TapButtonViewController.swift */,
+		651C760E2A04A24800EDC6BC /* RegistrationScene */ = {
+			isa = PBXGroup;
+			children = (
+				651C76112A04A27200EDC6BC /* ViewController */,
+				651C76102A04A26B00EDC6BC /* ViewModel */,
+				651C760F2A04A26700EDC6BC /* View */,
+			);
+			path = RegistrationScene;
+			sourceTree = "<group>";
+		};
+		651C760F2A04A26700EDC6BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */,
+				651C76182A04A2F600EDC6BC /* SetProfileView.swift */,
+				651C76322A08C2CE00EDC6BC /* SetBackgroundView.swift */,
+				651C76382A08CF8000EDC6BC /* RegisterAddressView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		651C76102A04A26B00EDC6BC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */,
+				651C762C2A062FD900EDC6BC /* SetProfileViewModel.swift */,
+				651C76302A08C2C100EDC6BC /* SetBackgroundViewModel.swift */,
+				651C76362A08CF7400EDC6BC /* RegisterAddressViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		651C76112A04A27200EDC6BC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */,
+				651C761F2A04F5FA00EDC6BC /* SetProfileViewController.swift */,
+				651C762E2A08C2B300EDC6BC /* SetBackgroundViewController.swift */,
+				651C76342A08CF6200EDC6BC /* RegisterAddressViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -232,6 +320,38 @@
 				023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */,
 			);
 			path = View;
+		651C761A2A04ED9B00EDC6BC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				651C761B2A04EDB300EDC6BC /* PetType.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		651C763C2A092E0100EDC6BC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				651C763A2A08D5AC00EDC6BC /* KakaoAddressViewController.swift */,
+				463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		651C76A72A0B65BB00EDC6BC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				651C76A82A0B65C600EDC6BC /* UserDefaults */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		651C76A82A0B65C600EDC6BC /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				651C76A92A0B666200EDC6BC /* UserDefaultsWrapper.swift */,
+				651C76AB2A0B667200EDC6BC /* UserDefaultsSetting.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		6547BF3A29F8EB3600593D17 /* Application */ = {
@@ -246,6 +366,7 @@
 		6547BF3B29F8EB4800593D17 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				651C761A2A04ED9B00EDC6BC /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -257,6 +378,9 @@
 				02030DB92A013B9700B3583A /* LocationTest */,
 				0226A77F2A0CB63700206F99 /* GalleryViewController.swift */,
 				0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */,
+				651C760E2A04A24800EDC6BC /* RegistrationScene */,
+				65510BC429F7D89D002E15CD /* ViewController.swift */,
+				6547BF9A2A037D2000593D17 /* OnboardingScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -264,6 +388,7 @@
 		6547BF3D29F8EB6400593D17 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				651C76A72A0B65BB00EDC6BC /* Storage */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -276,6 +401,43 @@
 				65510BCE29F7D89E002E15CD /* Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		6547BF9A2A037D2000593D17 /* OnboardingScene */ = {
+			isa = PBXGroup;
+			children = (
+				6547BF9D2A037D5400593D17 /* ViewController */,
+				6547BF9C2A037D4C00593D17 /* ViewModel */,
+				6547BF9B2A037D4600593D17 /* View */,
+			);
+			path = OnboardingScene;
+			sourceTree = "<group>";
+		};
+		6547BF9B2A037D4600593D17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				655E855C2A037FA400BD992F /* FirstOnboardingView.swift */,
+				655E855E2A037FAE00BD992F /* SecondOnboardingView.swift */,
+				655E85602A037FB800BD992F /* ThirdOnboardingView.swift */,
+				655E85622A037FE200BD992F /* FourOnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6547BF9C2A037D4C00593D17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				651C76802A0A0FC800EDC6BC /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6547BF9D2A037D5400593D17 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				651C767E2A0A0FBE00EDC6BC /* OnboardingViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		65510BB429F7D89D002E15CD = {
@@ -310,6 +472,7 @@
 			children = (
 				02030DBA2A02C24D00B3583A /* OnJeWa.entitlements */,
 				02030D842A012CFE00B3583A /* GoogleService-Info.plist */,
+				651C763C2A092E0100EDC6BC /* Common */,
 				6547BF3A29F8EB3600593D17 /* Application */,
 				6547BF3B29F8EB4800593D17 /* Domain */,
 				6547BF3D29F8EB6400593D17 /* Data */,
@@ -387,13 +550,10 @@
 				65510BFF29F7FABD002E15CD /* OnJeWaCore */,
 				65510C0129F7FABD002E15CD /* OnJeWaNetwork */,
 				65510C0329F7FABD002E15CD /* OnJeWaUI */,
-				6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */,
-				6547BF6E2A0001FD00593D17 /* FirebaseAuth */,
-				6547BF702A0001FD00593D17 /* FirebaseDatabase */,
-				6547BF722A0001FD00593D17 /* FirebaseDynamicLinks */,
-				6547BF742A0001FD00593D17 /* FirebaseFirestore */,
-				6547BF762A0001FD00593D17 /* FirebaseFunctions */,
-				6547BF782A0001FD00593D17 /* FirebaseStorage */,
+				651C76832A0A108000EDC6BC /* Kingfisher */,
+				651C76862A0A10AD00EDC6BC /* Realm */,
+				651C76882A0A10AD00EDC6BC /* RealmSwift */,
+				651C768B2A0A110600EDC6BC /* Gifu */,
 			);
 			productName = OnJeWa;
 			productReference = 65510BBD29F7D89D002E15CD /* OnJeWa.app */;
@@ -472,7 +632,9 @@
 			mainGroup = 65510BB429F7D89D002E15CD;
 			packageReferences = (
 				65510BF029F7E3D6002E15CD /* XCRemoteSwiftPackageReference "RxSwift" */,
-				6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				651C76822A0A108000EDC6BC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				651C76852A0A10AD00EDC6BC /* XCRemoteSwiftPackageReference "realm-swift" */,
+				651C768A2A0A110600EDC6BC /* XCRemoteSwiftPackageReference "Gifu" */,
 			);
 			productRefGroup = 65510BBE29F7D89D002E15CD /* Products */;
 			projectDirPath = "";
@@ -500,7 +662,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65510BCD29F7D89E002E15CD /* LaunchScreen.storyboard in Resources */,
-				02030D852A012CFE00B3583A /* GoogleService-Info.plist in Resources */,
 				65510BCA29F7D89E002E15CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,6 +711,37 @@
 				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
 				02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */,
 				02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */,
+				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
+				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
+				463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */,
+				651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */,
+				651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */,
+				651C76AC2A0B667200EDC6BC /* UserDefaultsSetting.swift in Sources */,
+				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
+				651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */,
+				651C76312A08C2C100EDC6BC /* SetBackgroundViewModel.swift in Sources */,
+				651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */,
+				651C76332A08C2CE00EDC6BC /* SetBackgroundView.swift in Sources */,
+				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
+				651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */,
+				651C767F2A0A0FBE00EDC6BC /* OnboardingViewController.swift in Sources */,
+				651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */,
+				651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */,
+				651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */,
+				651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */,
+				651C76AA2A0B666200EDC6BC /* UserDefaultsWrapper.swift in Sources */,
+				651C76812A0A0FC800EDC6BC /* OnboardingViewModel.swift in Sources */,
+				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
+				651C761C2A04EDB300EDC6BC /* PetType.swift in Sources */,
+				655E855F2A037FAE00BD992F /* SecondOnboardingView.swift in Sources */,
+				655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */,
+				6547BFA12A037D7D00593D17 /* (null) in Sources */,
+				65510BC529F7D89D002E15CD /* ViewController.swift in Sources */,
+				655E855D2A037FA400BD992F /* FirstOnboardingView.swift in Sources */,
+				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
+				655E85612A037FB800BD992F /* ThirdOnboardingView.swift in Sources */,
+				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
+				6547BF9F2A037D6F00593D17 /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,6 +978,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = XKDG839GBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -819,6 +1012,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = XKDG839GBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -969,12 +1163,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		651C76822A0A108000EDC6BC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 7.0.0;
+			};
+		};
+		651C76852A0A10AD00EDC6BC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		651C768A2A0A110600EDC6BC /* XCRemoteSwiftPackageReference "Gifu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kaishin/Gifu";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 		65510BF029F7E3D6002E15CD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
@@ -988,40 +1198,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */ = {
+		651C76832A0A108000EDC6BC /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
+			package = 651C76822A0A108000EDC6BC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
-		6547BF6E2A0001FD00593D17 /* FirebaseAuth */ = {
+		651C76862A0A10AD00EDC6BC /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
+			package = 651C76852A0A10AD00EDC6BC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
-		6547BF702A0001FD00593D17 /* FirebaseDatabase */ = {
+		651C76882A0A10AD00EDC6BC /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
+			package = 651C76852A0A10AD00EDC6BC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
-		6547BF722A0001FD00593D17 /* FirebaseDynamicLinks */ = {
+		651C768B2A0A110600EDC6BC /* Gifu */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDynamicLinks;
-		};
-		6547BF742A0001FD00593D17 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		6547BF762A0001FD00593D17 /* FirebaseFunctions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFunctions;
-		};
-		6547BF782A0001FD00593D17 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6547BF6B2A0001FD00593D17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
+			package = 651C768A2A0A110600EDC6BC /* XCRemoteSwiftPackageReference "Gifu" */;
+			productName = Gifu;
 		};
 		65510BF129F7E3D6002E15CD /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
