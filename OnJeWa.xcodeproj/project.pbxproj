@@ -21,6 +21,7 @@
 		02236A432A039A6300AEEDCA /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A422A039A6300AEEDCA /* MainModel.swift */; };
 		02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A442A039CF900AEEDCA /* WeekCollectionView.swift */; };
 		02236A492A0A276800AEEDCA /* Constant+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A482A0A276800AEEDCA /* Constant+Extension.swift */; };
+		023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */; };
 		02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722AE72A0B450C00A8D015 /* StopWatchView.swift */; };
 		02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E034E12A0A50C800692061 /* TapButtonViewController.swift */; };
 		6547BF6D2A0001FD00593D17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6547BF6C2A0001FD00593D17 /* FirebaseAnalytics */; };
@@ -102,6 +103,7 @@
 		02236A422A039A6300AEEDCA /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		02236A442A039CF900AEEDCA /* WeekCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionView.swift; sourceTree = "<group>"; };
 		02236A482A0A276800AEEDCA /* Constant+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+Extension.swift"; sourceTree = "<group>"; };
+		023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupView.swift; sourceTree = "<group>"; };
 		02722AE72A0B450C00A8D015 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
 		65510BBD29F7D89D002E15CD /* OnJeWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnJeWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 				02722AE72A0B450C00A8D015 /* StopWatchView.swift */,
 				02236A442A039CF900AEEDCA /* WeekCollectionView.swift */,
 				02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */,
+				023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02236A432A039A6300AEEDCA /* MainModel.swift in Sources */,
+				023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */,
 				65510BC529F7D89D002E15CD /* TestViewController.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,

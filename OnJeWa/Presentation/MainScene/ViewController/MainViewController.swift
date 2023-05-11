@@ -13,7 +13,7 @@ class MainViewController: BaseViewController {
   
   //MARK: - View Components
   private let navigationView = NavigationView()
-  private let stopWatchView = StopWatchView()
+  private let stopWatchView = StopWatchViewController()
   private let weekCollectionView = WeekCollectionView()
   private let tapButtonVC = TapButtonViewController()
   
@@ -24,12 +24,12 @@ class MainViewController: BaseViewController {
     setupView()
     setLayout()
   }
-  
+
   
   override func setupView() {
     //MARK: 수정 - 배경 색상 변경 필요
     view.backgroundColor = .gray
-    [navigationView,stopWatchView, weekCollectionView, tapButtonVC.view].forEach {
+    [navigationView,stopWatchView.view, weekCollectionView, tapButtonVC.view].forEach {
       view.addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -46,10 +46,10 @@ class MainViewController: BaseViewController {
     ])
     
     NSLayoutConstraint.activate([
-      stopWatchView.topAnchor.constraint(equalTo: navigationView.bottomAnchor, constant: 63.adjusted),
-      stopWatchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      stopWatchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      stopWatchView.bottomAnchor.constraint(equalTo: tapButtonVC.view.topAnchor, constant: -34.adjusted)
+      stopWatchView.view.topAnchor.constraint(equalTo: navigationView.bottomAnchor, constant: 63.adjusted),
+      stopWatchView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      stopWatchView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      stopWatchView.view.bottomAnchor.constraint(equalTo: tapButtonVC.view.topAnchor, constant: -34.adjusted)
     ])
 
     NSLayoutConstraint.activate([

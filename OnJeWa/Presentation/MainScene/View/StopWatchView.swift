@@ -12,16 +12,9 @@ import OnJeWaCore
 
   //MARK: - 라벨 다 폰트 색상 수정 필요
 
-class StopWatchView: BaseView {
+class StopWatchViewController: BaseViewController {
   
   //MARK: - UI Components
-  
-  private let backgroundView: UIView = {
-    let view = UIView()
-    view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = .clear
-    return view
-  }()
   
   private let titleLabel: UILabel = {
     let label = UILabel()
@@ -47,9 +40,18 @@ class StopWatchView: BaseView {
     let button = UIButton()
     button.setImage(UIImage(named: "question"), for: .normal)
     button.contentMode = .scaleAspectFit
+    button.addTarget(self, action: #selector(didTapPopupButton), for: .touchUpInside)
     return button
   }()
   
+  
+  @objc func didTapPopupButton() {
+    let popupVC = CustomPopupViewController()
+    popupVC.modalPresentationStyle = .overFullScreen
+    self.present(popupVC, animated: false)
+  }
+
+    
   private let clockImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.image = UIImage(named: "watch")
@@ -111,46 +113,32 @@ class StopWatchView: BaseView {
   }()
   
    
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  //MARK: - Life Cycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
     setupView()
     setLayout()
   }
   
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-}
-
-//MARK: - Extension
-extension StopWatchView {
-  private func setupView() {
+  
+  override func setupView() {
    [titleLabel, dateLabel, popupButton, clockImageView,
    carrotNumber, inClockAnimalImageView, inClockTitleLable, inClockHumanTimeLabel, inClockAnimalTimeLabel]
      .forEach {
        $0.translatesAutoresizingMaskIntoConstraints = false
-       backgroundView.addSubview($0)
+       view.addSubview($0)
      }
-    addSubview(backgroundView)
  }
- 
-  private func setLayout() {
-    
-    NSLayoutConstraint.activate([
-      backgroundView.topAnchor.constraint(equalTo: self.topAnchor),
-      backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-      backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-    ])
-    
-    
+  
+  override func setLayout() {
+
    NSLayoutConstraint.activate([
-     titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-     titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
+    titleLabel.topAnchor.constraint(equalTo: view.topAnchor),
+     titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
    ])
    NSLayoutConstraint.activate([
      dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4.adjusted),
-     dateLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
+     dateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
    ])
    NSLayoutConstraint.activate([
      popupButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
@@ -160,8 +148,8 @@ extension StopWatchView {
    ])
    NSLayoutConstraint.activate([
      clockImageView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 24.adjusted),
-     clockImageView.leadingAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.leadingAnchor, constant: 42.adjusted),
-     clockImageView.trailingAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.trailingAnchor, constant: -42.adjusted),
+     clockImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 42.adjusted),
+     clockImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -42.adjusted),
      clockImageView.heightAnchor.constraint(equalToConstant: 300.adjusted)
    ])
    
@@ -189,5 +177,10 @@ extension StopWatchView {
    ])
    
  }
-  
 }
+
+
+ 
+
+  
+
