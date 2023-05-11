@@ -9,6 +9,7 @@ import UIKit
 
 import OnJeWaCore
 import OnJeWaUI
+import OnJeWaNetwork
 
 final class ChoosePetTypeViewController: BaseViewController {
     

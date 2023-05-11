@@ -125,6 +125,7 @@ final class RegisterAddressView: BaseView {
     }
     
     func updateRegisterAddressView(address: String) {
+        setAddressFlag = true
         addressStackView.isHidden = false
         addressTitle.text = address
         nextButton.setTitle("제리와 함께 행복한 시간을 즐겨봐요", for: .normal)

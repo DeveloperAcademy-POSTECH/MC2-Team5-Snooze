@@ -9,6 +9,7 @@ import UIKit
 
 import OnJeWaCore
 import OnJeWaUI
+import OnJeWaNetwork
 
 final class SetProfileViewController: BaseViewController {
     
@@ -120,7 +121,7 @@ extension SetProfileViewController: SetProfileViewDelegate {
     }
     
     func didSetProfileImageView(image: UIImage) {
-        self.profile?.profileImage = image
+        self.profile?.profileImage = image.jpegData(compressionQuality: 0.5)
         self.viewModel.input.profileImageTrigger.onNext(true)
     }
     
