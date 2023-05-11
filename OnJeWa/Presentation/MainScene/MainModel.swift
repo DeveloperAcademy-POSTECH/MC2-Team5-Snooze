@@ -21,3 +21,25 @@ var mainWeekData: [MainWeekModel] = [
   MainWeekModel(day: "일")
 ]
 
+struct GalleryPhotoModel {
+    let photoImage:String
+}
+
+var gridList: [GalleryPhotoModel] = [
+    GalleryPhotoModel(photoImage: "IMG_1"),
+    GalleryPhotoModel(photoImage: "IMG_2"),
+    GalleryPhotoModel(photoImage: "IMG_3"),
+    GalleryPhotoModel(photoImage: "IMG_4"),
+    GalleryPhotoModel(photoImage: "IMG_5"),
+    GalleryPhotoModel(photoImage: "IMG_6"),
+    GalleryPhotoModel(photoImage: "IMG_7"),
+    GalleryPhotoModel(photoImage: "IMG_8"),
+    GalleryPhotoModel(photoImage: "IMG_9"),
+    GalleryPhotoModel(photoImage: "IMG_10"),
+    GalleryPhotoModel(photoImage: "IMG_11"),
+    GalleryPhotoModel(photoImage: "IMG_12"),
+    GalleryPhotoModel(photoImage: "IMG_13"),
+    GalleryPhotoModel(photoImage: "IMG_14")
+
+]
+
