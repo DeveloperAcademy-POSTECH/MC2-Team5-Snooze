@@ -7,6 +7,7 @@
 
 import UIKit
 import OnJeWaCore
+import OnJeWaUI
 
 class WeekCollectionView: BaseView {
   

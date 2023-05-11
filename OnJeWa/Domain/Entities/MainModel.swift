@@ -40,6 +40,4 @@ var gridList: [GalleryPhotoModel] = [
     GalleryPhotoModel(photoImage: "IMG_12"),
     GalleryPhotoModel(photoImage: "IMG_13"),
     GalleryPhotoModel(photoImage: "IMG_14")
-
 ]
-
