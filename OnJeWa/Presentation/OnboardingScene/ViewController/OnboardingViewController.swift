@@ -8,8 +8,8 @@
 import UIKit
 
 import OnJeWaCore
+import OnJeWaUI
 
-// 수정 : 전체 패딩, 컬러, 이미지 추가
 final class OnboardingViewController: BaseViewController {
     
     //MARK: - Life Cycle
@@ -18,16 +18,14 @@ final class OnboardingViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBarAppearance()
+    }
+    
     //MARK: - Views
     
     private let scrollView = UIScrollView()
-    private let pageControl: UIPageControl = {
-        let control = UIPageControl()
-        control.translatesAutoresizingMaskIntoConstraints = false
-        control.currentPage = 0
-        control.numberOfPages = 4
-        return control
-    } ()
+    private let pageControl = OnJeWaPageControl(frame: CGRect.zero, entirePage: 4, currentPage: 1)
     private var onboardingPages: [UIView] = []
     
     //MARK: - Functions
@@ -38,10 +36,10 @@ final class OnboardingViewController: BaseViewController {
     }
     
     override func setLayout() {
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            // 수정 : 패딩
-            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+            pageControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
+            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
     }
     
@@ -50,6 +48,7 @@ final class OnboardingViewController: BaseViewController {
         fourOnboardingView.delegate = self
         onboardingPages = [FirstOnboardingView(), SecondOnboardingView(),
                            ThirdOnboardingView(), fourOnboardingView]
+        scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.isDirectionalLockEnabled = true
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
@@ -65,18 +64,31 @@ final class OnboardingViewController: BaseViewController {
         }
         view.addSubview(scrollView)
     }
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 extension OnboardingViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
-        pageControl.currentPage = Int(pageIndex)
+        pageControl.currentPage = Int(pageIndex) + 1
     }
 }
 
 extension OnboardingViewController: FourOnboardingViewDelegate {
     func didTapStartButton() {
-        print("Start button tapped!")
-        // after push
+        let loginViewController = LoginViewController()
+        loginViewController.modalPresentationStyle = .fullScreen
+        self.present(LoginViewController(), animated: true)
     }
 }
