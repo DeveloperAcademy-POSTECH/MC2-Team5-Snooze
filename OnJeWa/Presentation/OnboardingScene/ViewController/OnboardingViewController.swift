@@ -89,6 +89,6 @@ extension OnboardingViewController: FourOnboardingViewDelegate {
     func didTapStartButton() {
         let loginViewController = LoginViewController()
         loginViewController.modalPresentationStyle = .fullScreen
-        self.present(LoginViewController(), animated: true)
+        self.present(loginViewController, animated: true)
     }
 }
