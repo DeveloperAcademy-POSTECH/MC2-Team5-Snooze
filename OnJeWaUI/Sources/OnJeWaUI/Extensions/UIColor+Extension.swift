@@ -19,14 +19,20 @@ extension UIColor {
 }
 
 public enum OnjewaColor {
-  case mainBackground
+    case mainBackground
+    case primary
+    case gray1
 }
 
 extension OnjewaColor {
     public var color: UIColor {
-      switch self {
-      case .mainBackground:
-        return UIColor.onjewaColor(named: "mainBackground")
-      }
+        switch self {
+        case .mainBackground:
+            return UIColor.onjewaColor(named: "mainBackground")
+        case .primary:
+            return UIColor.onjewaColor(named: "primary")
+        case .gray1:
+            return UIColor.onjewaColor(named: "gray1")
+        }
     }
 }

@@ -77,7 +77,7 @@ final class SetProfileView: BaseView {
         return imageView
     }()
     
-    private let findTownTextField = OnJeWaTextField()
+    private let onJeWaTextField = OnJeWaTextField()
     
     private lazy var dropDownStackView: UIStackView = {
         let stackView = UIStackView()
@@ -178,8 +178,8 @@ extension SetProfileView: UITextFieldDelegate {
 private extension SetProfileView {
     func setupView() {
         
-        findTownTextField.delegate = self
-        findTownTextField.placeholder = "이름"
+        onJeWaTextField.delegate = self
+        onJeWaTextField.placeholder = "이름"
         
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
@@ -194,7 +194,7 @@ private extension SetProfileView {
             dropDownStackView.addArrangedSubview($0)
         }
         
-        [setProfileTitle, profileImageView, photoIcon, findTownTextField,
+        [setProfileTitle, profileImageView, photoIcon, onJeWaTextField,
          dropDownStackView, nextButton].forEach {
             backgroundView.addSubview($0)
         }
@@ -228,11 +228,11 @@ private extension SetProfileView {
         ])
         
         NSLayoutConstraint.activate([
-            findTownTextField.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,
+            onJeWaTextField.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,
                                                    constant: 32),
-            findTownTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+            onJeWaTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
                                                        constant: 20),
-            findTownTextField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
+            onJeWaTextField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
                                                         constant: -20)
         ])
         
@@ -246,7 +246,7 @@ private extension SetProfileView {
         ])
         
         NSLayoutConstraint.activate([
-            dropDownStackView.topAnchor.constraint(equalTo: findTownTextField.bottomAnchor,
+            dropDownStackView.topAnchor.constraint(equalTo: onJeWaTextField.bottomAnchor,
                                                    constant: 16),
             dropDownStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
                                                        constant: 20),
