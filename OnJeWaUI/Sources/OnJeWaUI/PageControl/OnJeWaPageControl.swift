@@ -16,7 +16,7 @@ public class OnJeWaPageControl: UIView {
     
     //MARK: - Views
     
-    private let pageControlStackView: UIStackView = {
+    public let pageControlStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
