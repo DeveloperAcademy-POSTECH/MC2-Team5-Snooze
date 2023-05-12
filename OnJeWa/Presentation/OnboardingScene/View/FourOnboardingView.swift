@@ -89,6 +89,20 @@ final class FourOnboardingView: BaseView {
         return view
     }()
     
+    private let onboardingImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let originalImage = UIImage(named: "fourOnboarding")
+        let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let resizedImage = renderer.image { _ in
+            originalImage!.draw(in: CGRect(origin: .zero, size: size))
+        }
+        imageView.image = resizedImage
+        imageView.sizeToFit()
+        return imageView
+    }()
+    
     //MARK: - Functions
     
     @objc private func startButtonTapped() {
@@ -98,7 +112,7 @@ final class FourOnboardingView: BaseView {
 
 private extension FourOnboardingView {
     func setupView() {
-        [labelBox, onBoardingTitle, onBoardingSubTitle, startButton].forEach {
+        [labelBox, onBoardingTitle, onBoardingSubTitle, onboardingImage, startButton].forEach {
             backgroundView.addSubview($0)
         }
         
@@ -129,6 +143,12 @@ private extension FourOnboardingView {
                                                     constant: 24),
             onBoardingSubTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
                                                         constant: 24),
+        ])
+        
+        NSLayoutConstraint.activate([
+            onboardingImage.bottomAnchor.constraint(equalTo: startButton.topAnchor,
+                                                    constant: -30),
+            onboardingImage.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([

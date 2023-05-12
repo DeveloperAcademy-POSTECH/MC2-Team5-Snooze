@@ -70,17 +70,24 @@ final class SecondOnboardingView: BaseView {
         return label
     }()
     
-    private let carrot: UIImageView = {
+    private let onboardingImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "carrot")
+        let originalImage = UIImage(named: "secondOnboarding")
+        let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let resizedImage = renderer.image { _ in
+            originalImage!.draw(in: CGRect(origin: .zero, size: size))
+        }
+        imageView.image = resizedImage
+        imageView.sizeToFit()
         return imageView
     }()
 }
 
 private extension SecondOnboardingView {
     func setupView() {
-        [labelBox, onBoardingTitle, onBoardingSubTitle, carrot].forEach {
+        [labelBox, onBoardingTitle, onBoardingSubTitle, onboardingImage].forEach {
             backgroundView.addSubview($0)
         }
         
@@ -101,18 +108,20 @@ private extension SecondOnboardingView {
             onBoardingTitle.topAnchor.constraint(equalTo: backgroundView.topAnchor,
                                                  constant: UIScreen.main.bounds.size.height / 6),
             onBoardingTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                    constant: 24),
+                                                     constant: 24),
         ])
         
         NSLayoutConstraint.activate([
-            onBoardingSubTitle.topAnchor.constraint(equalTo: onBoardingTitle.bottomAnchor, constant: 24),
+            onBoardingSubTitle.topAnchor.constraint(equalTo: onBoardingTitle.bottomAnchor,
+                                                    constant: 24),
             onBoardingSubTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
                                                         constant: 24),
         ])
         
         NSLayoutConstraint.activate([
-            carrot.topAnchor.constraint(equalTo: onBoardingSubTitle.bottomAnchor, constant: 38),
-            carrot.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
+            onboardingImage.topAnchor.constraint(equalTo: onBoardingSubTitle.bottomAnchor),
+            onboardingImage.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor,
+                                                     constant: 20)
         ])
         
         NSLayoutConstraint.activate([

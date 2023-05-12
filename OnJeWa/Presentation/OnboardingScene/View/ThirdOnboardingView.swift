@@ -69,11 +69,25 @@ final class ThirdOnboardingView: BaseView {
         view.backgroundColor = OnjewaColor.primary.color
         return view
     }()
+    
+    private let onboardingImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let originalImage = UIImage(named: "thirdOnboarding")
+        let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let resizedImage = renderer.image { _ in
+            originalImage!.draw(in: CGRect(origin: .zero, size: size))
+        }
+        imageView.image = resizedImage
+        imageView.sizeToFit()
+        return imageView
+    }()
 }
 
 private extension ThirdOnboardingView {
     func setupView() {
-        [labelBox, onBoardingTitle, onBoardingSubTitle].forEach {
+        [labelBox, onBoardingTitle, onBoardingSubTitle, onboardingImage].forEach {
             backgroundView.addSubview($0)
         }
         
@@ -102,6 +116,13 @@ private extension ThirdOnboardingView {
                                                     constant: 24),
             onBoardingSubTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
                                                         constant: 24),
+        ])
+        
+        NSLayoutConstraint.activate([
+            onboardingImage.topAnchor.constraint(equalTo: onBoardingSubTitle.bottomAnchor,
+                                                 constant: 20),
+            onboardingImage.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor,
+                                                     constant: 0)
         ])
         
         NSLayoutConstraint.activate([

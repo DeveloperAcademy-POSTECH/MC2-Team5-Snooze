@@ -70,17 +70,24 @@ final class FirstOnboardingView: BaseView {
         return label
     }()
     
-    private let homeTimeButton: UIImageView = {
+    private let onboardingImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "homeTimeButton")
+        let originalImage = UIImage(named: "firstOnboarding")
+        let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let resizedImage = renderer.image { _ in
+            originalImage!.draw(in: CGRect(origin: .zero, size: size))
+        }
+        imageView.image = resizedImage
+        imageView.sizeToFit()
         return imageView
     }()
 }
 
 private extension FirstOnboardingView {
     func setupView() {
-        [labelBox, onBoardingTitle, onBoardingSubTitle, homeTimeButton].forEach {
+        [labelBox, onBoardingTitle, onBoardingSubTitle, onboardingImage].forEach {
             backgroundView.addSubview($0)
         }
         
@@ -112,8 +119,9 @@ private extension FirstOnboardingView {
         ])
         
         NSLayoutConstraint.activate([
-            homeTimeButton.topAnchor.constraint(equalTo: onBoardingSubTitle.bottomAnchor, constant: 110),
-            homeTimeButton.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
+            onboardingImage.topAnchor.constraint(equalTo: onBoardingSubTitle.bottomAnchor,
+                                                 constant: 20),
+            onboardingImage.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
