@@ -49,7 +49,6 @@ final class SetBackgroundView: BaseView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "registWhite")
-        imageView.isHidden = true
         return imageView
     }()
     
@@ -64,6 +63,22 @@ final class SetBackgroundView: BaseView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .white
+        let originalImage = UIImage(named: "setBackgroundImage")
+        let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let resizedImage = renderer.image { _ in
+            originalImage!.draw(in: CGRect(origin: .zero, size: size))
+        }
+        imageView.image = resizedImage
+        imageView.sizeToFit()
+        return imageView
+    }()
+    
+    private let userSetBackgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .white
+        imageView.isHidden = true
         return imageView
     }()
     
@@ -116,11 +131,12 @@ extension SetBackgroundView: UIImagePickerControllerDelegate & UINavigationContr
         
         setBackgroundTitle.textColor = .white
         nextButton.setTitle("다음", for: .normal)
-        backgroundImageView.image = image
+        userSetBackgroundImageView.image = image
         delegate?.didSetBackgroundImageView(image: image)
         setBackgroundImageStatus = true
+        backgroundImageView.isHidden = true
+        userSetBackgroundImageView.isHidden = false
         blackImageView.isHidden = false
-        whiteImageView.isHidden = false
         resetTitle.isHidden = false
         picker.dismiss(animated: true, completion: nil)
     }
@@ -155,7 +171,7 @@ private extension SetBackgroundView {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        [backgroundImageView, blackImageView, setBackgroundTitle,
+        [userSetBackgroundImageView, backgroundImageView, blackImageView, setBackgroundTitle,
          whiteImageView, resetTitle, nextButton].forEach {
             backgroundView.addSubview($0)
         }
@@ -186,10 +202,16 @@ private extension SetBackgroundView {
         ])
         
         NSLayoutConstraint.activate([
-            backgroundImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
             backgroundImageView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
-            backgroundImageView.heightAnchor.constraint(equalToConstant: 503.adjusted)
+            backgroundImageView.topAnchor.constraint(equalTo: setBackgroundTitle.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            userSetBackgroundImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+            userSetBackgroundImageView.heightAnchor.constraint(equalToConstant: 503.adjusted),
+            userSetBackgroundImageView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
+            userSetBackgroundImageView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
         ])
         
         NSLayoutConstraint.activate([

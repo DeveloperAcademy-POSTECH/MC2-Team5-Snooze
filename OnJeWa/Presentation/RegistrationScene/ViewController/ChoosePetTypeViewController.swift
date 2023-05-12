@@ -35,6 +35,7 @@ final class ChoosePetTypeViewController: BaseViewController {
     override func bindViewModel() {
         
         self.choosePetTypeView.setupPetType("강아지")
+        self.setupPageControl("강아지")
         
         // Input
         

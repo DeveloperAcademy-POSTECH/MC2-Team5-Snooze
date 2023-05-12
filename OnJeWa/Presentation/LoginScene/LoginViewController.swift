@@ -57,9 +57,16 @@ final class LoginViewController: BaseViewController {
     //MARK: - Functions
     
     @objc private func loginButtonTapped() {
-        let choosePetTypeViewController = ChoosePetTypeViewController()
-        choosePetTypeViewController.modalPresentationStyle = .fullScreen
-        self.present(choosePetTypeViewController, animated: true)
+        let mainViewController = ChoosePetTypeViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else { return }
+        delegate.window?.backgroundColor = .white
+        delegate.window?.rootViewController = navigationController
+        UIView.transition(with: delegate.window!, duration: 0.3,
+                          options: .transitionCrossDissolve, animations: nil, completion: nil)
     }
     
     override func setupView() {
@@ -111,13 +118,19 @@ final class LoginViewController: BaseViewController {
 
 private extension LoginViewController {
     func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
     
     func unregisterKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {

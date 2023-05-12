@@ -73,6 +73,12 @@ final class RegisterAddressView: BaseView {
         return label
     }()
     
+    private let centerImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     lazy var addressStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -139,6 +145,7 @@ final class RegisterAddressView: BaseView {
     }
     
     func updateRegisterAddressView(address: String) {
+        setCenterImageView(setStatus: true)
         setAddressFlag = true
         addressStackView.isHidden = false
         setAddressSubTitle.isHidden = true
@@ -160,10 +167,31 @@ final class RegisterAddressView: BaseView {
         label.font = UIFont.systemFont(ofSize: 32)
         return attributedString
     }
+    
+    func setCenterImageView(setStatus: Bool) {
+        switch UserDefaultsSetting.mainPet {
+        case "dog":
+            centerImageView.image = setStatus ? UIImage(named: "dogLocationfin")
+            : UIImage(named: "dogPin")
+        case "cat":
+            centerImageView.image = setStatus ? UIImage(named: "catLocationfin")
+            : UIImage(named: "catPin")
+        case "parrot":
+            centerImageView.image = setStatus ? UIImage(named: "parrotLocationfin")
+            : UIImage(named: "parrotPin")
+        case "rabbit":
+            centerImageView.image = setStatus ? UIImage(named: "rabbitLocationfin")
+            : UIImage(named: "rabbitPin")
+        default:
+            break
+        }
+    }
 }
 
 private extension RegisterAddressView {
     func setupView() {
+        
+        setCenterImageView(setStatus: false)
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -174,7 +202,7 @@ private extension RegisterAddressView {
             addressStackView.addArrangedSubview($0)
         }
         
-        [setAddressTitle, setAddressSubTitle, addressStackView, nextButton].forEach {
+        [setAddressTitle, setAddressSubTitle, addressStackView, centerImageView, nextButton].forEach {
             backgroundView.addSubview($0)
         }
         
@@ -203,6 +231,12 @@ private extension RegisterAddressView {
                                                       constant: 26),
             addressStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
                                                        constant: -26),
+        ])
+        
+        NSLayoutConstraint.activate([
+            centerImageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            centerImageView.bottomAnchor.constraint(equalTo: nextButton.topAnchor,
+                                                    constant: -48)
         ])
         
         NSLayoutConstraint.activate([
