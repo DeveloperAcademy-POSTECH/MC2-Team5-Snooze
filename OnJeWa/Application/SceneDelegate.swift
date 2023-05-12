@@ -7,6 +7,8 @@
 
 import UIKit
 
+import OnJeWaNetwork
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?

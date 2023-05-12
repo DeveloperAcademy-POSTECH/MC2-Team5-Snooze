@@ -49,6 +49,8 @@ final class SetBackgroundViewController: BaseViewController {
         setBackgroundView.delegate = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
+        pageControl.pageControlStackView.subviews[2].backgroundColor =
+        hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
         
         [setBackgroundView].forEach {
             view.addSubview($0)
@@ -67,12 +69,25 @@ final class SetBackgroundViewController: BaseViewController {
     override func bindViewModel() { }
     
     private func configureNavigationBar() {
+        
+        self.navigationItem.hidesBackButton = true
+        
+        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
+                                         style: .done, target: self, action: #selector(back))
+        backbutton.tintColor = setBackgroundImageStatus ? .white : .black
+        self.navigationItem.leftBarButtonItem = backbutton
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = setBackgroundImageStatus ? .black.withAlphaComponent(0.1) : .white
+        appearance.backgroundColor = setBackgroundImageStatus ? .black.withAlphaComponent(0.01) : .white
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
