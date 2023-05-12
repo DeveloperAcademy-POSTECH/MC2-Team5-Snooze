@@ -59,6 +59,7 @@
 		655E85612A037FB800BD992F /* ThirdOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85602A037FB800BD992F /* ThirdOnboardingView.swift */; };
 		655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85622A037FE200BD992F /* FourOnboardingView.swift */; };
 		656A70BF2A0CD26F00BEDCAE /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70BE2A0CD26F00BEDCAE /* MainModel.swift */; };
+		656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70C52A0D28E700BEDCAE /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		655E85602A037FB800BD992F /* ThirdOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingView.swift; sourceTree = "<group>"; };
 		655E85622A037FE200BD992F /* FourOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourOnboardingView.swift; sourceTree = "<group>"; };
 		656A70BE2A0CD26F00BEDCAE /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		656A70C52A0D28E700BEDCAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 		6547BF3C29F8EB5700593D17 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				656A70C42A0D28D600BEDCAE /* LoginScene */,
 				02236A382A0390C600AEEDCA /* MainScene */,
 				651C760E2A04A24800EDC6BC /* RegistrationScene */,
 				6547BF9A2A037D2000593D17 /* OnboardingScene */,
@@ -451,6 +454,14 @@
 				02030DA82A0139F600B3583A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		656A70C42A0D28D600BEDCAE /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				656A70C52A0D28E700BEDCAE /* LoginViewController.swift */,
+			);
+			path = LoginScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -602,6 +613,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */,
 				0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */,
 				0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */,
 				023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */,

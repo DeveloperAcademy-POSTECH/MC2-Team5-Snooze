@@ -12,7 +12,11 @@ public class OnJeWaPageControl: UIView {
     //MARK: - Preperties
     
     private var entirePage: Int?
-    private var currentPage: Int?
+    public var currentPage: Int = 1 {
+        didSet {
+            setupView()
+        }
+    }
     
     //MARK: - Views
     
@@ -47,18 +51,24 @@ public class OnJeWaPageControl: UIView {
 
 private extension OnJeWaPageControl {
     func setupView() {
+        pageControlStackView.arrangedSubviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
         for i in 1...(entirePage ?? 1)  {
             let circleView = UIView()
             circleView.backgroundColor = .lightGray
             circleView.translatesAutoresizingMaskIntoConstraints = false
             circleView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            
             if i == currentPage {
-                circleView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+                circleView.widthAnchor.constraint(equalToConstant: 28).isActive = true
                 circleView.layer.cornerRadius = 4
-                circleView.backgroundColor = .systemPink
+                circleView.backgroundColor = OnjewaColor.primary.color
             } else {
                 circleView.widthAnchor.constraint(equalToConstant: 10).isActive = true
                 circleView.layer.cornerRadius = 5
+                circleView.backgroundColor = OnjewaColor.gray1.color
             }
             circleView.layer.masksToBounds = true
             pageControlStackView.addArrangedSubview(circleView)
