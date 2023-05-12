@@ -47,7 +47,7 @@ final class LoginViewController: BaseViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("로그인하기", for: .normal)
-        button.backgroundColor = OnjewaColor.primary.color
+        button.backgroundColor = OnjewaColor.dog.color
         button.layer.cornerRadius = 14
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)

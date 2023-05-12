@@ -75,7 +75,7 @@ final class FourOnboardingView: BaseView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("시작하기", for: .normal)
-        button.backgroundColor = OnjewaColor.primary.color
+        button.backgroundColor = OnjewaColor.dog.color
         button.layer.cornerRadius = 14
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -85,7 +85,7 @@ final class FourOnboardingView: BaseView {
     private let labelBox: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = OnjewaColor.primary.color
+        view.backgroundColor = OnjewaColor.dog.color
         return view
     }()
     

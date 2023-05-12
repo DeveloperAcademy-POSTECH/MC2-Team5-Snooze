@@ -64,11 +64,11 @@ private extension OnJeWaPageControl {
             if i == currentPage {
                 circleView.widthAnchor.constraint(equalToConstant: 28).isActive = true
                 circleView.layer.cornerRadius = 4
-                circleView.backgroundColor = OnjewaColor.primary.color
+                circleView.backgroundColor = OnjewaColor.dog.color
             } else {
                 circleView.widthAnchor.constraint(equalToConstant: 10).isActive = true
                 circleView.layer.cornerRadius = 5
-                circleView.backgroundColor = OnjewaColor.gray1.color
+                circleView.backgroundColor = OnjewaColor.slidepoint.color
             }
             circleView.layer.masksToBounds = true
             pageControlStackView.addArrangedSubview(circleView)

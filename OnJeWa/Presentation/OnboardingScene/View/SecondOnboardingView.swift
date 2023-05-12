@@ -53,7 +53,7 @@ final class SecondOnboardingView: BaseView {
     private let labelBox: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = OnjewaColor.primary.color
+        view.backgroundColor = OnjewaColor.dog.color
         return view
     }()
     
