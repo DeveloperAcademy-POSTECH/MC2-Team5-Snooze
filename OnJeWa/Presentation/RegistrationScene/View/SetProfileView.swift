@@ -45,8 +45,8 @@ final class SetProfileView: BaseView {
     }()
     
     private let setProfileTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "스누즈 프로필을\n설정 해 주세요")
-        let range = (attributedString.string as NSString).range(of: "스누즈 프로필")
+        let attributedString = NSMutableAttributedString(string: "snooze 프로필을\n설정 해 주세요")
+        let range = (attributedString.string as NSString).range(of: "snooze 프로필")
         let font = UIFont.systemFont(ofSize: 32, weight: .bold)
         attributedString.addAttribute(.font, value: font, range: range)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -65,7 +65,7 @@ final class SetProfileView: BaseView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 125.0 / 2
-        imageView.backgroundColor = .blue
+        imageView.image = UIImage(named: "myimage")
         imageView.isUserInteractionEnabled = true
         return imageView
     }()
@@ -73,7 +73,7 @@ final class SetProfileView: BaseView {
     private let photoIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "camera.circle")
+        imageView.image = UIImage(named: "propileplus")
         return imageView
     }()
     
@@ -86,24 +86,6 @@ final class SetProfileView: BaseView {
         stackView.spacing = 8
         stackView.distribution = .equalSpacing
         return stackView
-    }()
-    
-    var yearDropDown: DropDown = {
-        let dropdown = DropDown(data: ["나이","1","2","3","4","5","6","7","8","9","10"],
-                                contentHeight: 150)
-        return dropdown
-    }()
-    
-    var monthDropDown: DropDown = {
-        let dropdown = DropDown(data: ["월", "1","2","3","4","5","6","7","8","9","10"],
-                                contentHeight: 150)
-        return dropdown
-    }()
-    
-    var dayDropDown: DropDown = {
-        let dropdown = DropDown(data: ["일", "1","2","3","4","5","6","7","8","9","10"],
-                                contentHeight: 150)
-        return dropdown
     }()
     
     let nextButton: UIButton = {
@@ -120,7 +102,7 @@ final class SetProfileView: BaseView {
     
     func setupNextButton(flag: Bool) {
         if flag {
-            nextButton.backgroundColor = .systemPink
+            nextButton.backgroundColor = hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
             nextButton.addTarget(self, action: #selector(nextButtonTapGesture), for: .touchUpInside)
             nextButton.isUserInteractionEnabled = true
         } else {
@@ -190,10 +172,6 @@ private extension SetProfileView {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        [yearDropDown, monthDropDown, dayDropDown].forEach {
-            dropDownStackView.addArrangedSubview($0)
-        }
-        
         [setProfileTitle, profileImageView, photoIcon, findTownTextField,
          dropDownStackView, nextButton].forEach {
             backgroundView.addSubview($0)
@@ -223,8 +201,6 @@ private extension SetProfileView {
                                                constant: 40),
             photoIcon.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,
                                            constant: -32),
-            photoIcon.widthAnchor.constraint(equalToConstant: 40),
-            photoIcon.heightAnchor.constraint(equalToConstant: 40),
         ])
         
         NSLayoutConstraint.activate([
@@ -234,15 +210,6 @@ private extension SetProfileView {
                                                        constant: 20),
             findTownTextField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
                                                         constant: -20)
-        ])
-        
-        NSLayoutConstraint.activate([
-            yearDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor,
-                                                multiplier: 1.8/4),
-            monthDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor,
-                                                 multiplier: 1/4),
-            dayDropDown.widthAnchor.constraint(equalTo: dropDownStackView.widthAnchor,
-                                               multiplier: 1/4)
         ])
         
         NSLayoutConstraint.activate([

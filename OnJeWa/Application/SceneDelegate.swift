@@ -7,6 +7,8 @@
 
 import UIKit
 
+import OnJeWaNetwork
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -20,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let mainViewController = GalleryViewController()
+        let mainViewController = ChoosePetTypeViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)

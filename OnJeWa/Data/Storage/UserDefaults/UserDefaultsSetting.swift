@@ -14,4 +14,10 @@ enum UserDefaultsSetting {
     
     @UserDefaultsWrapper(key: "awayTime", defaultValue: 0)
     static var awayTime
+    
+    @UserDefaultsWrapper(key: "mainColor", defaultValue: "#FFD643")
+    static var mainColor
+    
+    @UserDefaultsWrapper(key: "mainPet", defaultValue: "dog")
+    static var mainPet
 }
