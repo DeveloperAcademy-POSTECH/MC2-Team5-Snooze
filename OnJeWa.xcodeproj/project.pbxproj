@@ -13,8 +13,9 @@
 		02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A442A039CF900AEEDCA /* WeekCollectionView.swift */; };
 		0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A77F2A0CB63700206F99 /* GalleryViewController.swift */; };
 		0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */; };
-		023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */; };
-		02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722AE72A0B450C00A8D015 /* StopWatchView.swift */; };
+		0226A7852A0D0AE300206F99 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A7842A0D0AE300206F99 /* BackgroundView.swift */; };
+		023CB9EA2A0BC2DF003405C9 /* CustomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */; };
+		02722AE82A0B450C00A8D015 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722AE72A0B450C00A8D015 /* StopWatchViewController.swift */; };
 		02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E034E12A0A50C800692061 /* TapButtonViewController.swift */; };
 		463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */; };
 		651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */; };
@@ -106,8 +107,9 @@
 		02236A442A039CF900AEEDCA /* WeekCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionView.swift; sourceTree = "<group>"; };
 		0226A77F2A0CB63700206F99 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
-		023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupView.swift; sourceTree = "<group>"; };
-		02722AE72A0B450C00A8D015 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
+		0226A7842A0D0AE300206F99 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupViewController.swift; sourceTree = "<group>"; };
+		02722AE72A0B450C00A8D015 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
 		463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBuilder.swift; sourceTree = "<group>"; };
 		651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewController.swift; sourceTree = "<group>"; };
@@ -219,10 +221,11 @@
 			children = (
 				0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */,
 				02236A402A03953500AEEDCA /* NavigationView.swift */,
-				02722AE72A0B450C00A8D015 /* StopWatchView.swift */,
+				02722AE72A0B450C00A8D015 /* StopWatchViewController.swift */,
 				02236A442A039CF900AEEDCA /* WeekCollectionView.swift */,
 				02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */,
-				023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */,
+				023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */,
+				0226A7842A0D0AE300206F99 /* BackgroundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -604,10 +607,10 @@
 			files = (
 				0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */,
 				0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */,
-				023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */,
+				023CB9EA2A0BC2DF003405C9 /* CustomPopupViewController.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,
-				02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */,
+				02722AE82A0B450C00A8D015 /* StopWatchViewController.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
 				02236A412A03953500AEEDCA /* NavigationView.swift in Sources */,
 				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
@@ -626,6 +629,7 @@
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */,
 				651C767F2A0A0FBE00EDC6BC /* OnboardingViewController.swift in Sources */,
+				0226A7852A0D0AE300206F99 /* BackgroundView.swift in Sources */,
 				651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */,
 				651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */,
 				651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */,

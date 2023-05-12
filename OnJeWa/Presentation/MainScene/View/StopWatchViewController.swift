@@ -12,7 +12,7 @@ import OnJeWaCore
 
   //MARK: - 라벨 다 폰트 색상 수정 필요
 
-class StopWatchViewController: BaseViewController {
+final class StopWatchViewController: BaseViewController {
   
   //MARK: - UI Components
   

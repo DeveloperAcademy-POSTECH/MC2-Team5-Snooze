@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7F072F03-9CEB-4968-8398-D681B03B3BFD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F0EB765A-891B-4AB7-A91A-6E93F8966D26"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -34,13 +34,45 @@
             endingLineNumber = "40"
             landmarkName = "isHomeOutButtonClicked"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F0EB765A-891B-4AB7-A91A-6E93F8966D26 - 670a3cae03c5ff22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWa.TapButtonViewController.isHomeOutButtonClicked.didset : Swift.Bool"
+                  moduleName = "OnJeWa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "F0EB765A-891B-4AB7-A91A-6E93F8966D26 - 670a3cae03c5ff22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWa.TapButtonViewController.isHomeOutButtonClicked.didset : Swift.Bool"
+                  moduleName = "OnJeWa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "224">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "95638ACF-281F-4EAF-A0F5-1DAA90F5F208"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -56,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FC7CF21E-406F-4C19-B865-488EAA8A86D5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -72,7 +104,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "73BB107E-4610-47DD-8513-3D52182873B9"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -88,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8124F36C-2D23-4B5E-9848-A835375F1B64"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -98,13 +130,45 @@
             endingLineNumber = "51"
             landmarkName = "isHomeInButtonClicked"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "8124F36C-2D23-4B5E-9848-A835375F1B64 - f2b721a9cdc15c31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWa.TapButtonViewController.isHomeInButtonClicked.didset : Swift.Bool"
+                  moduleName = "OnJeWa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "8124F36C-2D23-4B5E-9848-A835375F1B64 - f2b721a9cdc15c31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWa.TapButtonViewController.isHomeInButtonClicked.didset : Swift.Bool"
+                  moduleName = "OnJeWa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "224">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "26D93918-F24C-430C-BBD2-C63CE2087509"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -120,7 +184,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EE125DE9-9FA6-452A-AB9F-00BD157CA8C1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
@@ -136,7 +200,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4D975B11-A606-468B-B524-439911388C5E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
