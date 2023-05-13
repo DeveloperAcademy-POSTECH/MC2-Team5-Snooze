@@ -17,6 +17,11 @@
 		02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722AE72A0B450C00A8D015 /* StopWatchView.swift */; };
 		02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E034E12A0A50C800692061 /* TapButtonViewController.swift */; };
 		463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */; };
+		463D69AC2A0CFDB30005003C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69AB2A0CFDB30005003C /* SettingViewController.swift */; };
+		463D69B42A0E82010005003C /* SettingViewProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69B32A0E82010005003C /* SettingViewProfileCell.swift */; };
+		463D69B62A0E8AEB0005003C /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69B52A0E8AEB0005003C /* SettingViewCell.swift */; };
+		463D69B82A0E95180005003C /* SettingViewGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69B72A0E95180005003C /* SettingViewGeneralCell.swift */; };
+		463D69BB2A0F92020005003C /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69BA2A0F92020005003C /* SettingViewModel.swift */; };
 		651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */; };
 		651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */; };
 		651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */; };
@@ -110,6 +115,11 @@
 		02722AE72A0B450C00A8D015 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
 		463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBuilder.swift; sourceTree = "<group>"; };
+		463D69AB2A0CFDB30005003C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		463D69B32A0E82010005003C /* SettingViewProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewProfileCell.swift; sourceTree = "<group>"; };
+		463D69B52A0E8AEB0005003C /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
+		463D69B72A0E95180005003C /* SettingViewGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewGeneralCell.swift; sourceTree = "<group>"; };
+		463D69BA2A0F92020005003C /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewController.swift; sourceTree = "<group>"; };
 		651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewModel.swift; sourceTree = "<group>"; };
 		651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeView.swift; sourceTree = "<group>"; };
@@ -227,6 +237,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		463D69A52A0CFD710005003C /* SettingScene */ = {
+			isa = PBXGroup;
+			children = (
+				463D69B92A0F91E80005003C /* ViewModel */,
+				463D69A72A0CFD7B0005003C /* ViewController */,
+				463D69A62A0CFD780005003C /* View */,
+			);
+			path = SettingScene;
+			sourceTree = "<group>";
+		};
+		463D69A62A0CFD780005003C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				463D69B32A0E82010005003C /* SettingViewProfileCell.swift */,
+				463D69B52A0E8AEB0005003C /* SettingViewCell.swift */,
+				463D69B72A0E95180005003C /* SettingViewGeneralCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		463D69A72A0CFD7B0005003C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				463D69AB2A0CFDB30005003C /* SettingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		463D69B92A0F91E80005003C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				463D69BA2A0F92020005003C /* SettingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		651C760E2A04A24800EDC6BC /* RegistrationScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +371,7 @@
 		6547BF3C29F8EB5700593D17 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				463D69A52A0CFD710005003C /* SettingScene */,
 				02236A382A0390C600AEEDCA /* MainScene */,
 				651C760E2A04A24800EDC6BC /* RegistrationScene */,
 				6547BF9A2A037D2000593D17 /* OnboardingScene */,
@@ -604,15 +651,19 @@
 			files = (
 				0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */,
 				0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */,
+				463D69BB2A0F92020005003C /* SettingViewModel.swift in Sources */,
 				023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
+				463D69AC2A0CFDB30005003C /* SettingViewController.swift in Sources */,
 				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,
 				02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
 				02236A412A03953500AEEDCA /* NavigationView.swift in Sources */,
+				463D69B82A0E95180005003C /* SettingViewGeneralCell.swift in Sources */,
 				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
 				02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */,
 				02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */,
+				463D69B42A0E82010005003C /* SettingViewProfileCell.swift in Sources */,
 				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
 				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
 				463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */,
@@ -631,6 +682,7 @@
 				651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */,
 				651C762D2A062FD900EDC6BC /* SetProfileViewModel.swift in Sources */,
 				651C76AA2A0B666200EDC6BC /* UserDefaultsWrapper.swift in Sources */,
+				463D69B62A0E8AEB0005003C /* SettingViewCell.swift in Sources */,
 				651C76812A0A0FC800EDC6BC /* OnboardingViewModel.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
 				651C761C2A04EDB300EDC6BC /* PetType.swift in Sources */,
@@ -815,7 +867,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
+				DEVELOPMENT_TEAM = XKDG839GBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -833,7 +885,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = poodlepoodle.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -850,7 +902,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
+				DEVELOPMENT_TEAM = XKDG839GBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -868,7 +920,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = poodlepoodle.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
