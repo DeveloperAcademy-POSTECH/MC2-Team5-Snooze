@@ -15,6 +15,7 @@
 		0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */; };
 		0226A7852A0D0AE300206F99 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A7842A0D0AE300206F99 /* BackgroundView.swift */; };
 		023CB9EA2A0BC2DF003405C9 /* CustomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */; };
+		026CF39B2A0F6C4A00A98E54 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */; };
 		02722AE82A0B450C00A8D015 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722AE72A0B450C00A8D015 /* StopWatchViewController.swift */; };
 		02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E034E12A0A50C800692061 /* TapButtonViewController.swift */; };
 		463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */; };
@@ -109,6 +110,7 @@
 		0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		0226A7842A0D0AE300206F99 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupViewController.swift; sourceTree = "<group>"; };
+		026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		02722AE72A0B450C00A8D015 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
 		463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBuilder.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		02236A382A0390C600AEEDCA /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
+				026CF3992A0F6C1000A98E54 /* ViewModel */,
 				02236A3B2A0390EA00AEEDCA /* View */,
 				02236A392A0390CE00AEEDCA /* ViewController */,
 			);
@@ -228,6 +231,14 @@
 				0226A7842A0D0AE300206F99 /* BackgroundView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		026CF3992A0F6C1000A98E54 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		651C760E2A04A24800EDC6BC /* RegistrationScene */ = {
@@ -615,6 +626,7 @@
 				02236A412A03953500AEEDCA /* NavigationView.swift in Sources */,
 				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
 				02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */,
+				026CF39B2A0F6C4A00A98E54 /* MainViewModel.swift in Sources */,
 				02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */,
 				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
 				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
@@ -819,7 +831,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -837,7 +849,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -854,7 +866,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -872,7 +884,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
