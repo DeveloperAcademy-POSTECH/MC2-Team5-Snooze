@@ -9,8 +9,18 @@ import UIKit
 import OnJeWaUI
 import OnJeWaCore
 
+protocol NavigationViewDelegate: AnyObject {
+    func didTapAlbum()
+    func didTapNoti()
+    func didTapProfile()
+}
+
 final class NavigationView: BaseView {
-  
+    
+    //MARK: - Properties
+    
+    weak var delegate: NavigationViewDelegate?
+    
   //MARK: - UI Components
 
   private let backgroundView: UIView = {
@@ -58,11 +68,28 @@ final class NavigationView: BaseView {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+    
+    @objc private func didTapAlbum() {
+        delegate?.didTapAlbum()
+    }
+    
+    @objc private func didTapNoti() {
+        delegate?.didTapNoti()
+    }
+    
+    @objc private func didTapProfile() {
+        delegate?.didTapProfile()
+    }
 }
 
 extension NavigationView {
   
   private func setupView() {
+      
+      albumButton.addTarget(self, action: #selector(didTapAlbum), for: .touchUpInside)
+      notificationButton.addTarget(self, action: #selector(didTapNoti), for: .touchUpInside)
+      profileButton.addTarget(self, action: #selector(didTapProfile), for: .touchUpInside)
+      
     [logoImageView, albumButton, notificationButton, profileButton].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
       backgroundView.addSubview($0)

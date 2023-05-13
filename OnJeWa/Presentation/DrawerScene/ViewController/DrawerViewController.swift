@@ -10,11 +10,6 @@ import UIKit
 import OnJeWaCore
 import OnJeWaUI
 
-// 워니 didTapAlbum 여기에 미션 앨범으로 넘어가는 코드 넣어주세요! :)
-// 그리고 MissionAlbumView에 currentAlbumImageView 뷰에 image를 미션 앨범 첫번째에 있는 사진으로 세팅해주세요~
-// + 디테일..
-// 그리고 주석 지우고 push!
-
 final class DrawerViewController: BaseViewController {
         
     //MARK: - Properties
@@ -23,6 +18,30 @@ final class DrawerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.navigationItem.hidesBackButton = true
+        
+        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
+                                         style: .done, target: self, action: #selector(back))
+        backbutton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = backbutton
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Views
@@ -249,12 +268,14 @@ final class DrawerViewController: BaseViewController {
     }
     
     @objc private func didTapTogetherTime() {
-        print("통계 뷰로 이동")
+        let statisticsViewController = StatisticsViewController()
+        self.navigationController?.pushViewController(statisticsViewController, animated: true)
     }
 }
 
 extension DrawerViewController: MissionAlbumViewDelegate {
     func didTapAlbum() {
-        
+        let galleryViewController = GalleryViewController()
+        self.navigationController?.pushViewController(galleryViewController, animated: true)
     }
 }
