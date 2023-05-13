@@ -23,6 +23,53 @@ final class MissionViewController: BaseViewController {
         super.viewDidLoad()
         
         view.backgroundColor = OnjewaColor.main.color
+        
+        UserDefaultsSetting.mainPet = "rabbit"
+        
+        switch UserDefaultsSetting.mainPet {
+        case "dog":
+            let originalImage = UIImage(named: "dogcarrots")
+            let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+            let renderer = UIGraphicsImageRenderer(size: size)
+            let resizedImage = renderer.image { _ in
+                originalImage!.draw(in: CGRect(origin: .zero, size: size))
+            }
+            bottomImageView.image = resizedImage
+            bottomImageView.sizeToFit()
+            break
+        case "cat":
+            let originalImage = UIImage(named: "catcarrots")
+            let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+            let renderer = UIGraphicsImageRenderer(size: size)
+            let resizedImage = renderer.image { _ in
+                originalImage!.draw(in: CGRect(origin: .zero, size: size))
+            }
+            bottomImageView.image = resizedImage
+            bottomImageView.sizeToFit()
+            break
+        case "parrot":
+            let originalImage = UIImage(named: "parrotcarrots")
+            let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+            let renderer = UIGraphicsImageRenderer(size: size)
+            let resizedImage = renderer.image { _ in
+                originalImage!.draw(in: CGRect(origin: .zero, size: size))
+            }
+            bottomImageView.image = resizedImage
+            bottomImageView.sizeToFit()
+            break
+        case "rabbit":
+            let originalImage = UIImage(named: "rabbitcarrots")
+            let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+            let renderer = UIGraphicsImageRenderer(size: size)
+            let resizedImage = renderer.image { _ in
+                originalImage!.draw(in: CGRect(origin: .zero, size: size))
+            }
+            bottomImageView.image = resizedImage
+            bottomImageView.sizeToFit()
+            break
+        default:
+            break
+        }
     }
     
     //MARK: - Functions
@@ -75,7 +122,7 @@ final class MissionViewController: BaseViewController {
         
         [timeRemainingCarrotStackView,
          firstStackView, secondStackView,
-         bottomTitle, bottomSubTitle, dogImageView].forEach {
+         bottomTitle, bottomSubTitle, bottomImageView].forEach {
             view.addSubview($0)
         }
         
@@ -267,9 +314,9 @@ final class MissionViewController: BaseViewController {
         ])
         
         NSLayoutConstraint.activate([
-            dogImageView.topAnchor.constraint(equalTo: bottomSubTitle.bottomAnchor,
-                                              constant: 24),
-            dogImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            bottomImageView.topAnchor.constraint(equalTo: bottomSubTitle.bottomAnchor,
+                                                 constant: 24),
+            bottomImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -591,10 +638,9 @@ final class MissionViewController: BaseViewController {
         return label
     }()
     
-    private let dogImageView: UIImageView = {
+    private let bottomImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "missionDogImage")
         return imageView
     }()
 }

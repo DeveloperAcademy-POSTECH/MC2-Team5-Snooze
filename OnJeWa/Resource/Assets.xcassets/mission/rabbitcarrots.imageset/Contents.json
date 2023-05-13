@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "missionDogImage.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "rabbitcarrots.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
