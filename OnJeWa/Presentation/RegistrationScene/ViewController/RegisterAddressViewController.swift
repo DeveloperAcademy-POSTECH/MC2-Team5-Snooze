@@ -39,12 +39,7 @@ final class RegisterAddressViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.shadowImage = UIImage()
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        configureNavigationBar()
     }
     
     //MARK: - Views
@@ -54,11 +49,34 @@ final class RegisterAddressViewController: BaseViewController {
     
     //MARK: - Functions
     
+    private func configureNavigationBar() {
+        self.navigationItem.hidesBackButton = true
+        
+        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
+                                         style: .done, target: self, action: #selector(back))
+        backbutton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = backbutton
+        
+        navigationController?.navigationBar.shadowImage = UIImage()
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func setupView() {
         
         registerAddressView.delegate = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
+        pageControl.pageControlStackView.subviews[3].backgroundColor =
+        hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
         
         [registerAddressView].forEach {
             view.addSubview($0)
@@ -77,12 +95,15 @@ final class RegisterAddressViewController: BaseViewController {
 
 extension RegisterAddressViewController: RegisterAddressViewDelegate {
     
-    /// didTapNextButton viewModel에서 처리하도록 수정 + 메인으로 push 추가
     func didTapNextButton() {
         do {
             try RealmManager.shared.createProfile(profile: self.profile!) {
                 UserDefaultsSetting.isRegister = true
                 UserDefaultsSetting.awayTime = 0
+                
+                let mainViewController = MainViewController()
+                mainViewController.modalPresentationStyle = .fullScreen
+                self.present(mainViewController, animated: true)
             }
         } catch let error {
             print("Failed to create profile: \(error)")

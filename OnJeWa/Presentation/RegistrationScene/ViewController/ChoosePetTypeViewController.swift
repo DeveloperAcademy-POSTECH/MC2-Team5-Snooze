@@ -34,11 +34,15 @@ final class ChoosePetTypeViewController: BaseViewController {
     
     override func bindViewModel() {
         
+        self.choosePetTypeView.setupPetType("강아지")
+        self.setupPageControl("강아지")
+        
         // Input
         
         choosePetTypeView.rx.didSelectPetType
             .bind { [weak self] petType in
                 guard let petType else { return }
+                self?.setupPageControl(petType)
                 self?.viewModel.input.petTypeTrigger.onNext(petType)
                 self?.profile.petType = petType
             }
@@ -60,6 +64,8 @@ final class ChoosePetTypeViewController: BaseViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
         
+        pageControl.pageControlStackView.subviews.first?.backgroundColor = OnjewaColor.dog.color
+        
         [choosePetTypeView].forEach {
             view.addSubview($0)
         }
@@ -72,6 +78,29 @@ final class ChoosePetTypeViewController: BaseViewController {
             choosePetTypeView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             choosePetTypeView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
+    }
+    
+    private func setupPageControl(_ passedPetType: String) {
+        switch passedPetType {
+        case "강아지":
+            pageControl.pageControlStackView.subviews.first?.backgroundColor = OnjewaColor.dog.color
+            UserDefaultsSetting.mainPet = "dog"
+            UserDefaultsSetting.mainColor = "#FFD643"
+        case "고양이":
+            pageControl.pageControlStackView.subviews.first?.backgroundColor = OnjewaColor.cat.color
+            UserDefaultsSetting.mainPet = "cat"
+            UserDefaultsSetting.mainColor = "#B6D4E9"
+        case "앵무새":
+            pageControl.pageControlStackView.subviews.first?.backgroundColor = OnjewaColor.parrot.color
+            UserDefaultsSetting.mainPet = "parrot"
+            UserDefaultsSetting.mainColor = "#C5D9A0"
+        case "토끼":
+            pageControl.pageControlStackView.subviews.first?.backgroundColor = OnjewaColor.rabbit.color
+            UserDefaultsSetting.mainPet = "rabbit"
+            UserDefaultsSetting.mainColor = "#FBC3A9"
+        default:
+            break
+        }
     }
 }
 

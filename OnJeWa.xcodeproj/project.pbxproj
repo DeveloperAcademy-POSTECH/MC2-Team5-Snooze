@@ -64,6 +64,9 @@
 		655E85612A037FB800BD992F /* ThirdOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85602A037FB800BD992F /* ThirdOnboardingView.swift */; };
 		655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655E85622A037FE200BD992F /* FourOnboardingView.swift */; };
 		656A70BF2A0CD26F00BEDCAE /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70BE2A0CD26F00BEDCAE /* MainModel.swift */; };
+		656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70C52A0D28E700BEDCAE /* LoginViewController.swift */; };
+		656A70CE2A0F3D4100BEDCAE /* MissionAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70CD2A0F3D4100BEDCAE /* MissionAlbumView.swift */; };
+		656A70D22A0F3D9200BEDCAE /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +160,9 @@
 		655E85602A037FB800BD992F /* ThirdOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingView.swift; sourceTree = "<group>"; };
 		655E85622A037FE200BD992F /* FourOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourOnboardingView.swift; sourceTree = "<group>"; };
 		656A70BE2A0CD26F00BEDCAE /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		656A70C52A0D28E700BEDCAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		656A70CD2A0F3D4100BEDCAE /* MissionAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionAlbumView.swift; sourceTree = "<group>"; };
+		656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				463D69A52A0CFD710005003C /* SettingScene */,
+				656A70C92A0F3C9900BEDCAE /* DrawerScene */,
+				656A70C42A0D28D600BEDCAE /* LoginScene */,
 				02236A382A0390C600AEEDCA /* MainScene */,
 				651C760E2A04A24800EDC6BC /* RegistrationScene */,
 				6547BF9A2A037D2000593D17 /* OnboardingScene */,
@@ -498,6 +506,47 @@
 				02030DA82A0139F600B3583A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		656A70C42A0D28D600BEDCAE /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				656A70C52A0D28E700BEDCAE /* LoginViewController.swift */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		656A70C92A0F3C9900BEDCAE /* DrawerScene */ = {
+			isa = PBXGroup;
+			children = (
+				656A70CC2A0F3D3200BEDCAE /* ViewModel */,
+				656A70CB2A0F3D2E00BEDCAE /* View */,
+				656A70CA2A0F3D2700BEDCAE /* ViewController */,
+			);
+			path = DrawerScene;
+			sourceTree = "<group>";
+		};
+		656A70CA2A0F3D2700BEDCAE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		656A70CB2A0F3D2E00BEDCAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				656A70CD2A0F3D4100BEDCAE /* MissionAlbumView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		656A70CC2A0F3D3200BEDCAE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +698,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */,
 				0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */,
 				0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */,
 				463D69BB2A0F92020005003C /* SettingViewModel.swift in Sources */,
@@ -661,6 +711,7 @@
 				02236A412A03953500AEEDCA /* NavigationView.swift in Sources */,
 				463D69B82A0E95180005003C /* SettingViewGeneralCell.swift in Sources */,
 				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
+				656A70CE2A0F3D4100BEDCAE /* MissionAlbumView.swift in Sources */,
 				02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */,
 				02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */,
 				463D69B42A0E82010005003C /* SettingViewProfileCell.swift in Sources */,
@@ -668,6 +719,7 @@
 				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
 				463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */,
 				651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */,
+				656A70D22A0F3D9200BEDCAE /* DrawerViewController.swift in Sources */,
 				651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */,
 				651C76AC2A0B667200EDC6BC /* UserDefaultsSetting.swift in Sources */,
 				651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */,

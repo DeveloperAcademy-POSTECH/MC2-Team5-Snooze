@@ -57,6 +57,9 @@ final class SetProfileViewController: BaseViewController {
         
         setProfileView.delegate = self
         
+        pageControl.pageControlStackView.subviews[1].backgroundColor =
+        hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
         
         [setProfileView].forEach {
@@ -76,30 +79,6 @@ final class SetProfileViewController: BaseViewController {
     override func bindViewModel() {
         
         // Input
-        
-        setProfileView.yearDropDown.rx.didSelectDropDown
-            .bind { [weak self] yearValue in
-                guard let yearValue else { return }
-                self?.viewModel.input.yearTrigger.onNext(yearValue == "나이" ? "" : yearValue)
-                self?.profile?.year = yearValue == "나이" ? "" : yearValue
-            }
-            .disposed(by: disposeBag)
-        
-        setProfileView.monthDropDown.rx.didSelectDropDown
-            .bind { [weak self] monthValue in
-                guard let monthValue else { return }
-                self?.viewModel.input.monthTrigger.onNext(monthValue == "월" ? "" : monthValue)
-                self?.profile?.month = monthValue == "월" ? "" : monthValue
-            }
-            .disposed(by: disposeBag)
-        
-        setProfileView.dayDropDown.rx.didSelectDropDown
-            .bind { [weak self] dayValue in
-                guard let dayValue else { return }
-                self?.viewModel.input.dayTrigger.onNext(dayValue == "일" ? "" : dayValue)
-                self?.profile?.day = dayValue == "일" ? "" : dayValue
-            }
-            .disposed(by: disposeBag)
         
         // Output
         
@@ -139,6 +118,15 @@ extension SetProfileViewController {
     }
     
     private func setupNavigationBarAppearance() {
+        
+        self.navigationItem.hidesBackButton = true
+        
+        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
+                                         style: .done, target: self, action: #selector(back))
+        backbutton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = backbutton
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .white
@@ -148,14 +136,22 @@ extension SetProfileViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func unregisterKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {

@@ -43,7 +43,7 @@ final class RegisterAddressView: BaseView {
         return view
     }()
     
-    private let setAddressTitle: UILabel = {
+    private var setAddressTitle: UILabel = {
         let attributedString = NSMutableAttributedString(string: "우리집 위치를\n설정해주세요")
         let range = (attributedString.string as NSString).range(of: "우리집")
         let font = UIFont.systemFont(ofSize: 32, weight: .bold)
@@ -60,6 +60,25 @@ final class RegisterAddressView: BaseView {
         return label
     }()
     
+    private let setAddressSubTitle: UILabel = {
+        let attributedString = NSMutableAttributedString(string: "snooze 이용을 위해 막둥이와 함께\n지내고 있는 집을 설정해주세요.")
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle,
+                                      range: NSRange(location: 0, length: attributedString.length))
+        let label = UILabel()
+        label.attributedText = attributedString
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 5
+        return label
+    }()
+    
+    private let centerImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     lazy var addressStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +91,8 @@ final class RegisterAddressView: BaseView {
     private let pinIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "mappin.and.ellipse")
+        imageView.image = UIImage(named:"pin")
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -106,7 +126,7 @@ final class RegisterAddressView: BaseView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 14
-        button.backgroundColor = .systemPink
+        button.backgroundColor = hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
         return button
     }()
     
@@ -125,15 +145,53 @@ final class RegisterAddressView: BaseView {
     }
     
     func updateRegisterAddressView(address: String) {
+        setCenterImageView(setStatus: true)
         setAddressFlag = true
         addressStackView.isHidden = false
+        setAddressSubTitle.isHidden = true
         addressTitle.text = address
-        nextButton.setTitle("제리와 함께 행복한 시간을 즐겨봐요", for: .normal)
+        setAddressTitle.attributedText = updateTitle()
+        nextButton.setTitle("snooze 시작하기", for: .normal)
+    }
+    
+    func updateTitle() -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: "우리 집을\n등록했어요")
+        let range = (attributedString.string as NSString).range(of: "우리 집")
+        let font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        attributedString.addAttribute(.font, value: font, range: range)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 0
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle,
+                                      range: NSRange(location: 0, length: attributedString.length))
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 32)
+        return attributedString
+    }
+    
+    func setCenterImageView(setStatus: Bool) {
+        switch UserDefaultsSetting.mainPet {
+        case "dog":
+            centerImageView.image = setStatus ? UIImage(named: "dogLocationfin")
+            : UIImage(named: "dogPin")
+        case "cat":
+            centerImageView.image = setStatus ? UIImage(named: "catLocationfin")
+            : UIImage(named: "catPin")
+        case "parrot":
+            centerImageView.image = setStatus ? UIImage(named: "parrotLocationfin")
+            : UIImage(named: "parrotPin")
+        case "rabbit":
+            centerImageView.image = setStatus ? UIImage(named: "rabbitLocationfin")
+            : UIImage(named: "rabbitPin")
+        default:
+            break
+        }
     }
 }
 
 private extension RegisterAddressView {
     func setupView() {
+        
+        setCenterImageView(setStatus: false)
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -144,7 +202,7 @@ private extension RegisterAddressView {
             addressStackView.addArrangedSubview($0)
         }
         
-        [setAddressTitle, addressStackView, nextButton].forEach {
+        [setAddressTitle, setAddressSubTitle, addressStackView, centerImageView, nextButton].forEach {
             backgroundView.addSubview($0)
         }
         
@@ -160,12 +218,25 @@ private extension RegisterAddressView {
         ])
         
         NSLayoutConstraint.activate([
+            setAddressSubTitle.topAnchor.constraint(equalTo: setAddressTitle.bottomAnchor,
+                                                    constant: 24),
+            setAddressSubTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                        constant: 26),
+        ])
+        
+        NSLayoutConstraint.activate([
             addressStackView.topAnchor.constraint(equalTo: setAddressTitle.bottomAnchor,
                                                   constant: 24),
             addressStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
                                                       constant: 26),
             addressStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
                                                        constant: -26),
+        ])
+        
+        NSLayoutConstraint.activate([
+            centerImageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            centerImageView.bottomAnchor.constraint(equalTo: nextButton.topAnchor,
+                                                    constant: -48)
         ])
         
         NSLayoutConstraint.activate([

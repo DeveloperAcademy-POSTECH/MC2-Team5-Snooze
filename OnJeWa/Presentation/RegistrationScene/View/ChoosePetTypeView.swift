@@ -8,6 +8,7 @@
 import UIKit
 
 import OnJeWaCore
+import OnJeWaUI
 import RxCocoa
 import RxSwift
 
@@ -76,10 +77,11 @@ final class ChoosePetTypeView: BaseView {
     let dogImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .gray.withAlphaComponent(0.1)
         imageView.layer.cornerRadius = testHeightValue / 2
-        imageView.layer.borderWidth = 4
-        imageView.layer.borderColor = UIColor.clear.cgColor
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = OnjewaColor.dog.color.cgColor
+        imageView.image = UIImage(named: "dogcircle")
         return imageView
     }()
     
@@ -103,10 +105,11 @@ final class ChoosePetTypeView: BaseView {
     let catImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .gray.withAlphaComponent(0.1)
         imageView.layer.cornerRadius = testHeightValue / 2
-        imageView.layer.borderWidth = 4
-        imageView.layer.borderColor = UIColor.clear.cgColor
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        imageView.image = UIImage(named: "catcircleblack")
         return imageView
     }()
     
@@ -130,10 +133,11 @@ final class ChoosePetTypeView: BaseView {
     private let parrotImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .gray.withAlphaComponent(0.1)
         imageView.layer.cornerRadius = testHeightValue / 2
-        imageView.layer.borderWidth = 4
-        imageView.layer.borderColor = UIColor.clear.cgColor
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        imageView.image = UIImage(named: "parcircleblack")
         return imageView
     }()
     
@@ -157,10 +161,11 @@ final class ChoosePetTypeView: BaseView {
     private let rabbitImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .gray.withAlphaComponent(0.1)
         imageView.layer.cornerRadius = testHeightValue / 2
-        imageView.layer.borderWidth = 4
-        imageView.layer.borderColor = UIColor.clear.cgColor
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        imageView.image = UIImage(named: "rbcircleblack")
         return imageView
     }()
     
@@ -179,7 +184,7 @@ final class ChoosePetTypeView: BaseView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 14
-        button.backgroundColor = .systemGray6
+        button.backgroundColor = OnjewaColor.dog.color
         return button
     }()
     
@@ -200,13 +205,17 @@ final class ChoosePetTypeView: BaseView {
         resetPetType()
         switch passedPetType {
         case "강아지":
-            updateUIForPetType(dogImageView, color: .systemPink)
+            dogImageView.image = UIImage(named: "dogcircle")
+            updateUIForPetType(dogImageView, color: OnjewaColor.dog.color)
         case "고양이":
-            updateUIForPetType(catImageView, color: .systemPink)
+            catImageView.image = UIImage(named: "catcircle")
+            updateUIForPetType(catImageView, color: OnjewaColor.cat.color)
         case "앵무새":
-            updateUIForPetType(parrotImageView, color: .systemPink)
+            parrotImageView.image = UIImage(named: "parcircle")
+            updateUIForPetType(parrotImageView, color: OnjewaColor.parrot.color)
         case "토끼":
-            updateUIForPetType(rabbitImageView, color: .systemPink)
+            rabbitImageView.image = UIImage(named: "rbcircle")
+            updateUIForPetType(rabbitImageView, color: OnjewaColor.rabbit.color)
         default:
             break
         }
@@ -220,9 +229,13 @@ final class ChoosePetTypeView: BaseView {
     
     private func resetPetType() {
         dogImageView.layer.borderColor = UIColor.clear.cgColor
+        dogImageView.image = UIImage(named: "dogcircleblack")
         catImageView.layer.borderColor = UIColor.clear.cgColor
+        catImageView.image = UIImage(named: "catcircleblack")
         parrotImageView.layer.borderColor = UIColor.clear.cgColor
+        parrotImageView.image = UIImage(named: "parcircleblack")
         rabbitImageView.layer.borderColor = UIColor.clear.cgColor
+        rabbitImageView.image = UIImage(named: "rbcircleblack")
     }
 }
 
