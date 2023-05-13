@@ -24,8 +24,6 @@ final class MissionViewController: BaseViewController {
         
         view.backgroundColor = OnjewaColor.main.color
         
-        UserDefaultsSetting.mainPet = "rabbit"
-        
         switch UserDefaultsSetting.mainPet {
         case "dog":
             let originalImage = UIImage(named: "dogcarrots")
