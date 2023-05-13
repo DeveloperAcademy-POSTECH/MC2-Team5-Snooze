@@ -13,8 +13,9 @@
 		02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A442A039CF900AEEDCA /* WeekCollectionView.swift */; };
 		0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A77F2A0CB63700206F99 /* GalleryViewController.swift */; };
 		0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */; };
-		023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */; };
-		02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722AE72A0B450C00A8D015 /* StopWatchView.swift */; };
+		0226A7852A0D0AE300206F99 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A7842A0D0AE300206F99 /* BackgroundView.swift */; };
+		023CB9EA2A0BC2DF003405C9 /* CustomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */; };
+		026CF39B2A0F6C4A00A98E54 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */; };
 		02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E034E12A0A50C800692061 /* TapButtonViewController.swift */; };
 		463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */; };
 		463D69AC2A0CFDB30005003C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69AB2A0CFDB30005003C /* SettingViewController.swift */; };
@@ -73,6 +74,8 @@
 		656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70C52A0D28E700BEDCAE /* LoginViewController.swift */; };
 		656A70CE2A0F3D4100BEDCAE /* MissionAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70CD2A0F3D4100BEDCAE /* MissionAlbumView.swift */; };
 		656A70D22A0F3D9200BEDCAE /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */; };
+		656A70D92A0F65A000BEDCAE /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70D82A0F65A000BEDCAE /* MissionViewController.swift */; };
+		656A70DB2A0FA53B00BEDCAE /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70DA2A0FA53B00BEDCAE /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +123,9 @@
 		02236A442A039CF900AEEDCA /* WeekCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionView.swift; sourceTree = "<group>"; };
 		0226A77F2A0CB63700206F99 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
-		023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupView.swift; sourceTree = "<group>"; };
-		02722AE72A0B450C00A8D015 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
+		0226A7842A0D0AE300206F99 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupViewController.swift; sourceTree = "<group>"; };
+		026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
 		463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBuilder.swift; sourceTree = "<group>"; };
 		463D69AB2A0CFDB30005003C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		656A70C52A0D28E700BEDCAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		656A70CD2A0F3D4100BEDCAE /* MissionAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionAlbumView.swift; sourceTree = "<group>"; };
 		656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		656A70D82A0F65A000BEDCAE /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MissionViewController.swift; path = OnJeWa/Presentation/DrawerScene/ViewController/MissionViewController.swift; sourceTree = SOURCE_ROOT; };
+		656A70DA2A0FA53B00BEDCAE /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,7 @@
 		02236A382A0390C600AEEDCA /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
+				026CF3992A0F6C1000A98E54 /* ViewModel */,
 				02236A3B2A0390EA00AEEDCA /* View */,
 				02236A392A0390CE00AEEDCA /* ViewController */,
 			);
@@ -247,12 +254,20 @@
 			children = (
 				0226A7812A0CB6D000206F99 /* GalleryCollectionViewCell.swift */,
 				02236A402A03953500AEEDCA /* NavigationView.swift */,
-				02722AE72A0B450C00A8D015 /* StopWatchView.swift */,
 				02236A442A039CF900AEEDCA /* WeekCollectionView.swift */,
 				02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */,
-				023CB9E92A0BC2DF003405C9 /* CustomPopupView.swift */,
+				023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */,
+				0226A7842A0D0AE300206F99 /* BackgroundView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		026CF3992A0F6C1000A98E54 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		463D69A52A0CFD710005003C /* SettingScene */ = {
@@ -427,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				463D69BC2A0FA6200005003C /* NotificationScene */,
+				656A70D42A0F657200BEDCAE /* MissionScene */,
 				463D69A52A0CFD710005003C /* SettingScene */,
 				656A70C92A0F3C9900BEDCAE /* DrawerScene */,
 				656A70C42A0D28D600BEDCAE /* LoginScene */,
@@ -580,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */,
+				656A70DA2A0FA53B00BEDCAE /* StatisticsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -593,6 +610,38 @@
 			sourceTree = "<group>";
 		};
 		656A70CC2A0F3D3200BEDCAE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		656A70D42A0F657200BEDCAE /* MissionScene */ = {
+			isa = PBXGroup;
+			children = (
+				656A70D72A0F658300BEDCAE /* ViewModel */,
+				656A70D62A0F657F00BEDCAE /* View */,
+				656A70D52A0F657900BEDCAE /* ViewController */,
+			);
+			path = MissionScene;
+			sourceTree = "<group>";
+		};
+		656A70D52A0F657900BEDCAE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				656A70D82A0F65A000BEDCAE /* MissionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		656A70D62A0F657F00BEDCAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		656A70D72A0F658300BEDCAE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -749,10 +798,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */,
+				656A70DB2A0FA53B00BEDCAE /* StatisticsViewController.swift in Sources */,
 				0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */,
 				0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */,
 				463D69BB2A0F92020005003C /* SettingViewModel.swift in Sources */,
-				023CB9EA2A0BC2DF003405C9 /* CustomPopupView.swift in Sources */,
+				023CB9EA2A0BC2DF003405C9 /* CustomPopupViewController.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				463D69AC2A0CFDB30005003C /* SettingViewController.swift in Sources */,
 				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,
@@ -767,6 +817,7 @@
 				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
 				656A70CE2A0F3D4100BEDCAE /* MissionAlbumView.swift in Sources */,
 				02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */,
+				026CF39B2A0F6C4A00A98E54 /* MainViewModel.swift in Sources */,
 				02236A452A039CF900AEEDCA /* WeekCollectionView.swift in Sources */,
 				463D69B42A0E82010005003C /* SettingViewProfileCell.swift in Sources */,
 				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
@@ -785,6 +836,7 @@
 				463D69CA2A0FCDED0005003C /* NotificationViewCell.swift in Sources */,
 				651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */,
 				651C767F2A0A0FBE00EDC6BC /* OnboardingViewController.swift in Sources */,
+				0226A7852A0D0AE300206F99 /* BackgroundView.swift in Sources */,
 				651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */,
 				651C763B2A08D5AC00EDC6BC /* KakaoAddressViewController.swift in Sources */,
 				651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */,
@@ -798,6 +850,7 @@
 				655E85632A037FE200BD992F /* FourOnboardingView.swift in Sources */,
 				6547BFA12A037D7D00593D17 /* (null) in Sources */,
 				655E855D2A037FA400BD992F /* FirstOnboardingView.swift in Sources */,
+				656A70D92A0F65A000BEDCAE /* MissionViewController.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				656A70BF2A0CD26F00BEDCAE /* MainModel.swift in Sources */,
 				655E85612A037FB800BD992F /* ThirdOnboardingView.swift in Sources */,
@@ -975,9 +1028,10 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XKDG839GBD;
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한이 필요합니다";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "항상 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -993,7 +1047,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = poodlepoodle.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1010,9 +1064,10 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XKDG839GBD;
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한이 필요합니다";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "항상 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -1028,7 +1083,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = poodlepoodle.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

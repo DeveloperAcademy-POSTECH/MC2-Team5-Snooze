@@ -9,16 +9,18 @@ import Foundation
 
 struct MainWeekModel {
   let day: String
+  let image: String
+  let index: Int
 }
 
 var mainWeekData: [MainWeekModel] = [
-  MainWeekModel(day: "월"),
-  MainWeekModel(day: "화"),
-  MainWeekModel(day: "수"),
-  MainWeekModel(day: "목"),
-  MainWeekModel(day: "금"),
-  MainWeekModel(day: "토"),
-  MainWeekModel(day: "일")
+  MainWeekModel(day: "월", image: "full", index: 2),
+  MainWeekModel(day: "화", image: "half", index: 3),
+  MainWeekModel(day: "수", image: "full", index: 4),
+  MainWeekModel(day: "목", image: "zero", index: 5),
+  MainWeekModel(day: "금", image: "zero", index: 6),
+  MainWeekModel(day: "토", image: "zero", index: 7),
+  MainWeekModel(day: "일", image: "zero", index: 1)
 ]
 
 struct GalleryPhotoModel {
@@ -41,3 +43,5 @@ var gridList: [GalleryPhotoModel] = [
     GalleryPhotoModel(photoImage: "IMG_13"),
     GalleryPhotoModel(photoImage: "IMG_14")
 ]
+
+
