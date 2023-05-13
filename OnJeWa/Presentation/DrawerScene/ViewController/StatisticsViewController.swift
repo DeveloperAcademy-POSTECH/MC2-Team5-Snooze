@@ -8,6 +8,7 @@
 import UIKit
 
 import OnJeWaCore
+import OnJeWaUI
 
 final class StatisticsViewController: BaseViewController {
     
@@ -100,14 +101,12 @@ final class StatisticsViewController: BaseViewController {
     private let lastWeekTopImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dogLastWeek")
         return imageView
     }()
     
     private let lastWeekBottomImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dogLastWeekBottom")
         return imageView
     }()
     
@@ -120,14 +119,12 @@ final class StatisticsViewController: BaseViewController {
     private let lastMonthTopImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dogLastMonth")
         return imageView
     }()
     
     private let lastMonthBottomImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dogLastMonthBottom")
         return imageView
     }()
     
@@ -140,20 +137,20 @@ final class StatisticsViewController: BaseViewController {
     private let sixMonthTopImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dogSixMonth")
         return imageView
     }()
     
     private let sixMonthBottomImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dogSixMonthBottom")
         return imageView
     }()
     
     //MARK: - Funceions
     
     override func setupView() {
+        
+        view.backgroundColor = OnjewaColor.main.color
         
         self.segmentedControl.addTarget(self, action: #selector(didChangeValue(segment:)),
                                         for: .valueChanged)
@@ -200,7 +197,8 @@ final class StatisticsViewController: BaseViewController {
         
         NSLayoutConstraint.activate([
             lastWeekTopImageView.topAnchor.constraint(equalTo: firstView.topAnchor),
-            lastWeekBottomImageView.bottomAnchor.constraint(equalTo: firstView.bottomAnchor)
+            lastWeekBottomImageView.topAnchor.constraint(equalTo: lastWeekTopImageView.bottomAnchor,
+                                                         constant: 12)
         ])
         
         NSLayoutConstraint.activate([
@@ -212,7 +210,8 @@ final class StatisticsViewController: BaseViewController {
         
         NSLayoutConstraint.activate([
             lastMonthTopImageView.topAnchor.constraint(equalTo: secondView.topAnchor),
-            lastMonthBottomImageView.bottomAnchor.constraint(equalTo: secondView.bottomAnchor)
+            lastMonthBottomImageView.topAnchor.constraint(equalTo: lastMonthTopImageView.bottomAnchor,
+                                                          constant: 12)
         ])
         
         NSLayoutConstraint.activate([
@@ -224,7 +223,8 @@ final class StatisticsViewController: BaseViewController {
         
         NSLayoutConstraint.activate([
             sixMonthTopImageView.topAnchor.constraint(equalTo: thirdView.topAnchor),
-            sixMonthBottomImageView.bottomAnchor.constraint(equalTo: thirdView.bottomAnchor)
+            sixMonthBottomImageView.topAnchor.constraint(equalTo: sixMonthTopImageView.bottomAnchor,
+                                                         constant: 12)
         ])
     }
     
