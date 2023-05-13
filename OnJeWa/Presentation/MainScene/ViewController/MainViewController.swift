@@ -171,7 +171,8 @@ extension MainViewController: NavigationViewDelegate {
     }
     
     func didTapNoti() {
-        print("didTapNoti")
+        let notificationViewController = NotificationViewController()
+        self.navigationController?.pushViewController(notificationViewController, animated: true)
     }
     
     func didTapProfile() {
