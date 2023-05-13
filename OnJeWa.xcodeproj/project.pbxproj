@@ -67,6 +67,7 @@
 		656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70C52A0D28E700BEDCAE /* LoginViewController.swift */; };
 		656A70CE2A0F3D4100BEDCAE /* MissionAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70CD2A0F3D4100BEDCAE /* MissionAlbumView.swift */; };
 		656A70D22A0F3D9200BEDCAE /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */; };
+		656A70DB2A0FA53B00BEDCAE /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A70DA2A0FA53B00BEDCAE /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		656A70C52A0D28E700BEDCAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		656A70CD2A0F3D4100BEDCAE /* MissionAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionAlbumView.swift; sourceTree = "<group>"; };
 		656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		656A70DA2A0FA53B00BEDCAE /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				656A70D12A0F3D9200BEDCAE /* DrawerViewController.swift */,
+				656A70DA2A0FA53B00BEDCAE /* StatisticsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656A70C62A0D28E700BEDCAE /* LoginViewController.swift in Sources */,
+				656A70DB2A0FA53B00BEDCAE /* StatisticsViewController.swift in Sources */,
 				0226A7822A0CB6D000206F99 /* GalleryCollectionViewCell.swift in Sources */,
 				0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */,
 				463D69BB2A0F92020005003C /* SettingViewModel.swift in Sources */,
