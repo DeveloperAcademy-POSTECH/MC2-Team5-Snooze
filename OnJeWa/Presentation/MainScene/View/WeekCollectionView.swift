@@ -59,7 +59,7 @@ class WeekCollectionView: BaseView {
 //MARK: - Extension
 extension WeekCollectionView  {
   private func setupView() {
-    [weekCollectionView, weekTitleLabel].forEach {
+    [weekTitleLabel, weekCollectionView].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
       backgroundView.addSubview($0)
     }
@@ -103,7 +103,7 @@ extension WeekCollectionView: UICollectionViewDelegateFlowLayout {
     let screenWidth = UIScreen.main.bounds.width
     //MARK: - padding을 뺀 cell의 넓이, 계산 값으로 변경 필요
     let cellWidth = (screenWidth - 144) / 7
-    return CGSize(width: 35.adjusted, height: 64.adjusted)
+    return CGSize(width: 35.adjusted, height: 66.adjusted)
     
   }
   

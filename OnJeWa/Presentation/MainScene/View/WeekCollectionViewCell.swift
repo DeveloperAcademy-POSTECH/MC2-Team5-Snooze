@@ -22,7 +22,7 @@ class WeekCollectionViewCell: UICollectionViewCell {
   
   private let missionGaugeImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "full")
+    imageView.image = UIImage(named: "zero")
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
@@ -42,7 +42,7 @@ class WeekCollectionViewCell: UICollectionViewCell {
 extension WeekCollectionViewCell {
   private func setupView() {
     contentView.backgroundColor = .clear
-    [dayLabel, missionGaugeImageView].forEach {
+    [dayLabel ,missionGaugeImageView].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
       contentView.addSubview($0)
     }
@@ -53,14 +53,13 @@ extension WeekCollectionViewCell {
     let imageWidth = (screenWidth - 144) / 7
     
     let contentViewHeight = contentView.frame.height
-    let imageHeight = contentViewHeight - 29
+    let imageHeight = contentViewHeight - 39
     
     NSLayoutConstraint.activate([
       missionGaugeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-      missionGaugeImageView.widthAnchor.constraint(equalToConstant: imageWidth.adjusted),
-      missionGaugeImageView.heightAnchor.constraint(equalToConstant: imageHeight.adjusted)])
-    
-    
+      missionGaugeImageView.widthAnchor.constraint(equalToConstant: 35.adjusted),
+      missionGaugeImageView.heightAnchor.constraint(equalToConstant: 35.adjusted)])
+
     NSLayoutConstraint.activate([
       dayLabel.topAnchor.constraint(equalTo: missionGaugeImageView.bottomAnchor, constant: 12.adjusted),
       dayLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
@@ -69,6 +68,16 @@ extension WeekCollectionViewCell {
   }
   
   func dataBind(model: MainWeekModel) {
+    let cal = Calendar(identifier: .gregorian)
+    let now = Date()
+    let comps = cal.dateComponents([.weekday], from: now)
+    
     dayLabel.text = model.day
+    missionGaugeImageView.image = UIImage(named: model.image)
+    if let weekday = comps.weekday, weekday == model.index {
+          
+      dayLabel.textColor = .red
+      dayLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        }
   }
 }
