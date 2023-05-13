@@ -22,6 +22,12 @@
 		463D69B62A0E8AEB0005003C /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69B52A0E8AEB0005003C /* SettingViewCell.swift */; };
 		463D69B82A0E95180005003C /* SettingViewGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69B72A0E95180005003C /* SettingViewGeneralCell.swift */; };
 		463D69BB2A0F92020005003C /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69BA2A0F92020005003C /* SettingViewModel.swift */; };
+		463D69C02A0FA6560005003C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69BF2A0FA6560005003C /* NotificationViewController.swift */; };
+		463D69C32A0FA6E00005003C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69C22A0FA6E00005003C /* NotificationViewModel.swift */; };
+		463D69CA2A0FCDED0005003C /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69C92A0FCDED0005003C /* NotificationViewCell.swift */; };
+		463D69CC2A0FCE390005003C /* NotificationViewChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69CB2A0FCE390005003C /* NotificationViewChatCell.swift */; };
+		46B5BC282A0FE07F005E71FD /* NotificationViewInvitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B5BC272A0FE07F005E71FD /* NotificationViewInvitationCell.swift */; };
+		46B5BC2A2A0FE2B7005E71FD /* NotificationViewMissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B5BC292A0FE2B7005E71FD /* NotificationViewMissionCell.swift */; };
 		651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */; };
 		651C76152A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */; };
 		651C76172A04A2DF00EDC6BC /* ChoosePetTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */; };
@@ -123,6 +129,12 @@
 		463D69B52A0E8AEB0005003C /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		463D69B72A0E95180005003C /* SettingViewGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewGeneralCell.swift; sourceTree = "<group>"; };
 		463D69BA2A0F92020005003C /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		463D69BF2A0FA6560005003C /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		463D69C22A0FA6E00005003C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		463D69C92A0FCDED0005003C /* NotificationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
+		463D69CB2A0FCE390005003C /* NotificationViewChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewChatCell.swift; sourceTree = "<group>"; };
+		46B5BC272A0FE07F005E71FD /* NotificationViewInvitationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewInvitationCell.swift; sourceTree = "<group>"; };
+		46B5BC292A0FE2B7005E71FD /* NotificationViewMissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewMissionCell.swift; sourceTree = "<group>"; };
 		651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewController.swift; sourceTree = "<group>"; };
 		651C76142A04A2A400EDC6BC /* ChoosePetTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewModel.swift; sourceTree = "<group>"; };
 		651C76162A04A2DF00EDC6BC /* ChoosePetTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeView.swift; sourceTree = "<group>"; };
@@ -279,6 +291,43 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		463D69BC2A0FA6200005003C /* NotificationScene */ = {
+			isa = PBXGroup;
+			children = (
+				463D69C12A0FA6CC0005003C /* ViewModel */,
+				463D69BE2A0FA63A0005003C /* View */,
+				463D69BD2A0FA62D0005003C /* ViewController */,
+			);
+			path = NotificationScene;
+			sourceTree = "<group>";
+		};
+		463D69BD2A0FA62D0005003C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				463D69BF2A0FA6560005003C /* NotificationViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		463D69BE2A0FA63A0005003C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				463D69C92A0FCDED0005003C /* NotificationViewCell.swift */,
+				463D69CB2A0FCE390005003C /* NotificationViewChatCell.swift */,
+				46B5BC272A0FE07F005E71FD /* NotificationViewInvitationCell.swift */,
+				46B5BC292A0FE2B7005E71FD /* NotificationViewMissionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		463D69C12A0FA6CC0005003C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				463D69C22A0FA6E00005003C /* NotificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		651C760E2A04A24800EDC6BC /* RegistrationScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +426,7 @@
 		6547BF3C29F8EB5700593D17 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				463D69BC2A0FA6200005003C /* NotificationScene */,
 				463D69A52A0CFD710005003C /* SettingScene */,
 				656A70C92A0F3C9900BEDCAE /* DrawerScene */,
 				656A70C42A0D28D600BEDCAE /* LoginScene */,
@@ -706,8 +756,12 @@
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				463D69AC2A0CFDB30005003C /* SettingViewController.swift in Sources */,
 				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,
+				46B5BC2A2A0FE2B7005E71FD /* NotificationViewMissionCell.swift in Sources */,
 				02722AE82A0B450C00A8D015 /* StopWatchView.swift in Sources */,
 				65510BC329F7D89D002E15CD /* SceneDelegate.swift in Sources */,
+				463D69C02A0FA6560005003C /* NotificationViewController.swift in Sources */,
+				463D69CC2A0FCE390005003C /* NotificationViewChatCell.swift in Sources */,
+				46B5BC282A0FE07F005E71FD /* NotificationViewInvitationCell.swift in Sources */,
 				02236A412A03953500AEEDCA /* NavigationView.swift in Sources */,
 				463D69B82A0E95180005003C /* SettingViewGeneralCell.swift in Sources */,
 				02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */,
@@ -717,6 +771,7 @@
 				463D69B42A0E82010005003C /* SettingViewProfileCell.swift in Sources */,
 				651C76392A08CF8000EDC6BC /* RegisterAddressView.swift in Sources */,
 				651C76372A08CF7400EDC6BC /* RegisterAddressViewModel.swift in Sources */,
+				463D69C32A0FA6E00005003C /* NotificationViewModel.swift in Sources */,
 				463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */,
 				651C76352A08CF6200EDC6BC /* RegisterAddressViewController.swift in Sources */,
 				656A70D22A0F3D9200BEDCAE /* DrawerViewController.swift in Sources */,
@@ -727,6 +782,7 @@
 				651C76202A04F5FA00EDC6BC /* SetProfileViewController.swift in Sources */,
 				651C76332A08C2CE00EDC6BC /* SetBackgroundView.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
+				463D69CA2A0FCDED0005003C /* NotificationViewCell.swift in Sources */,
 				651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */,
 				651C767F2A0A0FBE00EDC6BC /* OnboardingViewController.swift in Sources */,
 				651C76192A04A2F600EDC6BC /* SetProfileView.swift in Sources */,
