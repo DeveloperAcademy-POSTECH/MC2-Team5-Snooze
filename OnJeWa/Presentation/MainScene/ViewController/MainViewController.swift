@@ -175,6 +175,7 @@ extension MainViewController: NavigationViewDelegate {
     }
     
     func didTapProfile() {
-        print("didTapProfile")
+        let settingViewController = SettingViewController()
+        self.navigationController?.pushViewController(settingViewController, animated: true)
     }
 }
