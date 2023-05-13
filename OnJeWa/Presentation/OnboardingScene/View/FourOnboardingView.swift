@@ -8,6 +8,7 @@
 import UIKit
 
 import OnJeWaCore
+import OnJeWaUI
 
 protocol FourOnboardingViewDelegate: AnyObject {
     func didTapStartButton()
@@ -37,14 +38,12 @@ final class FourOnboardingView: BaseView {
     private let backgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .blue
         return view
     }()
     
-    // 수정 : 폰트, 크기, padding
     private let onBoardingTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "안녕 나는\n브랜드야 헤헿")
-        let range = (attributedString.string as NSString).range(of: "브랜드야")
+        let attributedString = NSMutableAttributedString(string: "우리 함께 snooze\n시작해볼까요?")
+        let range = (attributedString.string as NSString).range(of: "snooze")
         let font = UIFont.systemFont(ofSize: 32, weight: .bold)
         attributedString.addAttribute(.font, value: font, range: range)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -59,9 +58,8 @@ final class FourOnboardingView: BaseView {
         return label
     }()
     
-    // 수정 : 폰트, 크기, padding
     private let onBoardingSubTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "안녕 나는 브랜드야 히히안녕 나는 \n안녕 나는 브랜드야 히히안녕 나는 \n안녕 나는 브랜드야 히히안녕 나는 \n안녕 나는 브랜드야 히히안녕 나는 \n안녕 나는 브랜드야 히히안녕 나는")
+        let attributedString = NSMutableAttributedString(string: "막둥이와 함께하는 시간이 당연해지지\n않도록! 지금 snooze 해요!")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle,
@@ -73,14 +71,36 @@ final class FourOnboardingView: BaseView {
         return label
     }()
     
-    // 수정 : cornerRadius
     private let startButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("시작하기", for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.backgroundColor = OnjewaColor.dog.color
+        button.layer.cornerRadius = 14
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return button
+    }()
+    
+    private let labelBox: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = OnjewaColor.dog.color
+        return view
+    }()
+    
+    private let onboardingImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let originalImage = UIImage(named: "fourOnboarding")
+        let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let resizedImage = renderer.image { _ in
+            originalImage!.draw(in: CGRect(origin: .zero, size: size))
+        }
+        imageView.image = resizedImage
+        imageView.sizeToFit()
+        return imageView
     }()
     
     //MARK: - Functions
@@ -92,7 +112,7 @@ final class FourOnboardingView: BaseView {
 
 private extension FourOnboardingView {
     func setupView() {
-        [onBoardingTitle, onBoardingSubTitle, startButton].forEach {
+        [labelBox, onBoardingTitle, onBoardingSubTitle, onboardingImage, startButton].forEach {
             backgroundView.addSubview($0)
         }
         
@@ -103,27 +123,42 @@ private extension FourOnboardingView {
     
     func setupLayout() {
         NSLayoutConstraint.activate([
+            labelBox.topAnchor.constraint(equalTo: onBoardingTitle.topAnchor,
+                                          constant: 24),
+            labelBox.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                              constant: 145),
+            labelBox.widthAnchor.constraint(equalToConstant: 113),
+            labelBox.heightAnchor.constraint(equalToConstant: 15),
+        ])
+        
+        NSLayoutConstraint.activate([
             onBoardingTitle.topAnchor.constraint(equalTo: backgroundView.topAnchor,
                                                  constant: UIScreen.main.bounds.size.height / 6),
             onBoardingTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                     constant: 16),
+                                                     constant: 24),
         ])
         
         NSLayoutConstraint.activate([
-            onBoardingSubTitle.topAnchor.constraint(equalTo: onBoardingTitle.bottomAnchor, constant: 16),
+            onBoardingSubTitle.topAnchor.constraint(equalTo: onBoardingTitle.bottomAnchor,
+                                                    constant: 24),
             onBoardingSubTitle.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                        constant: 16),
+                                                        constant: 24),
         ])
         
         NSLayoutConstraint.activate([
-            // 수정 : 버튼 height
+            onboardingImage.bottomAnchor.constraint(equalTo: startButton.topAnchor,
+                                                    constant: -30),
+            onboardingImage.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
             startButton.heightAnchor.constraint(equalToConstant: 60),
             startButton.bottomAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.bottomAnchor,
                                                 constant: -20),
             startButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                                 constant: 16),
+                                                 constant: 20),
             startButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                                  constant: -16),
+                                                  constant: -20),
         ])
         
         NSLayoutConstraint.activate([
