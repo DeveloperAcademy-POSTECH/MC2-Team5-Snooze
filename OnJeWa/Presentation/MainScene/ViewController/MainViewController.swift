@@ -10,7 +10,7 @@ import OnJeWaCore
 import OnJeWaUI
 
 class MainViewController: BaseViewController {
-  
+    
   //MARK: - Properties
   
   let viewModel = MainViewModel()
@@ -27,6 +27,9 @@ class MainViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tapButtonVC.delegate = self // 내가 대신 하겠다
+      navigationView.delegate = self
+      
+      UserDefaultsSetting.mainPet = "cat"
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +41,26 @@ class MainViewController: BaseViewController {
     self.viewModel.output.outResult
       .bind { [weak self] value in
         if value  {
-          self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutClicked"),
-                                                   for: .normal)
+            switch UserDefaultsSetting.mainPet {
+            case "dog":
+                self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutClicked"),
+                                                         for: .normal)
+                break
+            case "cat":
+                self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout3"),
+                                                         for: .normal)
+                break
+            case "parrot":
+                self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout4"),
+                                                         for: .normal)
+                break
+            case "rabbit":
+                self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout2"),
+                                                         for: .normal)
+                break
+            default:
+                break
+            }
           self?.tapButtonVC.tapPositionImageView.image = UIImage(named: "rightlight")
         } else {
           self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutUnClicked"),
@@ -53,7 +74,22 @@ class MainViewController: BaseViewController {
     self.viewModel.output.inResult
       .bind {[weak self] value in
         if value {
-          self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
+            switch UserDefaultsSetting.mainPet {
+            case "dog":
+                self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
+                break
+            case "cat":
+                self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein3"), for: .normal)
+                break
+            case "parrot":
+                self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein4"), for: .normal)
+                break
+            case "rabbit":
+                self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein2"), for: .normal)
+                break
+            default:
+                break
+            }
         }else {
           self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
         }
@@ -128,6 +164,17 @@ extension MainViewController: TapButtonViewDelegate {
   }
 }
 
-
-
-
+extension MainViewController: NavigationViewDelegate {
+    func didTapAlbum() {
+        let drawerViewController = DrawerViewController()
+        self.navigationController?.pushViewController(drawerViewController, animated: true)
+    }
+    
+    func didTapNoti() {
+        print("didTapNoti")
+    }
+    
+    func didTapProfile() {
+        print("didTapProfile")
+    }
+}

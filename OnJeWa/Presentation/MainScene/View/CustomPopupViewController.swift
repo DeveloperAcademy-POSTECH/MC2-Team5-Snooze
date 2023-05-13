@@ -46,7 +46,7 @@ final class CustomPopupViewController: BaseViewController  {
   
   private lazy var checkButton: UIButton = {
     let button = UIButton()
-    button.backgroundColor = .yellow
+      button.backgroundColor = hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
     button.layer.cornerRadius = 14
     button.setTitle("확인", for: .normal)
     button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -56,10 +56,7 @@ final class CustomPopupViewController: BaseViewController  {
   }()
   
   @objc private func didTapCheckButton() {
-    guard let presentingVC = self.presentingViewController as? UINavigationController else { return }
-    self.dismiss(animated: false) {
-        presentingVC.popViewController(animated: false)
-    }
+      self.dismiss(animated: false)
   }
   
   //MARK: - Life Cycle

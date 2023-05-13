@@ -70,9 +70,44 @@ final class MissionViewController: BaseViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.navigationItem.hidesBackButton = true
+        
+        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
+                                         style: .done, target: self, action: #selector(back))
+        backbutton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = backbutton
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func rightButtonTapGesture(_ sender: UITapGestureRecognizer) {
+        let drawerViewController = DrawerViewController()
+        self.navigationController?.pushViewController(drawerViewController, animated: true)
+    }
+    
     //MARK: - Functions
     
     override func setupView() {
+        
+        self.title = "미션"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightIcon)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(rightButtonTapGesture))
+        navigationRightIcon.addGestureRecognizer(tapGestureRecognizer)
         
         [timeRemainingTitle, timeRemainingValue].forEach {
             timeRemainingStackView.addArrangedSubview($0)
@@ -634,6 +669,14 @@ final class MissionViewController: BaseViewController {
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = OnjewaColor.button.color
         return label
+    }()
+    
+    private let navigationRightIcon: UIImageView = {
+       let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "tray.full")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     private let bottomImageView: UIImageView = {

@@ -70,7 +70,22 @@ class TapButtonViewController: BaseViewController {
   
   private let animalTimeImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "animaltime")
+      switch UserDefaultsSetting.mainPet {
+      case "dog":
+          imageView.image = UIImage(named: "animaltime")
+          break
+      case "cat":
+          imageView.image = UIImage(named: "animaltime3")
+          break
+      case "parrot":
+          imageView.image = UIImage(named: "animaltime4")
+          break
+      case "rabbit":
+          imageView.image = UIImage(named: "animaltime2")
+          break
+      default:
+          break
+      }
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
@@ -108,7 +123,22 @@ class TapButtonViewController: BaseViewController {
   
   private let inClockAnimalImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "watchdog")
+      switch UserDefaultsSetting.mainPet {
+      case "dog":
+          imageView.image = UIImage(named: "watchdog")
+          break
+      case "cat":
+          imageView.image = UIImage(named: "watchdog3")
+          break
+      case "parrot":
+          imageView.image = UIImage(named: "watchdog4")
+          break
+      case "rabbit":
+          imageView.image = UIImage(named: "watchdog2")
+          break
+      default:
+          break
+      }
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
