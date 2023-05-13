@@ -21,7 +21,7 @@ final class CustomPopupViewController: BaseViewController  {
   
   private let popupTitleLable: UILabel = {
     let label = UILabel()
-    label.text = "나와 반려동물의 시간"
+    label.text = "나와 막둥이의 시간"
     label.textColor = .black
     label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     return label
@@ -29,15 +29,16 @@ final class CustomPopupViewController: BaseViewController  {
   
   private let popupImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "watchdog")
+    imageView.image = UIImage(named: "image_logo")
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
   
   private let contentLabel: UILabel = {
     let label = UILabel()
-    label.text = "안녕 나는 브랜드야 히히안녕 나는 브랜드야\n히히 안녕 나는 브랜드야 히히안녕 나는 브랜\n드야 히히"
+    label.text = "사람의 1시간은 막둥이의 4시간이에요.\nsnooze와 함께 막둥이의 시간을 체험해보고\n미션을 수행해 함께하는 시간을 늘려봐요!"
     label.numberOfLines = 0
+    label.textAlignment = .center
     label.textColor = .black
     label.font = UIFont.systemFont(ofSize: 16)
     return label
@@ -50,9 +51,16 @@ final class CustomPopupViewController: BaseViewController  {
     button.setTitle("확인", for: .normal)
     button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     button.titleLabel?.textColor = .black
+    button.addTarget(self, action: #selector(didTapCheckButton), for: .touchUpInside)
     return button
   }()
   
+  @objc private func didTapCheckButton() {
+    guard let presentingVC = self.presentingViewController as? UINavigationController else { return }
+    self.dismiss(animated: false) {
+        presentingVC.popViewController(animated: false)
+    }
+  }
   
   //MARK: - Life Cycle
   override func viewDidLoad() {

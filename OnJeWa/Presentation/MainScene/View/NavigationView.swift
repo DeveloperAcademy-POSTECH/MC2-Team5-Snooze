@@ -22,7 +22,8 @@ final class NavigationView: BaseView {
   
   private let logoImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "logobox")
+    imageView.image = UIImage(named: "logo_white")
+    imageView.contentMode = .scaleAspectFit
     return imageView
   }()
   
