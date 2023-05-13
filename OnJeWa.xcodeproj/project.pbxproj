@@ -331,7 +331,6 @@
 		6547BF3C29F8EB5700593D17 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				656A70D32A0F3D9C00BEDCAE /* New Group */,
 				656A70C92A0F3C9900BEDCAE /* DrawerScene */,
 				656A70C42A0D28D600BEDCAE /* LoginScene */,
 				02236A382A0390C600AEEDCA /* MainScene */,
@@ -501,13 +500,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		656A70D32A0F3D9C00BEDCAE /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
