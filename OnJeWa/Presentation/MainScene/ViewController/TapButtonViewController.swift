@@ -9,6 +9,7 @@ import UIKit
 import OnJeWaUI
 import OnJeWaCore
 import Gifu
+import WidgetKit
 
 protocol TapButtonViewDelegate: AnyObject {
   func didTapButton(value: String)
@@ -187,9 +188,27 @@ class TapButtonViewController: BaseViewController {
     timer = nil
     counter = 0.0
     
-    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer),
+                                 userInfo: nil, repeats: true)
     
+    UserDefaults.shared.set(true, forKey: "homeOutKey")
+    UserDefaults.shared.set(-1, forKey: "animalHour")
+    WidgetCenter.shared.reloadAllTimelines()
   }
+  
+  @objc private func homeInButtonTapped(_ sender: UIButton) {
+    delegate?.didTapButton(value: "in")
+    timer?.invalidate()
+    timer = nil
+    counter = 0.0
+    
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer),
+                                 userInfo: nil, repeats: true)
+    UserDefaults.shared.set(false, forKey: "homeOutKey")
+    UserDefaults.shared.set(-1, forKey: "animalHour")
+    WidgetCenter.shared.reloadAllTimelines()
+  }
+  
   
   @objc func updateTimer() {
     counter += 0.1
@@ -200,21 +219,13 @@ class TapButtonViewController: BaseViewController {
     let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
     inClockHumanTimeLabel.text = humanTimeString
     
-    let animalHour = humanHour + 4
+    let animalHour = UserDefaultsSetting.mainPet == "rabbit" ? (humanHour + 24) : UserDefaultsSetting.mainPet == "parrot" ? (humanHour + 6) : (humanHour + 4)
     let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
     inClockAnimalTimeLabel.text = animalTimeString
     
-    UserDefaults.shared.set(minute, forKey: "animalHour")
+    UserDefaults.shared.set(animalHour, forKey: "animalHourResult")
   }
   
-  @objc private func homeInButtonTapped(_ sender: UIButton) {
-    delegate?.didTapButton(value: "in")
-    timer?.invalidate()
-    timer = nil
-    counter = 0.0
-    
-    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -291,13 +302,15 @@ class TapButtonViewController: BaseViewController {
     NSLayoutConstraint.activate([
       animalTimeImageView.topAnchor.constraint(equalTo: clockImageView.topAnchor, constant: 26
         .adjusted),
-      animalTimeImageView.leadingAnchor.constraint(equalTo: clockImageView.leadingAnchor, constant: 5.adjusted),
+      animalTimeImageView.leadingAnchor.constraint(equalTo: clockImageView.leadingAnchor,
+                                                   constant: 5.adjusted),
       animalTimeImageView.trailingAnchor.constraint(equalTo: clockImageView.trailingAnchor),
       animalTimeImageView.heightAnchor.constraint(equalToConstant: 155.adjusted)
     ])
     
     NSLayoutConstraint.activate([
-      humanTimeImageView.topAnchor.constraint(equalTo: clockImageView.topAnchor, constant: 44.adjusted),
+      humanTimeImageView.topAnchor.constraint(equalTo: clockImageView.topAnchor,
+                                              constant: 44.adjusted),
       humanTimeImageView.leadingAnchor.constraint(equalTo: clockImageView.centerXAnchor),
       humanTimeImageView.widthAnchor.constraint(equalToConstant: 140.adjusted),
       humanTimeImageView.heightAnchor.constraint(equalToConstant: 140.adjusted)
@@ -321,29 +334,34 @@ class TapButtonViewController: BaseViewController {
     ])
     
     NSLayoutConstraint.activate([
-      inClockAnimalTimeLabel.topAnchor.constraint(equalTo: inClockTitleLabel.bottomAnchor,constant: 2.adjusted),
+      inClockAnimalTimeLabel.topAnchor.constraint(equalTo: inClockTitleLabel.bottomAnchor,
+                                                  constant: 2.adjusted),
       inClockAnimalTimeLabel.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)
     ])
     
     NSLayoutConstraint.activate([
-      inClockHumanTimeLabel.topAnchor.constraint(equalTo: inClockAnimalTimeLabel.bottomAnchor, constant: 8.adjusted),
+      inClockHumanTimeLabel.topAnchor.constraint(equalTo: inClockAnimalTimeLabel.bottomAnchor,
+                                                 constant: 8.adjusted),
       inClockHumanTimeLabel.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)
     ])
     
     NSLayoutConstraint.activate([
       homeOutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      homeOutButton.leadingAnchor.constraint(equalTo: clockImageView.leadingAnchor, constant: 14.adjusted),
+      homeOutButton.leadingAnchor.constraint(equalTo: clockImageView.leadingAnchor,
+                                             constant: 14.adjusted),
       homeOutButton.widthAnchor.constraint(equalToConstant: 76.adjusted),
       homeOutButton.heightAnchor.constraint(equalToConstant: 76.adjusted)
     ])
     NSLayoutConstraint.activate([
       tapPositionImageView.centerYAnchor.constraint(equalTo: homeOutButton.centerYAnchor),
-      tapPositionImageView.leadingAnchor.constraint(equalTo: homeOutButton.trailingAnchor, constant: 48.adjusted),
+      tapPositionImageView.leadingAnchor.constraint(equalTo: homeOutButton.trailingAnchor,
+                                                    constant: 48.adjusted),
       tapPositionImageView.widthAnchor.constraint(equalToConstant: 24.adjusted)
     ])
     NSLayoutConstraint.activate([
       homeInButton.bottomAnchor.constraint(equalTo: homeOutButton.bottomAnchor),
-      homeInButton.leadingAnchor.constraint(equalTo: tapPositionImageView.trailingAnchor, constant: 48.adjusted),
+      homeInButton.leadingAnchor.constraint(equalTo: tapPositionImageView.trailingAnchor,
+                                            constant: 48.adjusted),
       homeInButton.widthAnchor.constraint(equalToConstant: 76.adjusted),
       homeInButton.heightAnchor.constraint(equalToConstant: 76.adjusted)
     ])

@@ -11,6 +11,7 @@ import OnJeWaCore
 import OnJeWaUI
 import RxCocoa
 import RxSwift
+import WidgetKit
 
 protocol ChoosePetTypeViewDelegate: AnyObject {
     func didTapNextButton()
@@ -195,10 +196,12 @@ final class ChoosePetTypeView: BaseView {
         let petType = sender.tag == 1 ? "강아지" : sender.tag == 2 ? "고양이" :
         sender.tag == 3 ? "앵무새" : sender.tag == 4 ? "토끼" : "선택안함"
         proxyDelegate?.didSelectPetType?(value: petType)
+        UserDefaults.shared.set(petType, forKey: "petTypeKey")
     }
     
     @objc func nextButtonTapGesture(_ sender: UITapGestureRecognizer) {
         delegate?.didTapNextButton()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func setupPetType(_ passedPetType: String) {

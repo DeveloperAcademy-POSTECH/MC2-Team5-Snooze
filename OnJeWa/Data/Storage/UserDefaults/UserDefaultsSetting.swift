@@ -24,5 +24,5 @@ enum UserDefaultsSetting {
   /// 등록할 때 선택한 동물 ( dog, cat, parrot, rabbit )
   @UserDefaultsWrapper(key: "mainPet", defaultValue: "dog")
   static var mainPet
-
+  
 }

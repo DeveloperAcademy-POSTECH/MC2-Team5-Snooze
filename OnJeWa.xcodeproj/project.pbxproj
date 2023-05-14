@@ -1051,7 +1051,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
@@ -1080,7 +1080,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
@@ -1226,7 +1226,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하기위해 카메라 권한이 필요합니다.";
@@ -1262,7 +1262,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하기위해 카메라 권한이 필요합니다.";
