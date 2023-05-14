@@ -193,23 +193,26 @@ class TapButtonViewController: BaseViewController {
             timer?.invalidate()
             timer = nil
         }
-        
+     
     }
-    
+  
     @objc func updateTimer() {
-        counter += 0.1
-        let flooredCounter = Int(floor(counter))
-        let humanHour = flooredCounter / 3600
-        let minute = (flooredCounter % 3600) / 60
-        let second = (flooredCounter % 3600) % 60
-        let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
-        inClockHumanTimeLabel.text = humanTimeString
-        
-        let animalHour = humanHour+4
-        let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
-        inClockAnimalTimeLabel.text = animalTimeString
-        
-    }
+    counter += 0.1
+    let flooredCounter = Int(floor(counter))
+    let humanHour = flooredCounter / 3600
+    let minute = (flooredCounter % 3600) / 60
+    let second = (flooredCounter % 3600) % 60
+    let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
+    inClockHumanTimeLabel.text = humanTimeString
+    
+    let animalHour = humanHour + 4
+    let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
+    inClockAnimalTimeLabel.text = animalTimeString
+    
+    UserDefaults.shared.set(minute, forKey: "animalHour")
+  }
+    
+
     
     
     @objc private func homeInButtonTapped(_ sender: UIButton) {
