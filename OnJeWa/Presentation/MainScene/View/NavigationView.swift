@@ -8,6 +8,7 @@
 import UIKit
 import OnJeWaUI
 import OnJeWaCore
+import OnJeWaNetwork
 
 protocol NavigationViewDelegate: AnyObject {
     func didTapAlbum()
@@ -53,11 +54,13 @@ final class NavigationView: BaseView {
   
   private lazy var profileButton: UIButton = {
     let button = UIButton()
-    button.setImage(UIImage(named: "profilebutton"), for: .normal)
+//    button.setImage(UIImage(named: "profilebutton"), for: .normal)
+      button.setImage(UIImage(data: RealmManager.shared.readProfileImage()), for: .normal)
     button.contentMode = .scaleAspectFit
+      button.layer.cornerRadius = 14
+      button.clipsToBounds = true
     return button
   }()
-  
   
   override init(frame: CGRect) {
     super.init(frame: frame)

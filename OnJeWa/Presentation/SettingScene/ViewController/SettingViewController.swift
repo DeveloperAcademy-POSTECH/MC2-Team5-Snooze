@@ -8,6 +8,7 @@
 import UIKit
 
 import OnJeWaCore
+import OnJeWaNetwork
 
 final class SettingViewController: UIViewController {
     
@@ -64,7 +65,8 @@ final class SettingViewController: UIViewController {
     // MARK: - Model
     
     private let menus: [Menu] = [
-        Menu(profile: UIImage(named: "IMG_2"), name: "복순", menuType: .profile),
+        Menu(profile: UIImage(data: RealmManager.shared.readProfileImage()),
+             name: RealmManager.shared.readName(), menuType: .profile),
         Menu(profile: nil, name: "알림설정", menuType: .general),
         Menu(profile: nil, name: "피드백 & 도움말", menuType: .general),
         Menu(profile: nil, name: "앱 버전", menuType: .general),

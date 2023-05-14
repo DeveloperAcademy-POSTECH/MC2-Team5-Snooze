@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        sleep(2)
+        
         // Override point for customization after application launch.
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter

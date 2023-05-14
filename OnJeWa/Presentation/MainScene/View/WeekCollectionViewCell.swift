@@ -9,6 +9,8 @@ import UIKit
 
 class WeekCollectionViewCell: UICollectionViewCell {
     
+    var missionTapAction: (() -> Void)?
+    
     static let identifier = "WeekCollectionViewCell"
     
     private let dayLabel: UILabel = {
@@ -69,10 +71,7 @@ extension WeekCollectionViewCell {
     }
     
     @objc func missionTapGesture(_ sender: UITapGestureRecognizer) {
-        let missionViewController = MissionViewController()
-        if let viewController = window?.rootViewController as? UINavigationController {
-            viewController.pushViewController(missionViewController, animated: true)
-        }
+        missionTapAction?()
     }
     
     func dataBind(model: MainWeekModel) {
