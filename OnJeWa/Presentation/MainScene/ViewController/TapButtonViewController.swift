@@ -108,7 +108,7 @@ class TapButtonViewController: BaseViewController {
   
   private let inClockAnimalImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "watchdog")
+    imageView.image = UIImage(named: "dogrun")
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
@@ -164,22 +164,24 @@ class TapButtonViewController: BaseViewController {
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
-  
-  private var previousButton: UIButton?
-  
+    
   @objc private func homeOutButtonTapped(_ sender: UIButton) {
     delegate?.didTapButton(value: "out")
+    timer?.invalidate()
+    timer = nil
+    counter = 0.0
     
-    if timer == nil {
-      //타이머가 nil인 경우, 타이머를 생성하고 시작
-      timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-      
-    } else {
-      // 타이머가 nil이 아닌 경우, 타이머를 중지
-      timer?.invalidate()
-      timer = nil
-    }
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     
+  }
+  
+  @objc private func homeInButtonTapped(_ sender: UIButton) {
+    delegate?.didTapButton(value: "in")
+    timer?.invalidate()
+    timer = nil
+    counter = 0.0
+    
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
   }
   
   @objc func updateTimer() {
@@ -191,18 +193,11 @@ class TapButtonViewController: BaseViewController {
     let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
     inClockHumanTimeLabel.text = humanTimeString
     
-    let animalHour = humanHour+4
+    let animalHour = humanHour + 4
     let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
     inClockAnimalTimeLabel.text = animalTimeString
     
-  }
-  
-  
-  @objc private func homeInButtonTapped(_ sender: UIButton) {
-    delegate?.didTapButton(value: "in")
-    timer?.invalidate()
-    timer = nil
-    counter = 0.0
+    UserDefaults.shared.set(minute, forKey: "animalHour")
   }
   
   override func viewDidLoad() {

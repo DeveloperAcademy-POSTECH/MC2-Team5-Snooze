@@ -23,14 +23,19 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
-        }
+      let entryDate = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+          let entry = SimpleEntry(date: entryDate)
+          entries.append(entry)
+
+          let timeline = Timeline(entries: entries, policy: .atEnd)
+      
+      UserDefaults.standard.dictionaryRepresentation().forEach { (key, value) in
+          UserDefaults.shared.set(value, forKey: key)
+      }
+      print(UserDefaults.shared.integer(forKey: "animalHour"))
+      
+          completion(timeline)
     }
 }
 
@@ -42,12 +47,26 @@ struct OnJeWaWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+      let animalHour = UserDefaults.shared.integer(forKey: "animalHour")
+      
+      VStack(alignment: .leading) {
+        Text("오늘 주인을 기다린지")
+          .font(.system(size: 12, weight: .light))
+        Text("\(animalHour)시간")
+          .foregroundColor(.black)
+          .font(.system(size: 20, weight: .bold))
+          .padding(.bottom, 3)
+        Image("cat")
+          .resizable()
+          .frame(width: 117, height: 81)
+          .aspectRatio(.zero, contentMode: .fill)
+      }
     }
 }
 
 struct OnJeWaWidget: Widget {
     let kind: String = "OnJeWaWidget"
+
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
