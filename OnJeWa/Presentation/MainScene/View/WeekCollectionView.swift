@@ -28,7 +28,7 @@ class WeekCollectionView: BaseView {
     
     private let weekTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "이번주 카키와 함께한 시간"
+        label.text = "이번주 막둥이와 함께한 시간"
         //MARK: 수정 - 색상 변경 필요
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16.adjusted, weight: .bold)
