@@ -1055,7 +1055,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
@@ -1067,7 +1067,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa.OnJeWaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa.OnJeWaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1084,7 +1084,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
@@ -1096,7 +1096,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa.OnJeWaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa.OnJeWaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1230,8 +1230,6 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
-				DEVELOPMENT_TEAM = XKDG839GBD;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
@@ -1251,9 +1249,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa;
-				PRODUCT_BUNDLE_IDENTIFIER = com.poodlepoodle.OnJeWa;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1270,8 +1266,6 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F92UQYH2RA;
-				DEVELOPMENT_TEAM = XKDG839GBD;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
@@ -1291,8 +1285,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa;
-				PRODUCT_BUNDLE_IDENTIFIER = com.poodlepoodle.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
