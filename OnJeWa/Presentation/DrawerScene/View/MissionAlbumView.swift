@@ -60,7 +60,7 @@ final class MissionAlbumView: BaseView {
     private let albumImageDayTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "4월 24일"
+        label.text = "5월 18일"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 12)
         return label
@@ -69,8 +69,9 @@ final class MissionAlbumView: BaseView {
     private let currentAlbumImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .blue
         imageView.layer.cornerRadius = 14
+        imageView.image = UIImage(named: "IMG_6")
+        imageView.clipsToBounds = true
         return imageView
     }()
     

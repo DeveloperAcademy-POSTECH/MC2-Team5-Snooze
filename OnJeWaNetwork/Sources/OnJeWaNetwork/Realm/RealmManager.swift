@@ -70,8 +70,8 @@ public class RealmManager: Realmable {
     }
     
     public func readCoordinate() -> CLLocation {
-        let latitude = realm.objects(Profile.self).first!.value(forKeyPath: "latitude")! as! Float
-        let longitude = realm.objects(Profile.self).first!.value(forKeyPath: "longitude")! as! Float
+        let latitude = realm.objects(Profile.self).first!.value(forKeyPath: "latitude")! as! Double
+        let longitude = realm.objects(Profile.self).first!.value(forKeyPath: "longitude")! as! Double
         let location = CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
         return location
     }
