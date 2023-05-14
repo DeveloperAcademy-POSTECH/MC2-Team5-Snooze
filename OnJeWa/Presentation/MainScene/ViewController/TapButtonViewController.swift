@@ -305,8 +305,10 @@ class TapButtonViewController: BaseViewController {
             break
         }
         
-//        UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
-//        UserDefaultsSetting.mainType = "none"
+        // 이거 나중에 지워~
+        UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+        UserDefaultsSetting.mainType = "none"
+        //
         
         NotificationCenter.default.addObserver(self, selector: #selector(addbackGroundTime(_:)), name: NSNotification.Name("sceneWillEnterForeground"), object: nil)
         //포어그라운드에서 백그라운드로 갈때
@@ -370,7 +372,15 @@ class TapButtonViewController: BaseViewController {
         print("??? viewDidLoad")
         //백그라운드에서 포어그라운드로 돌아올때
         
-
+        
+        // 이거 나중에 지워~
+        UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+        self.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
+        self.homeOutButton.setImage(UIImage(named: "homeoutUnClicked"),
+                                                 for: .normal)
+        self.counter = 0.0
+        self.timer.invalidate()
+        //
     }
 
     
