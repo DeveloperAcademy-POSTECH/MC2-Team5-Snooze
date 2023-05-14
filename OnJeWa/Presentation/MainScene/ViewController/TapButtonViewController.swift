@@ -8,6 +8,7 @@
 import UIKit
 import OnJeWaUI
 import OnJeWaCore
+import Gifu
 
 protocol TapButtonViewDelegate: AnyObject {
   func didTapButton(value: String)
@@ -27,7 +28,7 @@ class TapButtonViewController: BaseViewController {
   
   private let titleLabel: UILabel = {
     let label = UILabel()
-    label.text = "카키의 하루"
+    label.text = "막둥이의 하루"
     label.textColor = .white
     label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     return label
@@ -53,13 +54,11 @@ class TapButtonViewController: BaseViewController {
     return button
   }()
   
-  
   @objc func didTapPopupButton() {
     let popupVC = CustomPopupViewController()
     popupVC.modalPresentationStyle = .overFullScreen
     self.present(popupVC, animated: false)
   }
-  
   
   private let clockImageView: UIImageView = {
     let imageView = UIImageView()
@@ -70,22 +69,22 @@ class TapButtonViewController: BaseViewController {
   
   private let animalTimeImageView: UIImageView = {
     let imageView = UIImageView()
-      switch UserDefaultsSetting.mainPet {
-      case "dog":
-          imageView.image = UIImage(named: "animaltime")
-          break
-      case "cat":
-          imageView.image = UIImage(named: "animaltime3")
-          break
-      case "parrot":
-          imageView.image = UIImage(named: "animaltime4")
-          break
-      case "rabbit":
-          imageView.image = UIImage(named: "animaltime2")
-          break
-      default:
-          break
-      }
+    switch UserDefaultsSetting.mainPet {
+    case "dog":
+      imageView.image = UIImage(named: "animaltime")
+      break
+    case "cat":
+      imageView.image = UIImage(named: "animaltime3")
+      break
+    case "parrot":
+      imageView.image = UIImage(named: "animaltime4")
+      break
+    case "rabbit":
+      imageView.image = UIImage(named: "animaltime2")
+      break
+    default:
+      break
+    }
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
@@ -121,31 +120,16 @@ class TapButtonViewController: BaseViewController {
     return label
   }()
   
-  private let inClockAnimalImageView: UIImageView = {
-    let imageView = UIImageView()
-      switch UserDefaultsSetting.mainPet {
-      case "dog":
-          imageView.image = UIImage(named: "watchdog")
-          break
-      case "cat":
-          imageView.image = UIImage(named: "watchdog3")
-          break
-      case "parrot":
-          imageView.image = UIImage(named: "watchdog4")
-          break
-      case "rabbit":
-          imageView.image = UIImage(named: "watchdog2")
-          break
-      default:
-          break
-      }
+  private let inClockAnimalImageView: GIFImageView = {
+    let imageView = GIFImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
   
   private let inClockTitleLabel: UILabel = {
     let label = UILabel()
-    label.text = "카키가 나를 기다린지"
+    label.text = "막둥이가 나를 기다린지"
     label.font = UIFont.systemFont(ofSize: 14)
     label.textColor = .black
     return label
@@ -199,16 +183,11 @@ class TapButtonViewController: BaseViewController {
   
   @objc private func homeOutButtonTapped(_ sender: UIButton) {
     delegate?.didTapButton(value: "out")
+    timer?.invalidate()
+    timer = nil
+    counter = 0.0
     
-    if timer == nil {
-      //타이머가 nil인 경우, 타이머를 생성하고 시작
-      timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-      
-    } else {
-      // 타이머가 nil이 아닌 경우, 타이머를 중지
-      timer?.invalidate()
-      timer = nil
-    }
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     
   }
   
@@ -221,26 +200,62 @@ class TapButtonViewController: BaseViewController {
     let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
     inClockHumanTimeLabel.text = humanTimeString
     
-    let animalHour = humanHour+4
+    let animalHour = humanHour + 4
     let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
     inClockAnimalTimeLabel.text = animalTimeString
     
+    UserDefaults.shared.set(minute, forKey: "animalHour")
   }
-  
   
   @objc private func homeInButtonTapped(_ sender: UIButton) {
     delegate?.didTapButton(value: "in")
     timer?.invalidate()
     timer = nil
     counter = 0.0
+    
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    startAnimation()
+    
+    let dogArray = ["d_1", "d_2", "d_3", "d_4"]
+    let catArray = ["c_1", "c_2", "c_3", "c_4"]
+    let parrotArray = ["p_1", "p_2", "p_3", "p_4"]
+    let rabbitArray = ["r_1", "r_2", "r_3", "r_4"]
+    
+    switch UserDefaultsSetting.mainPet {
+    case "dog":
+      DispatchQueue.main.async {
+        self.inClockAnimalImageView.animate(withGIFNamed: dogArray.randomElement()!,
+                                            animationBlock:  { })
+      }
+      break
+    case "cat":
+      DispatchQueue.main.async {
+        self.inClockAnimalImageView.animate(withGIFNamed: catArray.randomElement()!,
+                                            animationBlock:  { })
+      }
+      break
+    case "parrot":
+      DispatchQueue.main.async {
+        self.inClockAnimalImageView.animate(withGIFNamed: parrotArray.randomElement()!,
+                                            animationBlock:  { })
+      }
+      break
+    case "rabbit":
+      DispatchQueue.main.async {
+        self.inClockAnimalImageView.animate(withGIFNamed: rabbitArray.randomElement()!,
+                                            animationBlock:  { })
+      }
+      break
+    default:
+      break
+    }
   }
   
   override func setupView() {
+    
     view.backgroundColor = .clear
     [titleLabel, dateLabel, popupButton, clockImageView,animalTimeImageView, humanTimeImageView,
      carrotNumber, inClockAnimalImageView, inClockTitleLabel, inClockHumanTimeLabel,
@@ -292,20 +307,24 @@ class TapButtonViewController: BaseViewController {
       carrotNumber.topAnchor.constraint(equalTo: clockImageView.topAnchor, constant: 85.adjusted),
       carrotNumber.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)
     ])
+    
     NSLayoutConstraint.activate([
-      inClockAnimalImageView.topAnchor.constraint(equalTo: carrotNumber.bottomAnchor, constant: 13.adjusted),
-      inClockAnimalImageView.leadingAnchor.constraint(equalTo: clockImageView.leadingAnchor, constant: 120.adjusted),
-      inClockAnimalImageView.trailingAnchor.constraint(equalTo: clockImageView.trailingAnchor, constant: -120.adjusted),
-      inClockAnimalImageView.heightAnchor.constraint(equalToConstant: 45.adjusted)
+      inClockAnimalImageView.topAnchor.constraint(equalTo: carrotNumber.bottomAnchor, constant: 2),
+      inClockAnimalImageView.centerXAnchor.constraint(equalTo: carrotNumber.centerXAnchor),
+      inClockAnimalImageView.heightAnchor.constraint(equalToConstant: 60.adjusted),
+      inClockAnimalImageView.widthAnchor.constraint(equalToConstant: 80.adjusted),
     ])
+    
     NSLayoutConstraint.activate([
-      inClockTitleLabel.topAnchor.constraint(equalTo: inClockAnimalImageView.bottomAnchor, constant: 18.adjusted),
+      inClockTitleLabel.topAnchor.constraint(equalTo: inClockAnimalImageView.bottomAnchor, constant: 2),
       inClockTitleLabel.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)
     ])
+    
     NSLayoutConstraint.activate([
       inClockAnimalTimeLabel.topAnchor.constraint(equalTo: inClockTitleLabel.bottomAnchor,constant: 2.adjusted),
       inClockAnimalTimeLabel.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)
     ])
+    
     NSLayoutConstraint.activate([
       inClockHumanTimeLabel.topAnchor.constraint(equalTo: inClockAnimalTimeLabel.bottomAnchor, constant: 8.adjusted),
       inClockHumanTimeLabel.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)

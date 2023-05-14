@@ -42,7 +42,7 @@ final class MissionAlbumView: BaseView {
     }()
     
     private let albumImageTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "카키랑\n공놀이 하기")
+        let attributedString = NSMutableAttributedString(string: "막둥이랑\n공놀이 하기")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle,

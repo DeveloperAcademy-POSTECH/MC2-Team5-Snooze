@@ -81,7 +81,7 @@ final class DrawerViewController: BaseViewController {
     }()
     
     private let leftMainTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "오늘 카키가\n기다린 시간")
+        let attributedString = NSMutableAttributedString(string: "오늘 막둥이가\n기다린 시간")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle,
@@ -119,7 +119,7 @@ final class DrawerViewController: BaseViewController {
     }()
     
     private let rightMainTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "오늘 카키와\n함께한 시간")
+        let attributedString = NSMutableAttributedString(string: "오늘 막둥이와\n함께한 시간")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle,

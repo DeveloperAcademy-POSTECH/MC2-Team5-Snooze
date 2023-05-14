@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0217E3B22A11011000600DA8 /* d_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A22A11010F00600DA8 /* d_2.gif */; };
+		0217E3B32A11011000600DA8 /* c_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A32A11010F00600DA8 /* c_1.gif */; };
+		0217E3B42A11011000600DA8 /* p_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A42A11010F00600DA8 /* p_3.gif */; };
+		0217E3B52A11011000600DA8 /* d_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A52A11010F00600DA8 /* d_3.gif */; };
+		0217E3B62A11011000600DA8 /* p_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A62A11010F00600DA8 /* p_1.gif */; };
+		0217E3B72A11011000600DA8 /* d_4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A72A11010F00600DA8 /* d_4.gif */; };
+		0217E3B82A11011000600DA8 /* r_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A82A11010F00600DA8 /* r_3.gif */; };
+		0217E3B92A11011000600DA8 /* r_4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3A92A11010F00600DA8 /* r_4.gif */; };
+		0217E3BA2A11011000600DA8 /* c_4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3AA2A11010F00600DA8 /* c_4.gif */; };
+		0217E3BB2A11011000600DA8 /* r_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3AB2A11010F00600DA8 /* r_1.gif */; };
+		0217E3BC2A11011000600DA8 /* r_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3AC2A11010F00600DA8 /* r_2.gif */; };
+		0217E3BD2A11011000600DA8 /* c_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3AD2A11010F00600DA8 /* c_2.gif */; };
+		0217E3BE2A11011000600DA8 /* c_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3AE2A11010F00600DA8 /* c_3.gif */; };
+		0217E3BF2A11011000600DA8 /* p_4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3AF2A11010F00600DA8 /* p_4.gif */; };
+		0217E3C02A11011000600DA8 /* d_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3B02A11011000600DA8 /* d_1.gif */; };
+		0217E3C12A11011000600DA8 /* p_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0217E3B12A11011000600DA8 /* p_2.gif */; };
 		02236A3D2A0390FB00AEEDCA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A3C2A0390FB00AEEDCA /* MainViewController.swift */; };
 		02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */; };
 		02236A412A03953500AEEDCA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02236A402A03953500AEEDCA /* NavigationView.swift */; };
@@ -16,6 +32,14 @@
 		0226A7852A0D0AE300206F99 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226A7842A0D0AE300206F99 /* BackgroundView.swift */; };
 		023CB9EA2A0BC2DF003405C9 /* CustomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */; };
 		026CF39B2A0F6C4A00A98E54 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */; };
+		026CF3CD2A1029B200A98E54 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02030DA62A0139F600B3583A /* WidgetKit.framework */; };
+		026CF3CE2A1029B200A98E54 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02030DA82A0139F600B3583A /* SwiftUI.framework */; };
+		026CF3D12A1029B200A98E54 /* OnJeWaWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF3D02A1029B200A98E54 /* OnJeWaWidgetBundle.swift */; };
+		026CF3D32A1029B200A98E54 /* OnJeWaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF3D22A1029B200A98E54 /* OnJeWaWidget.swift */; };
+		026CF3D52A1029B300A98E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 026CF3D42A1029B300A98E54 /* Assets.xcassets */; };
+		026CF3D92A1029B300A98E54 /* OnJeWaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 026CF3CC2A1029B200A98E54 /* OnJeWaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		026CF3E12A10AEDE00A98E54 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF3DF2A10ABDA00A98E54 /* UserDefaults+Extension.swift */; };
+		026CF3E32A10D14C00A98E54 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF3E22A10D14C00A98E54 /* UserDefaults+Extension.swift */; };
 		02E034E22A0A50C800692061 /* TapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E034E12A0A50C800692061 /* TapButtonViewController.swift */; };
 		463D697C2A0B85FB0005003C /* LocalNotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */; };
 		463D69AC2A0CFDB30005003C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69AB2A0CFDB30005003C /* SettingViewController.swift */; };
@@ -80,6 +104,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		026CF3D72A1029B300A98E54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65510BB529F7D89D002E15CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 026CF3CB2A1029B200A98E54;
+			remoteInfo = OnJeWaWidgetExtension;
+		};
 		65510BD429F7D89E002E15CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 65510BB529F7D89D002E15CD /* Project object */;
@@ -103,6 +134,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				026CF3D92A1029B300A98E54 /* OnJeWaWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,12 +144,24 @@
 /* Begin PBXFileReference section */
 		02030DA62A0139F600B3583A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		02030DA82A0139F600B3583A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		02030DAB2A0139F600B3583A /* OnjewaWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnjewaWidgetBundle.swift; sourceTree = "<group>"; };
-		02030DAD2A0139F600B3583A /* OnjewaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnjewaWidget.swift; sourceTree = "<group>"; };
-		02030DAF2A0139F700B3583A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		02030DB12A0139F700B3583A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02030DBA2A02C24D00B3583A /* OnJeWa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnJeWa.entitlements; sourceTree = "<group>"; };
 		02030DBB2A02CFC400B3583A /* OnjewaWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnjewaWidgetExtension.entitlements; sourceTree = "<group>"; };
+		0217E3A22A11010F00600DA8 /* d_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = d_2.gif; sourceTree = "<group>"; };
+		0217E3A32A11010F00600DA8 /* c_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = c_1.gif; sourceTree = "<group>"; };
+		0217E3A42A11010F00600DA8 /* p_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = p_3.gif; sourceTree = "<group>"; };
+		0217E3A52A11010F00600DA8 /* d_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = d_3.gif; sourceTree = "<group>"; };
+		0217E3A62A11010F00600DA8 /* p_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = p_1.gif; sourceTree = "<group>"; };
+		0217E3A72A11010F00600DA8 /* d_4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = d_4.gif; sourceTree = "<group>"; };
+		0217E3A82A11010F00600DA8 /* r_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = r_3.gif; sourceTree = "<group>"; };
+		0217E3A92A11010F00600DA8 /* r_4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = r_4.gif; sourceTree = "<group>"; };
+		0217E3AA2A11010F00600DA8 /* c_4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = c_4.gif; sourceTree = "<group>"; };
+		0217E3AB2A11010F00600DA8 /* r_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = r_1.gif; sourceTree = "<group>"; };
+		0217E3AC2A11010F00600DA8 /* r_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = r_2.gif; sourceTree = "<group>"; };
+		0217E3AD2A11010F00600DA8 /* c_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = c_2.gif; sourceTree = "<group>"; };
+		0217E3AE2A11010F00600DA8 /* c_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = c_3.gif; sourceTree = "<group>"; };
+		0217E3AF2A11010F00600DA8 /* p_4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = p_4.gif; sourceTree = "<group>"; };
+		0217E3B02A11011000600DA8 /* d_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = d_1.gif; sourceTree = "<group>"; };
+		0217E3B12A11011000600DA8 /* p_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = p_2.gif; sourceTree = "<group>"; };
 		02236A3C2A0390FB00AEEDCA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		02236A3E2A03919000AEEDCA /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionViewCell.swift; sourceTree = "<group>"; };
 		02236A402A03953500AEEDCA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
@@ -127,6 +171,13 @@
 		0226A7842A0D0AE300206F99 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		023CB9E92A0BC2DF003405C9 /* CustomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupViewController.swift; sourceTree = "<group>"; };
 		026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		026CF3CC2A1029B200A98E54 /* OnJeWaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OnJeWaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		026CF3D02A1029B200A98E54 /* OnJeWaWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnJeWaWidgetBundle.swift; sourceTree = "<group>"; };
+		026CF3D22A1029B200A98E54 /* OnJeWaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnJeWaWidget.swift; sourceTree = "<group>"; };
+		026CF3D42A1029B300A98E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		026CF3D62A1029B300A98E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		026CF3DF2A10ABDA00A98E54 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		026CF3E22A10D14C00A98E54 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		02E034E12A0A50C800692061 /* TapButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonViewController.swift; sourceTree = "<group>"; };
 		463D697B2A0B85FB0005003C /* LocalNotificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBuilder.swift; sourceTree = "<group>"; };
 		463D69AB2A0CFDB30005003C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +237,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		026CF3C92A1029B200A98E54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026CF3CE2A1029B200A98E54 /* SwiftUI.framework in Frameworks */,
+				026CF3CD2A1029B200A98E54 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65510BBA29F7D89D002E15CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,17 +280,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02030DAA2A0139F600B3583A /* OnjewaWidget */ = {
-			isa = PBXGroup;
-			children = (
-				02030DAB2A0139F600B3583A /* OnjewaWidgetBundle.swift */,
-				02030DAD2A0139F600B3583A /* OnjewaWidget.swift */,
-				02030DAF2A0139F700B3583A /* Assets.xcassets */,
-				02030DB12A0139F700B3583A /* Info.plist */,
-			);
-			path = OnjewaWidget;
-			sourceTree = "<group>";
-		};
 		02236A382A0390C600AEEDCA /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +319,18 @@
 				026CF39A2A0F6C4A00A98E54 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		026CF3CF2A1029B200A98E54 /* OnJeWaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				026CF3DF2A10ABDA00A98E54 /* UserDefaults+Extension.swift */,
+				026CF3D02A1029B200A98E54 /* OnJeWaWidgetBundle.swift */,
+				026CF3D22A1029B200A98E54 /* OnJeWaWidget.swift */,
+				026CF3D42A1029B300A98E54 /* Assets.xcassets */,
+				026CF3D62A1029B300A98E54 /* Info.plist */,
+			);
+			path = OnJeWaWidget;
 			sourceTree = "<group>";
 		};
 		463D69A52A0CFD710005003C /* SettingScene */ = {
@@ -420,6 +481,7 @@
 			children = (
 				651C76A92A0B666200EDC6BC /* UserDefaultsWrapper.swift */,
 				651C76AB2A0B667200EDC6BC /* UserDefaultsSetting.swift */,
+				026CF3E22A10D14C00A98E54 /* UserDefaults+Extension.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -467,6 +529,22 @@
 		6547BF3E29F8EB6800593D17 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0217E3A32A11010F00600DA8 /* c_1.gif */,
+				0217E3AD2A11010F00600DA8 /* c_2.gif */,
+				0217E3AE2A11010F00600DA8 /* c_3.gif */,
+				0217E3AA2A11010F00600DA8 /* c_4.gif */,
+				0217E3B02A11011000600DA8 /* d_1.gif */,
+				0217E3A22A11010F00600DA8 /* d_2.gif */,
+				0217E3A52A11010F00600DA8 /* d_3.gif */,
+				0217E3A72A11010F00600DA8 /* d_4.gif */,
+				0217E3A62A11010F00600DA8 /* p_1.gif */,
+				0217E3B12A11011000600DA8 /* p_2.gif */,
+				0217E3A42A11010F00600DA8 /* p_3.gif */,
+				0217E3AF2A11010F00600DA8 /* p_4.gif */,
+				0217E3AB2A11010F00600DA8 /* r_1.gif */,
+				0217E3AC2A11010F00600DA8 /* r_2.gif */,
+				0217E3A82A11010F00600DA8 /* r_3.gif */,
+				0217E3A92A11010F00600DA8 /* r_4.gif */,
 				65510BC929F7D89E002E15CD /* Assets.xcassets */,
 				65510BCB29F7D89E002E15CD /* LaunchScreen.storyboard */,
 				65510BCE29F7D89E002E15CD /* Info.plist */,
@@ -521,7 +599,7 @@
 				65510BBF29F7D89D002E15CD /* OnJeWa */,
 				65510BD629F7D89E002E15CD /* OnJeWaTests */,
 				65510BE029F7D89E002E15CD /* OnJeWaUITests */,
-				02030DAA2A0139F600B3583A /* OnjewaWidget */,
+				026CF3CF2A1029B200A98E54 /* OnJeWaWidget */,
 				65510BBE29F7D89D002E15CD /* Products */,
 				65510BFE29F7FABD002E15CD /* Frameworks */,
 			);
@@ -533,6 +611,7 @@
 				65510BBD29F7D89D002E15CD /* OnJeWa.app */,
 				65510BD329F7D89E002E15CD /* OnJeWaTests.xctest */,
 				65510BDD29F7D89E002E15CD /* OnJeWaUITests.xctest */,
+				026CF3CC2A1029B200A98E54 /* OnJeWaWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -654,6 +733,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		026CF3CB2A1029B200A98E54 /* OnJeWaWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 026CF3DA2A1029B300A98E54 /* Build configuration list for PBXNativeTarget "OnJeWaWidgetExtension" */;
+			buildPhases = (
+				026CF3C82A1029B200A98E54 /* Sources */,
+				026CF3C92A1029B200A98E54 /* Frameworks */,
+				026CF3CA2A1029B200A98E54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OnJeWaWidgetExtension;
+			productName = OnJeWaWidgetExtension;
+			productReference = 026CF3CC2A1029B200A98E54 /* OnJeWaWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		65510BBC29F7D89D002E15CD /* OnJeWa */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65510BE729F7D89E002E15CD /* Build configuration list for PBXNativeTarget "OnJeWa" */;
@@ -666,6 +762,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				026CF3D82A1029B300A98E54 /* PBXTargetDependency */,
 			);
 			name = OnJeWa;
 			packageProductDependencies = (
@@ -730,6 +827,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					026CF3CB2A1029B200A98E54 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					65510BBC29F7D89D002E15CD = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -765,17 +865,42 @@
 				65510BBC29F7D89D002E15CD /* OnJeWa */,
 				65510BD229F7D89E002E15CD /* OnJeWaTests */,
 				65510BDC29F7D89E002E15CD /* OnJeWaUITests */,
+				026CF3CB2A1029B200A98E54 /* OnJeWaWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		026CF3CA2A1029B200A98E54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026CF3D52A1029B300A98E54 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65510BBB29F7D89D002E15CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0217E3BA2A11011000600DA8 /* c_4.gif in Resources */,
+				0217E3B92A11011000600DA8 /* r_4.gif in Resources */,
+				0217E3B22A11011000600DA8 /* d_2.gif in Resources */,
 				65510BCD29F7D89E002E15CD /* LaunchScreen.storyboard in Resources */,
+				0217E3B72A11011000600DA8 /* d_4.gif in Resources */,
+				0217E3B82A11011000600DA8 /* r_3.gif in Resources */,
+				0217E3BE2A11011000600DA8 /* c_3.gif in Resources */,
+				0217E3B32A11011000600DA8 /* c_1.gif in Resources */,
+				0217E3BD2A11011000600DA8 /* c_2.gif in Resources */,
+				0217E3B52A11011000600DA8 /* d_3.gif in Resources */,
+				0217E3C02A11011000600DA8 /* d_1.gif in Resources */,
 				65510BCA29F7D89E002E15CD /* Assets.xcassets in Resources */,
+				0217E3C12A11011000600DA8 /* p_2.gif in Resources */,
+				0217E3BB2A11011000600DA8 /* r_1.gif in Resources */,
+				0217E3B62A11011000600DA8 /* p_1.gif in Resources */,
+				0217E3BC2A11011000600DA8 /* r_2.gif in Resources */,
+				0217E3BF2A11011000600DA8 /* p_4.gif in Resources */,
+				0217E3B42A11011000600DA8 /* p_3.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +921,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		026CF3C82A1029B200A98E54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026CF3D12A1029B200A98E54 /* OnJeWaWidgetBundle.swift in Sources */,
+				026CF3E12A10AEDE00A98E54 /* UserDefaults+Extension.swift in Sources */,
+				026CF3D32A1029B200A98E54 /* OnJeWaWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65510BB929F7D89D002E15CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,6 +941,7 @@
 				0226A7802A0CB63700206F99 /* GalleryViewController.swift in Sources */,
 				463D69BB2A0F92020005003C /* SettingViewModel.swift in Sources */,
 				023CB9EA2A0BC2DF003405C9 /* CustomPopupViewController.swift in Sources */,
+				026CF3E32A10D14C00A98E54 /* UserDefaults+Extension.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				463D69AC2A0CFDB30005003C /* SettingViewController.swift in Sources */,
 				02236A3F2A03919000AEEDCA /* WeekCollectionViewCell.swift in Sources */,
@@ -882,6 +1018,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		026CF3D82A1029B300A98E54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 026CF3CB2A1029B200A98E54 /* OnJeWaWidgetExtension */;
+			targetProxy = 026CF3D72A1029B300A98E54 /* PBXContainerItemProxy */;
+		};
 		65510BD529F7D89E002E15CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 65510BBC29F7D89D002E15CD /* OnJeWa */;
@@ -906,6 +1047,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		026CF3DB2A1029B300A98E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa.OnJeWaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		026CF3DC2A1029B300A98E54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa.OnJeWaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		65510BE529F7D89E002E15CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1032,9 +1231,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XKDG839GBD;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한이 필요합니다";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하기위해 카메라 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "항상 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -1051,6 +1251,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.poodlepoodle.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1068,9 +1269,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XKDG839GBD;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한이 필요합니다";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하기위해 카메라 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상 or 앱을 사용하는 동안에만 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "항상 위치정보를 수신합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안에만 위치정보를 수신합니다.";
@@ -1173,6 +1375,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		026CF3DA2A1029B300A98E54 /* Build configuration list for PBXNativeTarget "OnJeWaWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				026CF3DB2A1029B300A98E54 /* Debug */,
+				026CF3DC2A1029B300A98E54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		65510BB829F7D89D002E15CD /* Build configuration list for PBXProject "OnJeWa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
