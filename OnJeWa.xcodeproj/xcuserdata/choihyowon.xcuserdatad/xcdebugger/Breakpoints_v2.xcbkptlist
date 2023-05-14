@@ -62,9 +62,9 @@
             filePath = "OnJeWa/Presentation/MainScene/ViewController/TapButtonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "updateTimer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
