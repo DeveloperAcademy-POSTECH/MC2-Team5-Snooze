@@ -10,18 +10,19 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
   func placeholder(in context: Context) -> SimpleEntry {
-    SimpleEntry(date: Date(), animalTime: 0, widgetTitle: "")
+    SimpleEntry(date: Date(), animalTime: 0, widgetTitle: "", lockWidgetTitle: "")
   }
   
   func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
     
-    let entry = SimpleEntry(date: Date(), animalTime: 0, widgetTitle: "")
+    let entry = SimpleEntry(date: Date(), animalTime: 0, widgetTitle: "", lockWidgetTitle: "")
     completion(entry)
   }
   
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
     var entries: [SimpleEntry] = []
     var widgetTitle = ""
+    var lockWidgetTitle = ""
     let currentDate = Date()
     let entryDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
     
@@ -29,6 +30,7 @@ struct Provider: TimelineProvider {
     
     if homeOutKey == true {
       widgetTitle = "오늘 주인을 기다린지"
+      lockWidgetTitle = "외출중"
       let currentAnimalHour = UserDefaults.shared.integer(forKey: "animalHour")
       let currentAnimalHourResult = UserDefaults.shared.integer(forKey: "animalHourResult")
       let result = currentAnimalHourResult + currentAnimalHour
@@ -37,14 +39,15 @@ struct Provider: TimelineProvider {
       
     }else {
       widgetTitle = "오늘 주인과 함께한지"
+      lockWidgetTitle = "막둥이랑"
       let currentAnimalHour = UserDefaults.shared.integer(forKey: "animalHour")
       let currentAnimalHourResult = UserDefaults.shared.integer(forKey: "animalHourResult")
       let result = currentAnimalHourResult + currentAnimalHour
       let newAnimalHour = result + 1
       UserDefaults.shared.set(newAnimalHour, forKey: "animalHour")
     }
-        
-    let entry = SimpleEntry(date: entryDate, animalTime: UserDefaults.shared.integer(forKey: "animalHour"), widgetTitle: widgetTitle)
+    
+    let entry = SimpleEntry(date: entryDate, animalTime: UserDefaults.shared.integer(forKey: "animalHour"), widgetTitle: widgetTitle, lockWidgetTitle: lockWidgetTitle)
     entries.append(entry)
     
     let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -56,11 +59,14 @@ struct SimpleEntry: TimelineEntry {
   let date: Date
   let animalTime: Int
   let widgetTitle: String
+  let lockWidgetTitle: String
 }
 
 struct OnJeWaWidgetEntryView : View {
   var entry: Provider.Entry
   let animalImageKey = UserDefaults.shared.string(forKey: "petTypeKey")
+  @Environment(\.widgetFamily) var widgetFamily
+
   
   var animalImageName: String {
     switch animalImageKey {
@@ -76,36 +82,91 @@ struct OnJeWaWidgetEntryView : View {
       return ""
     }
   }
-
+  
   var body: some View {
     let animalHour = entry.animalTime
     let widgetTitle = entry.widgetTitle
+    let lockWidgetTitle = entry.lockWidgetTitle
     
-    VStack(alignment: .leading) {
-      Text(widgetTitle)
-        .font(.system(size: 12, weight: .light))
-      Text("\(animalHour)시간")
-        .foregroundColor(.black)
-        .font(.system(size: 20, weight: .bold))
-        .padding(.bottom, 3)
-      Image(animalImageName)
-        .resizable()
-        .frame(width: 117, height: 81)
-        .aspectRatio(.zero, contentMode: .fill)
+    if #available(iOSApplicationExtension 16.0, *) {
+      switch widgetFamily {
+        
+      case .accessoryCircular:
+        ZStack {
+          AccessoryWidgetBackground()
+          VStack {
+            Image("dogrun_white")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: 16, height: 11)
+            Text("\(animalHour)시간")
+              .foregroundColor(.white)
+              .font(.system(size: 14, weight: .bold))
+            Text(lockWidgetTitle)
+              .foregroundColor(.white)
+              .font(.system(size: 8, weight: .regular))
+          }
+        }
+        
+      case .systemSmall:
+        VStack(alignment: .leading) {
+          Text(widgetTitle)
+            .font(.system(size: 12, weight: .light))
+          Text("\(animalHour)시간")
+            .foregroundColor(.black)
+            .font(.system(size: 20, weight: .bold))
+            .padding(.bottom, 3)
+          Image(animalImageName)
+            .resizable()
+            .frame(width: 117, height: 81)
+            .aspectRatio(.zero, contentMode: .fill)
+        }
+        
+      default:
+        Text("error")
+      }
+    }else {
+      
+      switch widgetFamily {
+      case .systemSmall:
+        VStack(alignment: .leading) {
+          Text(widgetTitle)
+            .font(.system(size: 12, weight: .light))
+          Text("\(animalHour)시간")
+            .foregroundColor(.black)
+            .font(.system(size: 20, weight: .bold))
+            .padding(.bottom, 3)
+          Image(animalImageName)
+            .resizable()
+            .frame(width: 117, height: 81)
+            .aspectRatio(.zero, contentMode: .fill)
+        }
+      default:
+        Text("error")
+      }
     }
   }
-}
-
-struct OnJeWaWidget: Widget {
-  let kind: String = "OnJeWaWidget"
   
-  var body: some WidgetConfiguration {
-    StaticConfiguration(kind: kind, provider: Provider()) { entry in
-      OnJeWaWidgetEntryView(entry: entry)
+  @main
+  struct OnJeWaWidget: Widget {
+    let kind: String = "OnJeWaWidget"
+    
+    private let supportedFamilies:[WidgetFamily] = {
+      if #available(iOSApplicationExtension 16.0, *) {
+        return [.systemSmall, .accessoryCircular]
+      } else {
+        return [.systemSmall]
+      }
+    }()
+    
+    var body: some WidgetConfiguration {
+      StaticConfiguration(kind: kind, provider: Provider()) { entry in
+        OnJeWaWidgetEntryView(entry: entry)
+      }
+      .configurationDisplayName("My Widget")
+      .description("This is an example widget.")
+      .supportedFamilies(supportedFamilies)
     }
-    .configurationDisplayName("My Widget")
-    .description("This is an example widget.")
   }
 }
-
 
