@@ -150,6 +150,8 @@ final class StatisticsViewController: BaseViewController {
     
     override func setupView() {
         
+        navigationController?.navigationBar.tintColor = OnjewaColor.button.color
+        
         view.backgroundColor = OnjewaColor.main.color
         
         self.segmentedControl.addTarget(self, action: #selector(didChangeValue(segment:)),

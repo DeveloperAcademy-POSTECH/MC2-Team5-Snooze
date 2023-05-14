@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "image_logo.png",
+      "filename" : "image_logo.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

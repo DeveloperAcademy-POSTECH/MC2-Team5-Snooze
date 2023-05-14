@@ -162,7 +162,7 @@ extension SetProfileViewController {
         let keyboardRectangle = keyboardFrame.cgRectValue
         
         UIView.animate(withDuration: 0.3) {
-            self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
+            self.view.transform = CGAffineTransform(translationX: 0, y: -300)
         }
     }
     

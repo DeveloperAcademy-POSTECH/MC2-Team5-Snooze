@@ -70,9 +70,44 @@ final class MissionViewController: BaseViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.navigationItem.hidesBackButton = true
+        
+        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
+                                         style: .done, target: self, action: #selector(back))
+        backbutton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = backbutton
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func rightButtonTapGesture(_ sender: UITapGestureRecognizer) {
+        let drawerViewController = DrawerViewController()
+        self.navigationController?.pushViewController(drawerViewController, animated: true)
+    }
+    
     //MARK: - Functions
     
     override func setupView() {
+        
+        self.title = "미션"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightIcon)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(rightButtonTapGesture))
+        navigationRightIcon.addGestureRecognizer(tapGestureRecognizer)
         
         [timeRemainingTitle, timeRemainingValue].forEach {
             timeRemainingStackView.addArrangedSubview($0)
@@ -348,6 +383,7 @@ final class MissionViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "남은 시간"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -375,6 +411,7 @@ final class MissionViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "오늘 번 당근"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -400,7 +437,7 @@ final class MissionViewController: BaseViewController {
     private let firstCellTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "카키랑\n셀카 찍기"
+        label.text = "막둥이랑\n셀카 찍기"
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
@@ -434,7 +471,7 @@ final class MissionViewController: BaseViewController {
     private let secondCellTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "카키\n안아주기"
+        label.text = "막둥이\n안아주기"
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
@@ -468,7 +505,7 @@ final class MissionViewController: BaseViewController {
     private let thirdCellTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "카키 배\n만져주기"
+        label.text = "막둥이 배\n만져주기"
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
@@ -512,7 +549,7 @@ final class MissionViewController: BaseViewController {
     private let fourCellTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "카키와\n함께한\n저녁 식사"
+        label.text = "막둥이와\n함께한\n저녁 식사"
         label.numberOfLines = 3
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
@@ -546,7 +583,7 @@ final class MissionViewController: BaseViewController {
     private let fiveCellTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "카키랑\n소파에서\n놀기"
+        label.text = "막둥이랑\n소파에서\n놀기"
         label.numberOfLines = 3
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
@@ -580,7 +617,7 @@ final class MissionViewController: BaseViewController {
     private let sixCellTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "카키랑\n터그놀이\n같이하기"
+        label.text = "막둥이랑\n터그놀이\n같이하기"
         label.numberOfLines = 3
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
@@ -614,14 +651,14 @@ final class MissionViewController: BaseViewController {
     private let bottomTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "카키가 나와 함께 하고 싶어해요."
+        label.text = "막둥이가 나와 함께 하고 싶어해요."
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = OnjewaColor.camerabutton.color
         return label
     }()
     
     private let bottomSubTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "카키가 나의 시간을 얻기 위해 모아둔 당근이에요.\n미션을 수행해서 당근을 모아서 앨범을 채워보세요.")
+        let attributedString = NSMutableAttributedString(string: "막둥이가 나의 시간을 얻기 위해 모아둔 당근이에요.\n미션을 수행해서 당근을 모아서 앨범을 채워보세요.")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle,
@@ -634,6 +671,14 @@ final class MissionViewController: BaseViewController {
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = OnjewaColor.button.color
         return label
+    }()
+    
+    private let navigationRightIcon: UIImageView = {
+       let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "tray.full")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     private let bottomImageView: UIImageView = {

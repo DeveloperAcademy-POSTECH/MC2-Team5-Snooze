@@ -83,8 +83,8 @@ final class SetBackgroundView: BaseView {
     }()
     
     private let setBackgroundTitle: UILabel = {
-        let attributedString = NSMutableAttributedString(string: "snoze 배경화면을\n설정 해 주세요")
-        let range = (attributedString.string as NSString).range(of: "snoze 배경화면을")
+        let attributedString = NSMutableAttributedString(string: "snooze 배경화면을\n설정 해 주세요")
+        let range = (attributedString.string as NSString).range(of: "snooze 배경화면을")
         let font = UIFont.systemFont(ofSize: 32, weight: .bold)
         attributedString.addAttribute(.font, value: font, range: range)
         let paragraphStyle = NSMutableParagraphStyle()
