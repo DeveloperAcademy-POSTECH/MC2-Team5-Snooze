@@ -10,6 +10,7 @@ import OnJeWaUI
 import OnJeWaCore
 import OnJeWaNetwork
 import Gifu
+import WidgetKit
 
 protocol TapButtonViewDelegate: AnyObject {
     func didTapButton(value: String)
@@ -64,7 +65,6 @@ class TapButtonViewController: BaseViewController {
         popupVC.modalPresentationStyle = .overFullScreen
         self.present(popupVC, animated: false)
     }
-    
     private let clockImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "watch")
@@ -372,6 +372,7 @@ class TapButtonViewController: BaseViewController {
         
 
     }
+
     
     override func setupView() {
         
