@@ -102,8 +102,9 @@ extension RegisterAddressViewController: RegisterAddressViewDelegate {
                 UserDefaultsSetting.awayTime = 0
                 
                 let mainViewController = MainViewController()
-                mainViewController.modalPresentationStyle = .fullScreen
-                self.present(mainViewController, animated: true)
+                let navigationController = UINavigationController(rootViewController: mainViewController)
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: true, completion: nil)
             }
         } catch let error {
             print("Failed to create profile: \(error)")
