@@ -62,10 +62,11 @@ class MainViewController: BaseViewController {
                     }
                     self?.tapButtonVC.tapPositionImageView.image = UIImage(named: "rightlight")
                 } else {
-                    self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutUnClicked"),
-                                                             for: .normal)
+                    if UserDefaultsSetting.mainType != "work" {
+                        self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutUnClicked"),
+                                                                 for: .normal)
+                    }
                     self?.tapButtonVC.tapPositionImageView.image = UIImage(named: "leftlight")
-                    
                 }
             }
             .disposed(by: disposeBag)
@@ -90,7 +91,9 @@ class MainViewController: BaseViewController {
                         break
                     }
                 }else {
-                    self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
+                    if UserDefaultsSetting.mainType != "leave" {
+                        self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
+                    }
                 }
                 
             }
