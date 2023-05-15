@@ -73,6 +73,10 @@ final class LoginViewController: BaseViewController {
         emailTextField.placeholder = "이메일"
         passwordTextField.placeholder = "비밀번호"
         
+        emailTextField.text = "apple1234@pos.co.kr"
+        passwordTextField.text = "12345678"
+        passwordTextField.isSecureTextEntry = true
+        
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         
         [logo, emailTextField, passwordTextField, loginButton].forEach {

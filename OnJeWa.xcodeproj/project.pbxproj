@@ -51,6 +51,7 @@
 		463D69C32A0FA6E00005003C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69C22A0FA6E00005003C /* NotificationViewModel.swift */; };
 		463D69CA2A0FCDED0005003C /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69C92A0FCDED0005003C /* NotificationViewCell.swift */; };
 		463D69CC2A0FCE390005003C /* NotificationViewChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D69CB2A0FCE390005003C /* NotificationViewChatCell.swift */; };
+		4660FCDC2A10AE0000D437E0 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660FCDB2A10AE0000D437E0 /* NotificationModel.swift */; };
 		46B5BC282A0FE07F005E71FD /* NotificationViewInvitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B5BC272A0FE07F005E71FD /* NotificationViewInvitationCell.swift */; };
 		46B5BC2A2A0FE2B7005E71FD /* NotificationViewMissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B5BC292A0FE2B7005E71FD /* NotificationViewMissionCell.swift */; };
 		651C76132A04A29600EDC6BC /* ChoosePetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */; };
@@ -188,6 +189,7 @@
 		463D69C22A0FA6E00005003C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		463D69C92A0FCDED0005003C /* NotificationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
 		463D69CB2A0FCE390005003C /* NotificationViewChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewChatCell.swift; sourceTree = "<group>"; };
+		4660FCDB2A10AE0000D437E0 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		46B5BC272A0FE07F005E71FD /* NotificationViewInvitationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewInvitationCell.swift; sourceTree = "<group>"; };
 		46B5BC292A0FE2B7005E71FD /* NotificationViewMissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewMissionCell.swift; sourceTree = "<group>"; };
 		651C76122A04A29600EDC6BC /* ChoosePetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetTypeViewController.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 			children = (
 				651C761B2A04EDB300EDC6BC /* PetType.swift */,
 				656A70BE2A0CD26F00BEDCAE /* MainModel.swift */,
+				4660FCDB2A10AE0000D437E0 /* NotificationModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				651C76332A08C2CE00EDC6BC /* SetBackgroundView.swift in Sources */,
 				65510BC129F7D89D002E15CD /* AppDelegate.swift in Sources */,
 				463D69CA2A0FCDED0005003C /* NotificationViewCell.swift in Sources */,
+				4660FCDC2A10AE0000D437E0 /* NotificationModel.swift in Sources */,
 				651C762F2A08C2B300EDC6BC /* SetBackgroundViewController.swift in Sources */,
 				651C767F2A0A0FBE00EDC6BC /* OnboardingViewController.swift in Sources */,
 				0226A7852A0D0AE300206F99 /* BackgroundView.swift in Sources */,
@@ -1051,7 +1055,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
@@ -1063,7 +1067,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa.OnJeWaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa.OnJeWaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1080,7 +1084,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OnJeWaWidget;
@@ -1092,7 +1096,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa.OnJeWaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa.OnJeWaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1226,7 +1230,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하기위해 카메라 권한이 필요합니다.";
@@ -1239,13 +1243,13 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1262,7 +1266,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnJeWa/OnJeWa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F92UQYH2RA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnJeWa/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하기위해 카메라 권한이 필요합니다.";
@@ -1275,13 +1279,13 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ungchun.OnJeWa;
+				PRODUCT_BUNDLE_IDENTIFIER = azhy.ungchun.OnJeWa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
