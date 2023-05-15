@@ -27,6 +27,8 @@ final class SetProfileView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        onJeWaTextField.textContentType = .name
         setupView()
         setupLayout()
     }
@@ -67,6 +69,8 @@ final class SetProfileView: BaseView {
         imageView.layer.cornerRadius = 125.0 / 2
         imageView.image = UIImage(named: "myimage")
         imageView.isUserInteractionEnabled = true
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -121,7 +125,7 @@ extension SetProfileView: UIImagePickerControllerDelegate & UINavigationControll
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         profileImageView.image = image
-        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        profileImageView.layer.cornerRadius = 125.0 / 2
         profileImageView.clipsToBounds = true
         delegate?.didSetProfileImageView(image: image)
         picker.dismiss(animated: true, completion: nil)
@@ -133,21 +137,15 @@ extension SetProfileView: UIImagePickerControllerDelegate & UINavigationControll
             viewController.present(imagePickerController, animated: true, completion: nil)
         }
     }
+    
 }
 
 extension SetProfileView: UITextFieldDelegate {
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        
         let currentText = textField.text ?? ""
-        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
-        
-        if newText.isEmpty {
-            delegate?.changedTextField(nameValue: newText)
-        } else {
-            delegate?.changedTextField(nameValue: newText)
-        }
-        
+        delegate?.changedTextField(nameValue: currentText)
         return true
     }
     
