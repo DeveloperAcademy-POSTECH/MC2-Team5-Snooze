@@ -135,7 +135,7 @@ class TapButtonViewController: BaseViewController {
     
     let inClockTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName())가 나와 함께한지" : "\(RealmManager.shared.readName())가 나를 기다린지"
+        label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName()) 나와 함께한지" : "\(RealmManager.shared.readName()) 나를 기다린지"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .black
         return label
