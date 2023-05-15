@@ -28,6 +28,7 @@ class TapButtonViewController: BaseViewController {
     }
     //현재 시간
     var counter = 0.0
+    var animalCounter = 0.0
     
     
     //MARK: - UI Components
@@ -196,6 +197,7 @@ class TapButtonViewController: BaseViewController {
             UserDefaultsSetting.mainType = "work"
             timer.invalidate()
             counter = 0.0
+        animalCounter = 0.0
             inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
             UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
             //    timer.invalidate()
@@ -215,6 +217,7 @@ class TapButtonViewController: BaseViewController {
             UserDefaultsSetting.mainType = "leave"
             timer.invalidate()
             counter = 0.0
+        animalCounter = 0.0
         inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나와 함께한지"
             UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
 
@@ -251,15 +254,19 @@ class TapButtonViewController: BaseViewController {
     
     @objc func updateTimer() {
         counter += 0.1
+        animalCounter += UserDefaultsSetting.mainPet == "rabbit" ? 2.4 : UserDefaultsSetting.mainPet == "parrot" ? 0.6 : 0.4
         let flooredCounter = Int(floor(counter))
         let humanHour = flooredCounter / 3600
         let minute = (flooredCounter % 3600) / 60
         let second = (flooredCounter % 3600) % 60
         let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
         inClockHumanTimeLabel.text = humanTimeString
-        
-        let animalHour = UserDefaultsSetting.mainPet == "rabbit" ? (humanHour + 24) : UserDefaultsSetting.mainPet == "parrot" ? (humanHour + 6) : (humanHour + 4)
-        let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
+
+        let animalFlooredCounter = Int(floor(animalCounter))
+        let animalHour = animalFlooredCounter / 3600
+        let animalMinute = (animalFlooredCounter % 3600) / 60
+        let animalSecond = (animalFlooredCounter % 3600) % 60
+        let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, animalMinute, animalSecond)
         inClockAnimalTimeLabel.text = animalTimeString
         
         UserDefaults.shared.set(minute, forKey: "animalHour")
