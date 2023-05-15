@@ -21,38 +21,46 @@ struct Provider: TimelineProvider {
   
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
     var entries: [SimpleEntry] = []
-    var widgetTitle = ""
-    var lockWidgetTitle = ""
-    let currentDate = Date()
-    let entryDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
+       var widgetTitle = ""
+       var lockWidgetTitle = ""
+    var newAnimalHour = 0
+       let currentDate = Date()
+       let entryDate = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
+
+       let homeOutKey = UserDefaults.shared.bool(forKey: "homeOutKey")
+
+       if homeOutKey == true {
+           widgetTitle = "오늘 주인을 기다린지"
+           lockWidgetTitle = "외출중"
+       } else {
+           widgetTitle = "오늘 주인과 함께한지"
+           lockWidgetTitle = "막둥이랑"
+       }
+     
+    let currentAnimalHour = UserDefaults.shared.integer(forKey: "animalHour")
     
-    let homeOutKey = UserDefaults.shared.bool(forKey: "homeOutKey")
-    
-    if homeOutKey == true {
-      widgetTitle = "오늘 주인을 기다린지"
-      lockWidgetTitle = "외출중"
-      let currentAnimalHour = UserDefaults.shared.integer(forKey: "animalHour")
-      let currentAnimalHourResult = UserDefaults.shared.integer(forKey: "animalHourResult")
-      let result = currentAnimalHourResult + currentAnimalHour
-      let newAnimalHour = result + 1
-      UserDefaults.shared.set(newAnimalHour, forKey: "animalHour")
-      
-    }else {
-      widgetTitle = "오늘 주인과 함께한지"
-      lockWidgetTitle = "막둥이랑"
-      let currentAnimalHour = UserDefaults.shared.integer(forKey: "animalHour")
-      let currentAnimalHourResult = UserDefaults.shared.integer(forKey: "animalHourResult")
-      let result = currentAnimalHourResult + currentAnimalHour
-      let newAnimalHour = result + 1
-      UserDefaults.shared.set(newAnimalHour, forKey: "animalHour")
-    }
-    
-    let entry = SimpleEntry(date: entryDate, animalTime: UserDefaults.shared.integer(forKey: "animalHour"), widgetTitle: widgetTitle, lockWidgetTitle: lockWidgetTitle)
+    let entry = SimpleEntry(date: entryDate, animalTime: currentAnimalHour, widgetTitle: widgetTitle, lockWidgetTitle: lockWidgetTitle)
+ print("current",currentAnimalHour)
     entries.append(entry)
-    
-    let timeline = Timeline(entries: entries, policy: .atEnd)
+
+    let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 1, to: entryDate)!
+    let timeline = Timeline(entries: entries, policy: .after(nextUpdateDate))
     completion(timeline)
-  }
+    
+  
+       if let petTypeKey = UserDefaults.shared.string(forKey: "petTypeKey") {
+           newAnimalHour = petTypeKey == "토끼" ? (currentAnimalHour + 24) :
+                          petTypeKey == "앵무새" ? (currentAnimalHour + 6) : (currentAnimalHour + 4)
+       } else {
+           newAnimalHour = currentAnimalHour
+       }
+
+       UserDefaults.shared.set(newAnimalHour, forKey: "animalHour")
+    print("new",newAnimalHour)
+
+   }
+  
+
 }
 
 struct SimpleEntry: TimelineEntry {
@@ -64,16 +72,15 @@ struct SimpleEntry: TimelineEntry {
 
 struct OnJeWaWidgetEntryView : View {
   var entry: Provider.Entry
-  let animalImageKey = UserDefaults.shared.string(forKey: "petTypeKey")
   @Environment(\.widgetFamily) var widgetFamily
-
+  let animalType = UserDefaults.shared.string(forKey: "petTypeKey")
   
   var animalImageName: String {
-    switch animalImageKey {
+    switch animalType {
     case "고양이":
       return "cat"
     case "강아지":
-      return "dogrun"
+      return "dog"
     case "토끼":
       return "rabbit"
     case "앵무새":
