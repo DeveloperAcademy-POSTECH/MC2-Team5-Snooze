@@ -35,20 +35,20 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         self.present(popupVC, animated: false)
         
         UNUserNotificationCenter.current().requestAuthorization(
-             options: [.alert, .badge, .sound]
-         ) {
-             success, error in
-         }
-         
-         locationManager.requestAlwaysAuthorization()
-         locationManager.allowsBackgroundLocationUpdates = true
-         
-         // 위치 서비스 정확도 설정
-         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-         locationManager.delegate = self
-         
-         // 위치 서비스 업데이트 시작
-         locationManager.startUpdatingLocation()
+            options: [.alert, .badge, .sound]
+        ) {
+            success, error in
+        }
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
+        
+        // 위치 서비스 정확도 설정
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        
+        // 위치 서비스 업데이트 시작
+        locationManager.startUpdatingLocation()
         
         
         tapButtonVC.delegate = self // 내가 대신 하겠다
@@ -59,14 +59,24 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         print("test 2 \(RealmManager.shared.readCoordinate().coordinate.longitude)")
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.last else { return }
+        let latitude = currentLocation.coordinate.latitude
+        let longitude = currentLocation.coordinate.longitude
+        print("latitude: \(latitude), longitude: \(longitude)")
+    }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             // 범위를 설정하는 기준좌표 -> 예를 들어 우리 앱에서는 집 혹은 회사
             
-            let center = CLLocationCoordinate2D(latitude: RealmManager.shared.readCoordinate().coordinate.latitude, longitude: RealmManager.shared.readCoordinate().coordinate.longitude)
+            //            let center = CLLocationCoordinate2D(latitude: RealmManager.shared.readCoordinate().coordinate.latitude, longitude: RealmManager.shared.readCoordinate().coordinate.longitude)
             
-            // 200m의 원형 영역
-            let region = CLCircularRegion(center: center, radius: 200.0, identifier: "Geofence")
+            // C5 좌표
+            let center = CLLocationCoordinate2D(latitude: 36.01438502747284, longitude: 129.32562437615857)
+            
+            // 100m의 원형 영역
+            let region = CLCircularRegion(center: center, radius: 100.0, identifier: "Geofence")
             
             region.notifyOnEntry = true
             region.notifyOnExit = true
@@ -110,33 +120,34 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         self.viewModel.output.outResult
             .bind { [weak self] value in
                 if value  {
-                    switch UserDefaultsSetting.mainPet {
-                    case "dog":
-                        self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutClicked"),
-                                                                 for: .normal)
-                        break
-                    case "cat":
-                        self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout3"),
-                                                                 for: .normal)
-                        break
-                    case "parrot":
-                        self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout4"),
-                                                                 for: .normal)
-                        break
-                    case "rabbit":
-                        self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout2"),
-                                                                 for: .normal)
-                        break
-                    default:
-                        break
-                    }
-                    self?.tapButtonVC.tapPositionImageView.image = UIImage(named: "rightlight")
+                    
+                    self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutUnClicked"),
+                                                             for: .normal)
+                    
                 } else {
                     if UserDefaultsSetting.mainType != "work" {
-                        self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutUnClicked"),
-                                                                 for: .normal)
+                        switch UserDefaultsSetting.mainPet {
+                        case "dog":
+                            self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeoutClicked"),
+                                                                     for: .normal)
+                            break
+                        case "cat":
+                            self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout3"),
+                                                                     for: .normal)
+                            break
+                        case "parrot":
+                            self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout4"),
+                                                                     for: .normal)
+                            break
+                        case "rabbit":
+                            self?.tapButtonVC.homeOutButton.setImage(UIImage(named: "homeout2"),
+                                                                     for: .normal)
+                            break
+                        default:
+                            break
+                        }
                     }
-                    self?.tapButtonVC.tapPositionImageView.image = UIImage(named: "leftlight")
+                    
                 }
             }
             .disposed(by: disposeBag)
@@ -144,25 +155,27 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         self.viewModel.output.inResult
             .bind {[weak self] value in
                 if value {
-                    switch UserDefaultsSetting.mainPet {
-                    case "dog":
-                        self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
-                        break
-                    case "cat":
-                        self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein3"), for: .normal)
-                        break
-                    case "parrot":
-                        self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein4"), for: .normal)
-                        break
-                    case "rabbit":
-                        self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein2"), for: .normal)
-                        break
-                    default:
-                        break
-                    }
+                    
+                    self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
+                    
                 }else {
                     if UserDefaultsSetting.mainType != "leave" {
-                        self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
+                        switch UserDefaultsSetting.mainPet {
+                        case "dog":
+                            self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
+                            break
+                        case "cat":
+                            self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein3"), for: .normal)
+                            break
+                        case "parrot":
+                            self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein4"), for: .normal)
+                            break
+                        case "rabbit":
+                            self?.tapButtonVC.homeInButton.setImage(UIImage(named: "homein2"), for: .normal)
+                            break
+                        default:
+                            break
+                        }
                     }
                 }
                 
@@ -214,21 +227,21 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
 
 extension MainViewController: TapButtonViewDelegate {
     
-//    @objc func updateTimer() {
-//        self.tapButtonVC.counter += 0.1
-//        let flooredCounter = Int(floor(self.tapButtonVC.counter))
-//        let humanHour = flooredCounter / 3600
-//        let minute = (flooredCounter % 3600) / 60
-//        let second = (flooredCounter % 3600) % 60
-//        let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
-//        self.tapButtonVC.inClockHumanTimeLabel.text = humanTimeString
-//
-//        let animalHour = UserDefaultsSetting.mainPet == "rabbit" ? (humanHour + 24) : UserDefaultsSetting.mainPet == "parrot" ? (humanHour + 6) : (humanHour + 4)
-//        let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
-//        self.tapButtonVC.inClockAnimalTimeLabel.text = animalTimeString
-//
-//        UserDefaults.shared.set(minute, forKey: "animalHour")
-//    }
+    //    @objc func updateTimer() {
+    //        self.tapButtonVC.counter += 0.1
+    //        let flooredCounter = Int(floor(self.tapButtonVC.counter))
+    //        let humanHour = flooredCounter / 3600
+    //        let minute = (flooredCounter % 3600) / 60
+    //        let second = (flooredCounter % 3600) % 60
+    //        let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
+    //        self.tapButtonVC.inClockHumanTimeLabel.text = humanTimeString
+    //
+    //        let animalHour = UserDefaultsSetting.mainPet == "rabbit" ? (humanHour + 24) : UserDefaultsSetting.mainPet == "parrot" ? (humanHour + 6) : (humanHour + 4)
+    //        let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
+    //        self.tapButtonVC.inClockAnimalTimeLabel.text = animalTimeString
+    //
+    //        UserDefaults.shared.set(minute, forKey: "animalHour")
+    //    }
     
     func didTapButton(value: String) {
         if value == "in" {
@@ -238,16 +251,16 @@ extension MainViewController: TapButtonViewDelegate {
                 self.viewModel.input.inTrigger.onNext(true)
                 self.viewModel.input.outTrigger.onNext(false)
                 
-//                // 알림 멈춤
-//                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-//
-//                UserDefaultsSetting.mainType = "leave"
-//                self.tapButtonVC.timer.invalidate()
-//                self.tapButtonVC.counter = 0.0
-//                self.tapButtonVC.inClockTitleLabel.text = "막둥이가 나와 함께한지"
-//                UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
-//
-//                self.tapButtonVC.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+                //                // 알림 멈춤
+                //                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+                //
+                //                UserDefaultsSetting.mainType = "leave"
+                //                self.tapButtonVC.timer.invalidate()
+                //                self.tapButtonVC.counter = 0.0
+                //                self.tapButtonVC.inClockTitleLabel.text = "막둥이가 나와 함께한지"
+                //                UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+                //
+                //                self.tapButtonVC.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
             }))
             sheet.addAction(UIAlertAction(title: "취소", style: .cancel))
             present(sheet, animated: true)
@@ -260,16 +273,16 @@ extension MainViewController: TapButtonViewDelegate {
                 self.viewModel.input.inTrigger.onNext(false)
                 
                 
-//                let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
-//                localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
-//                localNotificationBuilder.build(secondAfter: 60)
-//
-//                UserDefaultsSetting.mainType = "work"
-//                self.tapButtonVC.timer.invalidate()
-//                self.tapButtonVC.counter = 0.0
-//                self.tapButtonVC.inClockAnimalTimeLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
-//                UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
-//                self.tapButtonVC.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+                //                let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
+                //                localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
+                //                localNotificationBuilder.build(secondAfter: 60)
+                //
+                //                UserDefaultsSetting.mainType = "work"
+                //                self.tapButtonVC.timer.invalidate()
+                //                self.tapButtonVC.counter = 0.0
+                //                self.tapButtonVC.inClockAnimalTimeLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
+                //                UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+                //                self.tapButtonVC.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
             }))
             sheet.addAction(UIAlertAction(title: "취소", style: .cancel))
             present(sheet, animated: true)

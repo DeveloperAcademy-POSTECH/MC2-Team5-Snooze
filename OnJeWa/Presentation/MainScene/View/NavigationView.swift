@@ -40,14 +40,14 @@ final class NavigationView: BaseView {
   
   private lazy var albumButton: UIButton = {
     let button = UIButton()
-    button.setImage(UIImage(named: "albumbutton"), for: .normal)
+    button.setImage(UIImage(named: "redalbumbutton1"), for: .normal)
     button.contentMode = .scaleAspectFit
     return button
   }()
   
   private lazy var notificationButton: UIButton = {
     let button = UIButton()
-    button.setImage(UIImage(named: "alarmbutton"), for: .normal)
+    button.setImage(UIImage(named: "redalarmbutton1"), for: .normal)
     button.contentMode = .scaleAspectFit
     return button
   }()

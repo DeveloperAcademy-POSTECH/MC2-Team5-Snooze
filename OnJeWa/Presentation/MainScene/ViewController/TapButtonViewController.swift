@@ -179,11 +179,11 @@ class TapButtonViewController: BaseViewController {
         return button
     }()
     
-    let tapPositionImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "leftlight"))
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+//    let tapPositionImageView: UIImageView = {
+//        let imageView = UIImageView(image: UIImage(named: "leftlight"))
+//        imageView.contentMode = .scaleAspectFit
+//        return imageView
+//    }()
     
     private var previousButton: UIButton?
     
@@ -376,6 +376,32 @@ class TapButtonViewController: BaseViewController {
             print("??? UserDefaultsSetting.mainPet \(UserDefaultsSetting.mainPet)")
             switch UserDefaultsSetting.mainPet {
             case "dog":
+                homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
+                break
+            case "cat":
+                homeInButton.setImage(UIImage(named: "homein3"), for: .normal)
+                break
+            case "parrot":
+                homeInButton.setImage(UIImage(named: "homein4"), for: .normal)
+                break
+            case "rabbit":
+                homeInButton.setImage(UIImage(named: "homein2"), for: .normal)
+                break
+            default:
+                break
+            }
+           
+            print("??? 11")
+            guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
+            print("??? 22")
+            let interval = Double(Date().timeIntervalSince(start))
+            print("??? 33")
+            NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time" : interval])
+            
+        } else if UserDefaultsSetting.mainType == "leave" { // 퇴근상태
+            
+            switch UserDefaultsSetting.mainPet {
+            case "dog":
                 homeOutButton.setImage(UIImage(named: "homeoutClicked"),
                                                          for: .normal)
                 break
@@ -394,31 +420,6 @@ class TapButtonViewController: BaseViewController {
             default:
                 break
             }
-            print("??? 11")
-            guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
-            print("??? 22")
-            let interval = Double(Date().timeIntervalSince(start))
-            print("??? 33")
-            NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time" : interval])
-            
-        } else if UserDefaultsSetting.mainType == "leave" { // 퇴근상태
-            switch UserDefaultsSetting.mainPet {
-            case "dog":
-                homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
-                break
-            case "cat":
-                homeInButton.setImage(UIImage(named: "homein3"), for: .normal)
-                break
-            case "parrot":
-                homeInButton.setImage(UIImage(named: "homein4"), for: .normal)
-                break
-            case "rabbit":
-                homeInButton.setImage(UIImage(named: "homein2"), for: .normal)
-                break
-            default:
-                break
-            }
-            
             guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
             let interval = Double(Date().timeIntervalSince(start))
             NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time" : interval])
@@ -445,7 +446,7 @@ class TapButtonViewController: BaseViewController {
         view.backgroundColor = .clear
         [titleLabel, dateLabel, popupButton, clockImageView,animalTimeImageView, humanTimeImageView,
          carrotNumber, inClockAnimalImageView, inClockTitleLabel, inClockHumanTimeLabel,
-         inClockAnimalTimeLabel, homeOutButton, tapPositionImageView, homeInButton].forEach {
+         inClockAnimalTimeLabel, homeOutButton, homeInButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -517,19 +518,16 @@ class TapButtonViewController: BaseViewController {
         ])
         
         NSLayoutConstraint.activate([
-            homeOutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            homeOutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                  constant: -30.adjusted),
             homeOutButton.leadingAnchor.constraint(equalTo: clockImageView.leadingAnchor, constant: 14.adjusted),
             homeOutButton.widthAnchor.constraint(equalToConstant: 76.adjusted),
             homeOutButton.heightAnchor.constraint(equalToConstant: 76.adjusted)
         ])
         NSLayoutConstraint.activate([
-            tapPositionImageView.centerYAnchor.constraint(equalTo: homeOutButton.centerYAnchor),
-            tapPositionImageView.leadingAnchor.constraint(equalTo: homeOutButton.trailingAnchor, constant: 48.adjusted),
-            tapPositionImageView.widthAnchor.constraint(equalToConstant: 24.adjusted)
-        ])
-        NSLayoutConstraint.activate([
-            homeInButton.bottomAnchor.constraint(equalTo: homeOutButton.bottomAnchor),
-            homeInButton.leadingAnchor.constraint(equalTo: tapPositionImageView.trailingAnchor, constant: 48.adjusted),
+            homeInButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                 constant: -30.adjusted),
+            homeInButton.trailingAnchor.constraint(equalTo: clockImageView.trailingAnchor, constant: -14.adjusted),
             homeInButton.widthAnchor.constraint(equalToConstant: 76.adjusted),
             homeInButton.heightAnchor.constraint(equalToConstant: 76.adjusted)
         ])
