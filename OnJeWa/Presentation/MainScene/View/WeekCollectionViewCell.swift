@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import OnJeWaUI
+import OnJeWaCore
 
 class WeekCollectionViewCell: UICollectionViewCell {
     
@@ -88,7 +90,7 @@ extension WeekCollectionViewCell {
         missionGaugeImageView.image = UIImage(named: model.image)
         if let weekday = comps.weekday, weekday == model.index {
             
-            dayLabel.textColor = .red
+          dayLabel.textColor = hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
             dayLabel.font = .systemFont(ofSize: 14, weight: .bold)
         }
     }

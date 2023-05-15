@@ -178,15 +178,7 @@ class TapButtonViewController: BaseViewController {
     button.addTarget(self, action: #selector(homeInButtonTapped), for: .touchUpInside)
     return button
   }()
-  
-  //    let tapPositionImageView: UIImageView = {
-  //        let imageView = UIImageView(image: UIImage(named: "leftlight"))
-  //        imageView.contentMode = .scaleAspectFit
-  //        return imageView
-  //    }()
-  
-  private var previousButton: UIButton?
-  
+    
   func homeOutButtonTappedDemo() {
     let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
     localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
