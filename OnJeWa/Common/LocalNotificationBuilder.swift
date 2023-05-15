@@ -13,11 +13,11 @@ import UserNotifications
 //@available(iOS 15.0, *)
 final class LocalNotificationBuilder {
     private let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
-    private var notificationAvatarImage = ""
+    private var notificationAvatarImage: Data?
     private var notificationAvatarName = ""
     private var notificationContent = UNMutableNotificationContent()
     
-    init(notificationAvatarImage: String, notificationAvatarName: String) {
+    init(notificationAvatarImage: Data, notificationAvatarName: String) {
         self.notificationAvatarImage = notificationAvatarImage
         self.notificationAvatarName = notificationAvatarName
         
@@ -25,7 +25,7 @@ final class LocalNotificationBuilder {
         
         personNameComponents.nickname = self.notificationAvatarName
 
-        let avatar = INImage(imageData: fixOrientation(img: UIImage(named: self.notificationAvatarImage)!).pngData()!)
+        let avatar = INImage(imageData: fixOrientation(img: UIImage(data: self.notificationAvatarImage ?? Data())!).pngData()!)
 
         let senderPerson = INPerson(
             personHandle: INPersonHandle(value: "SenderPersonHandler", type: .unknown),

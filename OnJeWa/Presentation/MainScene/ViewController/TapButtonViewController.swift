@@ -34,7 +34,7 @@ class TapButtonViewController: BaseViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "막둥이의 하루"
+        label.text = "\(RealmManager.shared.readName())의 하루"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return label
@@ -132,9 +132,9 @@ class TapButtonViewController: BaseViewController {
         return imageView
     }()
     
-    private let inClockTitleLabel: UILabel = {
+    let inClockTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = UserDefaultsSetting.mainType == "leave" ? "막둥이가 나와 함께한지" : "막둥이가 나를 기다린지"
+        label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName())가 나와 함께한지" : "\(RealmManager.shared.readName())가 나를 기다린지"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .black
         return label
@@ -154,7 +154,7 @@ class TapButtonViewController: BaseViewController {
         }
     }
     
-    private let inClockHumanTimeLabel: UILabel = {
+    let inClockHumanTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "00:00:00"
         label.font = UIFont.systemFont(ofSize: 14)
@@ -186,20 +186,63 @@ class TapButtonViewController: BaseViewController {
     
     private var previousButton: UIButton?
     
-    @objc private func homeOutButtonTapped(_ sender: UIButton) {
-        if UserDefaultsSetting.mainType != "work" {
-            delegate?.didTapButton(value: "out")
+    func homeOutButtonTappedDemo() {
+            let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
+            localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
+            localNotificationBuilder.build(secondAfter: 60)
+            
+//            delegate?.didTapButton(value: "out")
 
             UserDefaultsSetting.mainType = "work"
             timer.invalidate()
             counter = 0.0
-            inClockTitleLabel.text = "막둥이가 나를 기다린지"
+            inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
             UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
             //    timer.invalidate()
             //    timer = nil
             //        counter = 0.0
-            
+
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+
+    }
+    
+    func homeInButtonTappedDemo() {
+        
+//            // 알림 멈춤
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+
+//            delegate?.didTapButton(value: "in")
+            UserDefaultsSetting.mainType = "leave"
+            timer.invalidate()
+            counter = 0.0
+        inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나와 함께한지"
+            UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func homeOutButtonTapped(_ sender: UIButton) {
+        if UserDefaultsSetting.mainType != "work" {
+                        
+            delegate?.didTapButton(value: "out")
+            
+            // 알림 시작
+//            let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
+//            localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
+//            localNotificationBuilder.build(secondAfter: 60)
+            
+//            delegate?.didTapButton(value: "out")
+
+//            UserDefaultsSetting.mainType = "work"
+//            timer.invalidate()
+//            counter = 0.0
+//            inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
+//            UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+//            //    timer.invalidate()
+//            //    timer = nil
+//            //        counter = 0.0
+//
+//            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         } else {
             print("??? work !!")
         }
@@ -224,14 +267,20 @@ class TapButtonViewController: BaseViewController {
     
     @objc private func homeInButtonTapped(_ sender: UIButton) {
         if UserDefaultsSetting.mainType != "leave" {
-            delegate?.didTapButton(value: "in")
-            UserDefaultsSetting.mainType = "leave"
-            timer.invalidate()
-            counter = 0.0
-            inClockTitleLabel.text = "막둥이가 나와 함께한지"
-            UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
             
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            delegate?.didTapButton(value: "in")
+            
+//            // 알림 멈춤
+//            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+//
+//            delegate?.didTapButton(value: "in")
+//            UserDefaultsSetting.mainType = "leave"
+//            timer.invalidate()
+//            counter = 0.0
+//            inClockTitleLabel.text = "막둥이가 나와 함께한지"
+//            UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+//
+//            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         } else {
             print("??? leave !!!")
         }

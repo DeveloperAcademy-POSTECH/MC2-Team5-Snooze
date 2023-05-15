@@ -41,6 +41,7 @@ public class RealmManager: Realmable {
         do {
             let realm = try Realm()
             try realm.write {
+                realm.deleteAll()
                 realm.add(profile)
             }
             completion()

@@ -30,6 +30,10 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let popupVC = CustomPopupViewController()
+        popupVC.modalPresentationStyle = .overFullScreen
+        self.present(popupVC, animated: false)
+        
         UNUserNotificationCenter.current().requestAuthorization(
              options: [.alert, .badge, .sound]
          ) {
@@ -209,12 +213,41 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
 }
 
 extension MainViewController: TapButtonViewDelegate {
+    
+//    @objc func updateTimer() {
+//        self.tapButtonVC.counter += 0.1
+//        let flooredCounter = Int(floor(self.tapButtonVC.counter))
+//        let humanHour = flooredCounter / 3600
+//        let minute = (flooredCounter % 3600) / 60
+//        let second = (flooredCounter % 3600) % 60
+//        let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
+//        self.tapButtonVC.inClockHumanTimeLabel.text = humanTimeString
+//
+//        let animalHour = UserDefaultsSetting.mainPet == "rabbit" ? (humanHour + 24) : UserDefaultsSetting.mainPet == "parrot" ? (humanHour + 6) : (humanHour + 4)
+//        let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
+//        self.tapButtonVC.inClockAnimalTimeLabel.text = animalTimeString
+//
+//        UserDefaults.shared.set(minute, forKey: "animalHour")
+//    }
+    
     func didTapButton(value: String) {
         if value == "in" {
             let sheet = UIAlertController(title: "집에 돌아오셨나요?", message: "나의 반려동물과\n 즐거운 시간을 보내세요!", preferredStyle: .alert)
             sheet.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { _ in
+                self.tapButtonVC.homeInButtonTappedDemo()
                 self.viewModel.input.inTrigger.onNext(true)
                 self.viewModel.input.outTrigger.onNext(false)
+                
+//                // 알림 멈춤
+//                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+//
+//                UserDefaultsSetting.mainType = "leave"
+//                self.tapButtonVC.timer.invalidate()
+//                self.tapButtonVC.counter = 0.0
+//                self.tapButtonVC.inClockTitleLabel.text = "막둥이가 나와 함께한지"
+//                UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+//
+//                self.tapButtonVC.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
             }))
             sheet.addAction(UIAlertAction(title: "취소", style: .cancel))
             present(sheet, animated: true)
@@ -222,9 +255,21 @@ extension MainViewController: TapButtonViewDelegate {
             // Out
             let sheet = UIAlertController(title: "밖으로 외출하시나요?", message: "반려동물이 집에서 기다리고\n 있으니 빨리 다녀오세요!", preferredStyle: .alert)
             sheet.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { _ in
+                self.tapButtonVC.homeOutButtonTappedDemo()
                 self.viewModel.input.outTrigger.onNext(true)
                 self.viewModel.input.inTrigger.onNext(false)
                 
+                
+//                let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
+//                localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
+//                localNotificationBuilder.build(secondAfter: 60)
+//
+//                UserDefaultsSetting.mainType = "work"
+//                self.tapButtonVC.timer.invalidate()
+//                self.tapButtonVC.counter = 0.0
+//                self.tapButtonVC.inClockAnimalTimeLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
+//                UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+//                self.tapButtonVC.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
             }))
             sheet.addAction(UIAlertAction(title: "취소", style: .cancel))
             present(sheet, animated: true)
