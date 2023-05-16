@@ -82,6 +82,9 @@ final class SetProfileViewController: BaseViewController {
         
         // Input
         
+        viewModel.input.profileImageTrigger.onNext(true)
+        self.profile?.profileImage = UIImage(named: "setBackgroundImage")?.jpegData(compressionQuality: 0.5)
+        
         // Output
         
         viewModel.output.nextButtonStatus

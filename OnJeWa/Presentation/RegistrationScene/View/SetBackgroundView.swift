@@ -63,6 +63,7 @@ final class SetBackgroundView: BaseView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .white
+        imageView.isUserInteractionEnabled = true
         let originalImage = UIImage(named: "setBackgroundImage")
         let size = CGSize(width: originalImage!.size.width / 3, height: originalImage!.size.height / 3)
         let renderer = UIGraphicsImageRenderer(size: size)
@@ -78,6 +79,7 @@ final class SetBackgroundView: BaseView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .white
+        imageView.contentMode = .scaleAspectFill
         imageView.isHidden = true
         return imageView
     }()
@@ -152,6 +154,12 @@ extension SetBackgroundView: UIImagePickerControllerDelegate & UINavigationContr
         }
     }
     
+    @objc func baseBackgroundTapped() {
+        if let viewController = window?.rootViewController {
+            viewController.present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+    
     @objc func resetTapped() {
         if let viewController = window?.rootViewController {
             viewController.present(imagePickerController, animated: true, completion: nil)
@@ -165,6 +173,9 @@ private extension SetBackgroundView {
         resetTitle.addGestureRecognizer(tapGestureRecognizer)
         
         nextButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        let baseTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(baseBackgroundTapped))
+        backgroundImageView.addGestureRecognizer(baseTapGestureRecognizer)
         
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary

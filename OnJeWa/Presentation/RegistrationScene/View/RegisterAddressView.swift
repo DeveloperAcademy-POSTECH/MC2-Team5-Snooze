@@ -100,6 +100,7 @@ final class RegisterAddressView: BaseView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -194,6 +195,9 @@ private extension RegisterAddressView {
         setCenterImageView(setStatus: false)
         
         self.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetButtonTapGesture))
+        addressTitle.addGestureRecognizer(tapGestureRecognizer)
         
         resetAddressButton.addTarget(self, action: #selector(resetButtonTapGesture), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(buttonTapGesture), for: .touchUpInside)
