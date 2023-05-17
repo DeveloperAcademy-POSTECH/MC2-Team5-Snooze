@@ -67,13 +67,13 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         if status == .authorizedAlways {
             // 범위를 설정하는 기준좌표 -> 예를 들어 우리 앱에서는 집 혹은 회사
             
-            //            let center = CLLocationCoordinate2D(latitude: RealmManager.shared.readCoordinate().coordinate.latitude, longitude: RealmManager.shared.readCoordinate().coordinate.longitude)
+//            let center = CLLocationCoordinate2D(latitude: RealmManager.shared.readCoordinate().coordinate.latitude, longitude: RealmManager.shared.readCoordinate().coordinate.longitude)
             
             // C5 좌표
             let center = CLLocationCoordinate2D(latitude: 36.01438502747284, longitude: 129.32562437615857)
             
             // 100m의 원형 영역
-            let region = CLCircularRegion(center: center, radius: 100.0, identifier: "Geofence")
+            let region = CLCircularRegion(center: center, radius: 75.0, identifier: "Geofence")
             
             region.notifyOnEntry = true
             region.notifyOnExit = true

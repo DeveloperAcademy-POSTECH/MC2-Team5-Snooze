@@ -31,6 +31,24 @@ final class SetProfileView: BaseView {
         onJeWaTextField.textContentType = .name
         setupView()
         setupLayout()
+        
+        switch UserDefaultsSetting.mainPet {
+        case "dog":
+            profileImageView.image = UIImage(named: "dogcircleblack")
+            break
+        case "cat":
+            profileImageView.image = UIImage(named: "catcircleblack")
+            break
+        case "parrot":
+            profileImageView.image = UIImage(named: "parcircleblack")
+            break
+        case "rabbit":
+            profileImageView.image = UIImage(named: "rbcircleblack")
+            break
+        default:
+            profileImageView.image = UIImage(named: "myimage")
+            break
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -159,7 +177,7 @@ private extension SetProfileView {
     func setupView() {
         
         onJeWaTextField.delegate = self
-        onJeWaTextField.placeholder = "이름"
+        onJeWaTextField.placeholder = "막둥이 이름"
         
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
