@@ -36,14 +36,12 @@ class WeekCollectionView: BaseView {
         return label
     }()
     
-    private lazy var weekCollectionView: UICollectionView = {
+     var weekCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isScrollEnabled = false
-        collectionView.delegate = self
-        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -66,6 +64,10 @@ class WeekCollectionView: BaseView {
 //MARK: - Extension
 extension WeekCollectionView  {
     private func setupView() {
+      
+      weekCollectionView.delegate = self
+      weekCollectionView.dataSource = self
+      
         [weekTitleLabel, weekCollectionView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             backgroundView.addSubview($0)
@@ -100,6 +102,14 @@ extension WeekCollectionView  {
         weekCollectionView.register(WeekCollectionViewCell.self,
                                     forCellWithReuseIdentifier: WeekCollectionViewCell.identifier)
     }
+  
+  func test() {
+    if let cell = weekCollectionView.cellForItem(at: IndexPath(row: 3, section: 0)) as? WeekCollectionViewCell {
+      cell.circleBorder.isHidden = false
+      cell.circleBorder.layer.borderColor = hexStringToUIColor(hex: UserDefaultsSetting.mainColor).cgColor
+      cell.missionGaugeImageView.image = UIImage(named: "half")
+    }
+  }
 }
 
 
@@ -109,6 +119,7 @@ extension WeekCollectionView: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         return CGSize(width: 35.adjusted, height: 66.adjusted)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -126,6 +137,7 @@ extension WeekCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+      print("?? \(indexPath.section)")
         guard let collectionCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: WeekCollectionViewCell.identifier,
                                                    for: indexPath) as? WeekCollectionViewCell else { return UICollectionViewCell() }

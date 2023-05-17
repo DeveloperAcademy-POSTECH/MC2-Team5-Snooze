@@ -24,12 +24,23 @@ class WeekCollectionViewCell: UICollectionViewCell {
     return label
   }()
   
-  private let missionGaugeImageView: UIImageView = {
+   let missionGaugeImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.image = UIImage(named: "zero")
     imageView.contentMode = .scaleAspectFit
     imageView.isUserInteractionEnabled = true
     return imageView
+  }()
+  
+   let circleBorder: UIView = {
+    let circleSize = CGSize(width: 35, height: 35)
+    let view = UIView()
+    view.layer.borderWidth = 2.0
+    view.backgroundColor = .clear
+    view.layer.borderColor = UIColor.red.cgColor
+    view.layer.cornerRadius = circleSize.width / 2.0
+    view.isHidden = true
+    return view
   }()
   
   override init(frame: CGRect) {
@@ -46,7 +57,7 @@ class WeekCollectionViewCell: UICollectionViewCell {
 extension WeekCollectionViewCell {
   private func setupView() {
     contentView.backgroundColor = .clear
-    [dayLabel ,missionGaugeImageView].forEach {
+    [dayLabel ,missionGaugeImageView, circleBorder].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
       contentView.addSubview($0)
     }
@@ -64,6 +75,13 @@ extension WeekCollectionViewCell {
     NSLayoutConstraint.activate([
       dayLabel.topAnchor.constraint(equalTo: missionGaugeImageView.bottomAnchor, constant: 12.adjusted),
       dayLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+    ])
+    
+    NSLayoutConstraint.activate([
+      circleBorder.topAnchor.constraint(equalTo: missionGaugeImageView.topAnchor),
+      circleBorder.leadingAnchor.constraint(equalTo: missionGaugeImageView.leadingAnchor),
+      circleBorder.trailingAnchor.constraint(equalTo: missionGaugeImageView.trailingAnchor),
+      circleBorder.bottomAnchor.constraint(equalTo: missionGaugeImageView.bottomAnchor)
     ])
     
   }
@@ -89,5 +107,9 @@ extension WeekCollectionViewCell {
       dayLabel.textColor = hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
       dayLabel.font = .systemFont(ofSize: 14, weight: .bold)
     }
+  }
+  
+  func testChange() {
+    print("!!!")
   }
 }

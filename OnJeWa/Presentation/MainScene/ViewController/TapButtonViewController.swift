@@ -14,6 +14,7 @@ import WidgetKit
 
 protocol TapButtonViewDelegate: AnyObject {
   func didTapButton(value: String)
+  func homeInTap()
 }
 
 class TapButtonViewController: BaseViewController {
@@ -229,6 +230,9 @@ class TapButtonViewController: BaseViewController {
     WidgetCenter.shared.reloadAllTimelines()
     
     timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    
+    delegate?.homeInTap()
+    
   }
   
   @objc private func homeOutButtonTapped(_ sender: UIButton) {
@@ -262,10 +266,10 @@ class TapButtonViewController: BaseViewController {
   
   @objc private func homeInButtonTapped(_ sender: UIButton) {
     if UserDefaultsSetting.mainType != "leave" {
-      
       delegate?.didTapButton(value: "in")
       
     } else {
+      
     }
   }
   
