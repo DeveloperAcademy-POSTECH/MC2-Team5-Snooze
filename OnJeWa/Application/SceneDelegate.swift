@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
 //                let mainViewController = OnboardingViewController()
-        let mainViewController = OnboardingViewController()
+        let mainViewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)

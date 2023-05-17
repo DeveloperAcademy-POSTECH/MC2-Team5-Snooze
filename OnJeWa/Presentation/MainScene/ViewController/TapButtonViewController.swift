@@ -29,7 +29,8 @@ class TapButtonViewController: BaseViewController {
   //현재 시간
   var counter = 0.0
   var animalCounter = 0.0
-  
+  private var isAnimating = false
+  private var initialAngle: CGFloat = 0.0
   
   //MARK: - UI Components
   
@@ -68,7 +69,7 @@ class TapButtonViewController: BaseViewController {
   }
   private let clockImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "watch")
+    imageView.image = UIImage(named: "clock")
     imageView.contentMode = .scaleAspectFill
     return imageView
   }()
@@ -77,16 +78,16 @@ class TapButtonViewController: BaseViewController {
     let imageView = UIImageView()
     switch UserDefaultsSetting.mainPet {
     case "dog":
-      imageView.image = UIImage(named: "animaltime")
+      imageView.image = UIImage(named: "dogWatch")
       break
     case "cat":
-      imageView.image = UIImage(named: "animaltime3")
+      imageView.image = UIImage(named: "catWatch")
       break
     case "parrot":
-      imageView.image = UIImage(named: "animaltime4")
+      imageView.image = UIImage(named: "parrotWatch")
       break
     case "rabbit":
-      imageView.image = UIImage(named: "animaltime2")
+      imageView.image = UIImage(named: "rabbitWatch")
       break
     default:
       break
@@ -97,25 +98,36 @@ class TapButtonViewController: BaseViewController {
   
   private let humanTimeImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "persontime")
+    imageView.image = UIImage(named: "insideWatch")
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
   
-  // 애니메이션 시작
-  //  func startAnimation() {
-  //    rotateView(view: animalTimeImageView)
-  //    rotateView(view: humanTimeImageView)
-  //  }
+  //   애니메이션 시작
+  func startAnimation() {
+    guard !isAnimating else { return }
+    
+    isAnimating = true
+    animalTimeImageView.transform = CGAffineTransform.identity // 처음 각도로 원위치
+    humanTimeImageView.transform = CGAffineTransform.identity // 처음 각도로 원위치
+    rotateView(view: animalTimeImageView, angle: 36.0)
+    rotateView(view: humanTimeImageView, angle: 12.0)
+  }
   
-  // 컴포넌트 회전 애니메이션
-  //  func rotateView(view: UIView) {
-  //    UIView.animate(withDuration: 1.0, animations: {
-  //      view.transform = view.transform.rotated(by: CGFloat.pi / 36.0) // 5도씩 회전 (180도를 36으로 나눔)
-  //    }) { (_) in
-  //      self.rotateView(view: view) // 애니메이션 재귀 호출
-  //    }
-  //  }
+  //애니메이션 중단
+  func stopAnimation() {
+    isAnimating = false
+  }
+  
+  //   컴포넌트 회전 애니메이션
+  func rotateView(view: UIView, angle: Double) {
+    UIView.animate(withDuration: 2.0, animations: {
+      view.transform = view.transform.rotated(by: angle / 36.0)
+      
+    }) { (_) in
+      self.rotateView(view: view, angle: angle) // 애니메이션 재귀 호출
+    }
+  }
   
   private let carrotNumber: UILabel = {
     let label = UILabel()
@@ -162,7 +174,6 @@ class TapButtonViewController: BaseViewController {
     return label
   }()
   
-  
   lazy var homeOutButton: UIButton = {
     let button = UIButton()
     //        button.setImage(UIImage(named: "homeoutUnClicked"), for: .normal)
@@ -178,39 +189,37 @@ class TapButtonViewController: BaseViewController {
     button.addTarget(self, action: #selector(homeInButtonTapped), for: .touchUpInside)
     return button
   }()
-    
+  
   func homeOutButtonTappedDemo() {
     let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
     localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
     localNotificationBuilder.build(secondAfter: 60)
     
-    //            delegate?.didTapButton(value: "out")
-    
     UserDefaultsSetting.mainType = "work"
     timer.invalidate()
+    stopAnimation()
+    startAnimation()
     counter = 0.0
     animalCounter = 0.0
     inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
+    
     UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
     UserDefaults.shared.set(0, forKey: "animalHour")
     UserDefaults.shared.set(true, forKey: "homeOutKey")
     WidgetCenter.shared.reloadAllTimelines()
-    //    timer.invalidate()
-    //    timer = nil
-    //        counter = 0.0
     
     timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     
   }
   
   func homeInButtonTappedDemo() {
-    
-    //            // 알림 멈춤
+    // 알림 멈춤
     UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     
-    //            delegate?.didTapButton(value: "in")
     UserDefaultsSetting.mainType = "leave"
     timer.invalidate()
+    stopAnimation()
+    startAnimation()
     counter = 0.0
     animalCounter = 0.0
     inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나와 함께한지"
@@ -224,28 +233,9 @@ class TapButtonViewController: BaseViewController {
   
   @objc private func homeOutButtonTapped(_ sender: UIButton) {
     if UserDefaultsSetting.mainType != "work" {
-      
       delegate?.didTapButton(value: "out")
       
-      // 알림 시작
-      //            let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
-      //            localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
-      //            localNotificationBuilder.build(secondAfter: 60)
-      
-      //            delegate?.didTapButton(value: "out")
-      
-      //            UserDefaultsSetting.mainType = "work"
-      //            timer.invalidate()
-      //            counter = 0.0
-      //            inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
-      //            UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
-      //            //    timer.invalidate()
-      //            //    timer = nil
-      //            //        counter = 0.0
-      //
-      //            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     } else {
-      print("??? work !!")
     }
     
   }
@@ -267,7 +257,7 @@ class TapButtonViewController: BaseViewController {
     let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, animalMinute, animalSecond)
     inClockAnimalTimeLabel.text = animalTimeString
     
-    UserDefaults.shared.set(minute, forKey: "animalHour")
+    //    UserDefaults.shared.set(minute, forKey: "animalHour")
   }
   
   @objc private func homeInButtonTapped(_ sender: UIButton) {
@@ -275,27 +265,13 @@ class TapButtonViewController: BaseViewController {
       
       delegate?.didTapButton(value: "in")
       
-      //            // 알림 멈춤
-      //            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-      //
-      //            delegate?.didTapButton(value: "in")
-      //            UserDefaultsSetting.mainType = "leave"
-      //            timer.invalidate()
-      //            counter = 0.0
-      //            inClockTitleLabel.text = "막둥이가 나와 함께한지"
-      //            UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
-      //
-      //            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     } else {
-      print("??? leave !!!")
     }
   }
   
   @objc func addbackGroundTime(_ notification: NSNotification) {
-    print("??? addbackGroundTime")
     //노티피케이션센터를 통해 값을 받아옴
     let time = notification.userInfo?["time"] as? Double ?? 0.1
-    print("??? notification \(time)")
     counter = time
     let flooredCounter = Int(floor(counter))
     let humanHour = flooredCounter / 3600
@@ -303,25 +279,19 @@ class TapButtonViewController: BaseViewController {
     let second = (flooredCounter % 3600) % 60
     let humanTimeString = String(format: "%02d:%02d:%02d", humanHour, minute, second)
     inClockHumanTimeLabel.text = humanTimeString
-    print("??? humanTimeString \(humanTimeString)")
-    
     let animalHour = UserDefaultsSetting.mainPet == "rabbit" ? (humanHour + 24) : UserDefaultsSetting.mainPet == "parrot" ? (humanHour + 6) : (humanHour + 4)
     let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
     inClockAnimalTimeLabel.text = animalTimeString
-    print("??? animalTimeString \(animalTimeString)")
-    
     timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
   }
   
   @objc func stopTimer() {
-    print("??? stopTimer")
     timer.invalidate()
   }
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     print("??? UserDefaultsSetting.mainType \(UserDefaultsSetting.mainType)")
     
     let dogArray = ["d_1", "d_2", "d_3", "d_4"]
@@ -423,11 +393,6 @@ class TapButtonViewController: BaseViewController {
       NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time" : interval])
     }
     
-    
-    print("??? viewDidLoad")
-    //백그라운드에서 포어그라운드로 돌아올때
-    
-    
     // 이거 나중에 지워~
     UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
     self.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
@@ -466,31 +431,32 @@ class TapButtonViewController: BaseViewController {
       popupButton.heightAnchor.constraint(equalToConstant: 24.adjusted),
       popupButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 6.adjusted)
     ])
+    
     NSLayoutConstraint.activate([
-      clockImageView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 19.adjusted),
-      clockImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      clockImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      clockImageView.bottomAnchor.constraint(equalTo: homeOutButton.topAnchor, constant: -24.adjusted)
+      animalTimeImageView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 19.adjusted),
+      animalTimeImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      animalTimeImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      animalTimeImageView.bottomAnchor.constraint(equalTo: homeOutButton.topAnchor, constant: -24.adjusted)
     ])
     
     NSLayoutConstraint.activate([
-      animalTimeImageView.topAnchor.constraint(equalTo: clockImageView.topAnchor, constant: 26
-        .adjusted),
-      animalTimeImageView.leadingAnchor.constraint(equalTo: clockImageView.leadingAnchor, constant: 5.adjusted),
-      animalTimeImageView.trailingAnchor.constraint(equalTo: clockImageView.trailingAnchor),
-      animalTimeImageView.heightAnchor.constraint(equalToConstant: 155.adjusted)
+      humanTimeImageView.topAnchor.constraint(equalTo: animalTimeImageView.topAnchor, constant: 15.adjusted),
+      humanTimeImageView.leadingAnchor.constraint(equalTo: animalTimeImageView.leadingAnchor, constant: 15.adjusted),
+      humanTimeImageView.trailingAnchor.constraint(equalTo: animalTimeImageView.trailingAnchor, constant: -15.adjusted),
+      humanTimeImageView.bottomAnchor.constraint(equalTo: animalTimeImageView.bottomAnchor, constant: -15.adjusted)
     ])
     
     NSLayoutConstraint.activate([
-      humanTimeImageView.topAnchor.constraint(equalTo: clockImageView.topAnchor, constant: 44.adjusted),
-      humanTimeImageView.leadingAnchor.constraint(equalTo: clockImageView.centerXAnchor),
-      humanTimeImageView.widthAnchor.constraint(equalToConstant: 140.adjusted),
-      humanTimeImageView.heightAnchor.constraint(equalToConstant: 140.adjusted)
+      clockImageView.topAnchor.constraint(equalTo: animalTimeImageView.topAnchor, constant: 19.adjusted),
+      clockImageView.leadingAnchor.constraint(equalTo: animalTimeImageView.leadingAnchor, constant: 19.adjusted),
+      clockImageView.trailingAnchor.constraint(equalTo: animalTimeImageView.trailingAnchor, constant: -19.adjusted),
+      clockImageView.bottomAnchor.constraint(equalTo: animalTimeImageView.bottomAnchor, constant: -19.adjusted)
     ])
     
     NSLayoutConstraint.activate([
-      carrotNumber.topAnchor.constraint(equalTo: clockImageView.topAnchor, constant: 85.adjusted),
-      carrotNumber.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)
+      carrotNumber.topAnchor.constraint(equalTo: animalTimeImageView.topAnchor, constant: 65.adjusted),
+      carrotNumber.centerXAnchor.constraint(equalTo: animalTimeImageView
+        .centerXAnchor)
     ])
     
     NSLayoutConstraint.activate([

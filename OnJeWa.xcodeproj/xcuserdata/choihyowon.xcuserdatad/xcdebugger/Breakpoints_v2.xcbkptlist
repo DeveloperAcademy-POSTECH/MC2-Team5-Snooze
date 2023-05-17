@@ -14,8 +14,8 @@
             filePath = "OnJeWa/Presentation/MainScene/View/WeekCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "dataBind(model:)"
             landmarkType = "7">
             <Locations>
@@ -55,97 +55,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "31B67F5F-A7C4-4A25-9472-BC73B941242E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnJeWaWidget/OnJeWaWidget.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "getTimeline(in:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F6757A28-3566-4C42-A19A-C3D566DDCDFB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWaWidget/OnJeWaWidget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "getTimeline(in:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B323B0C5-4F92-42D3-BBBC-D5AD75CB6EAB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnJeWaWidget/OnJeWaWidget.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "getTimeline(in:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B9FFBBC0-234D-4847-AD9B-5AADE55C513A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnJeWaWidget/OnJeWaWidget.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "getTimeline(in:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9943B850-17E4-46A0-A966-6E15544BBBB2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnJeWaWidget/OnJeWaWidget.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "getTimeline(in:completion:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F6757A28-3566-4C42-A19A-C3D566DDCDFB - 64d1c0ee8c0eb9b7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWaWidgetExtension.Provider.getTimeline(in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;OnJeWaWidgetExtension.SimpleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "2112">
+               </Location>
+               <Location
+                  uuid = "F6757A28-3566-4C42-A19A-C3D566DDCDFB - 64d1c0ee8c0eb9b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWaWidgetExtension.Provider.getTimeline(in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;OnJeWaWidgetExtension.SimpleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "2144">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FC5AC778-6EC2-4716-8376-708BED11DAC1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWaWidget/OnJeWaWidget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FC5AC778-6EC2-4716-8376-708BED11DAC1 - 9730bf161b553bd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWaWidgetExtension.OnJeWaWidgetEntryView.body.getter : some"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "1880">
+               </Location>
+               <Location
+                  uuid = "FC5AC778-6EC2-4716-8376-708BED11DAC1 - 51d71253803c7ab8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.aspectRatio(_: __C.CGSize, contentMode: SwiftUI.ContentMode) -&gt; some&gt;&gt;.0)&gt; in OnJeWaWidgetExtension.OnJeWaWidgetEntryView.body.getter : some"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "572">
+               </Location>
+               <Location
+                  uuid = "FC5AC778-6EC2-4716-8376-708BED11DAC1 - 51d71253803c7ad9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.aspectRatio(_: __C.CGSize, contentMode: SwiftUI.ContentMode) -&gt; some&gt;&gt;.0)&gt; in OnJeWaWidgetExtension.OnJeWaWidgetEntryView.body.getter : some"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "3144">
+               </Location>
+               <Location
+                  uuid = "FC5AC778-6EC2-4716-8376-708BED11DAC1 - 9730bf161b5532e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWaWidgetExtension.OnJeWaWidgetEntryView.body.getter : some"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "3620">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,8 +188,8 @@
             filePath = "OnJeWaWidget/OnJeWaWidget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -168,32 +198,64 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "34F5C855-1B3B-4540-9F26-D4F89DFA2186"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWaWidget/OnJeWaWidget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "34F5C855-1B3B-4540-9F26-D4F89DFA2186 - 9730bf161b553dc7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWaWidgetExtension.OnJeWaWidgetEntryView.body.getter : some"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "4748">
+               </Location>
+               <Location
+                  uuid = "34F5C855-1B3B-4540-9F26-D4F89DFA2186 - 9730bf161b5532e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnJeWaWidgetExtension.OnJeWaWidgetEntryView.body.getter : some"
+                  moduleName = "OnJeWaWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choihyowon/Desktop/2023/ADA/MC2/Onjewa/MC2-Team5-Snooze/OnJeWaWidget/OnJeWaWidget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "3620">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "56AD4230-6B0D-46C0-B502-92CBFDC66CD3"
-            shouldBeEnabled = "Yes"
+            uuid = "EA2C06F0-CDA5-4664-BD49-AF23EE85B08F"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnJeWaWidget/OnJeWaWidget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getTimeline(in:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

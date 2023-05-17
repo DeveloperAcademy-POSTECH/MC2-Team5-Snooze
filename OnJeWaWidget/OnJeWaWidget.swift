@@ -23,7 +23,6 @@ struct Provider: TimelineProvider {
     var entries: [SimpleEntry] = []
        var widgetTitle = ""
        var lockWidgetTitle = ""
-    var newAnimalHour = 0
        let currentDate = Date()
        let entryDate = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
 
@@ -36,31 +35,15 @@ struct Provider: TimelineProvider {
            widgetTitle = "오늘 주인과 함께한지"
            lockWidgetTitle = "막둥이랑"
        }
-     
+
     let currentAnimalHour = UserDefaults.shared.integer(forKey: "animalHour")
+    print("??? current")
     
     let entry = SimpleEntry(date: entryDate, animalTime: currentAnimalHour, widgetTitle: widgetTitle, lockWidgetTitle: lockWidgetTitle)
- print("current",currentAnimalHour)
     entries.append(entry)
-
-    let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 1, to: entryDate)!
-    let timeline = Timeline(entries: entries, policy: .after(nextUpdateDate))
+    let timeline = Timeline(entries: entries, policy: .atEnd)
     completion(timeline)
-    
-  
-       if let petTypeKey = UserDefaults.shared.string(forKey: "petTypeKey") {
-           newAnimalHour = petTypeKey == "토끼" ? (currentAnimalHour + 24) :
-                          petTypeKey == "앵무새" ? (currentAnimalHour + 6) : (currentAnimalHour + 4)
-       } else {
-           newAnimalHour = currentAnimalHour
-       }
-
-       UserDefaults.shared.set(newAnimalHour, forKey: "animalHour")
-    print("new",newAnimalHour)
-
    }
-  
-
 }
 
 struct SimpleEntry: TimelineEntry {
@@ -75,29 +58,32 @@ struct OnJeWaWidgetEntryView : View {
   @Environment(\.widgetFamily) var widgetFamily
   let animalType = UserDefaults.shared.string(forKey: "petTypeKey")
   
-  var animalImageName: String {
+  var animalImageName: [String: Int] {
     switch animalType {
     case "고양이":
-      return "cat"
+      return ["cat":4]
     case "강아지":
-      return "dog"
+      return ["dog":4]
     case "토끼":
-      return "rabbit"
+      return ["rabbit":24]
     case "앵무새":
-      return "parrot"
+      return ["parrot":6]
     default:
-      return ""
+      return ["":0]
     }
   }
   
+  
+  
   var body: some View {
-    let animalHour = entry.animalTime
+    let animalHour = entry.animalTime //0
     let widgetTitle = entry.widgetTitle
     let lockWidgetTitle = entry.lockWidgetTitle
     
+    
     if #available(iOSApplicationExtension 16.0, *) {
       switch widgetFamily {
-        
+
       case .accessoryCircular:
         ZStack {
           AccessoryWidgetBackground()
@@ -106,7 +92,7 @@ struct OnJeWaWidgetEntryView : View {
               .resizable()
               .aspectRatio(contentMode: .fit)
               .frame(width: 16, height: 11)
-            Text("\(animalHour)시간")
+            Text("\(animalHour == 0 ? animalHour : animalHour + animalImageName.values.first!)시간")
               .foregroundColor(.white)
               .font(.system(size: 14, weight: .bold))
             Text(lockWidgetTitle)
@@ -114,36 +100,35 @@ struct OnJeWaWidgetEntryView : View {
               .font(.system(size: 8, weight: .regular))
           }
         }
-        
+
       case .systemSmall:
         VStack(alignment: .leading) {
           Text(widgetTitle)
             .font(.system(size: 12, weight: .light))
-          Text("\(animalHour)시간")
+          Text("\(animalHour == 0 ? animalHour : animalHour + animalImageName.values.first!)시간")
             .foregroundColor(.black)
             .font(.system(size: 20, weight: .bold))
             .padding(.bottom, 3)
-          Image(animalImageName)
+          Image(String(describing: animalImageName.keys.first!))
             .resizable()
             .frame(width: 117, height: 81)
             .aspectRatio(.zero, contentMode: .fill)
         }
-        
+
       default:
         Text("error")
       }
     }else {
-      
       switch widgetFamily {
       case .systemSmall:
         VStack(alignment: .leading) {
           Text(widgetTitle)
             .font(.system(size: 12, weight: .light))
-          Text("\(animalHour)시간")
+          Text("\(animalHour == 0 ? animalHour : animalHour + animalImageName.values.first!)시간")
             .foregroundColor(.black)
             .font(.system(size: 20, weight: .bold))
             .padding(.bottom, 3)
-          Image(animalImageName)
+          Image(String(describing: animalImageName.keys.first!))
             .resizable()
             .frame(width: 117, height: 81)
             .aspectRatio(.zero, contentMode: .fill)

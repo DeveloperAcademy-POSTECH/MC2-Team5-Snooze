@@ -32,6 +32,9 @@ final class ChoosePetTypeView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+      
+      UserDefaults.shared.set("강아지", forKey: "petTypeKey")
+      
         setupView()
         setupLayout()
     }

@@ -10,6 +10,7 @@ import OnJeWaCore
 import OnJeWaUI
 import OnJeWaNetwork
 import CoreLocation
+import WidgetKit
 
 class MainViewController: BaseViewController, CLLocationManagerDelegate {
     
@@ -29,7 +30,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+              
         let popupVC = CustomPopupViewController()
         popupVC.modalPresentationStyle = .overFullScreen
         self.present(popupVC, animated: false)
@@ -50,20 +51,16 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         // 위치 서비스 업데이트 시작
         locationManager.startUpdatingLocation()
         
-        
         tapButtonVC.delegate = self // 내가 대신 하겠다
         navigationView.delegate = self
         weekCollectionView.delegate = self
-        
-        print("test 1 \(RealmManager.shared.readCoordinate().coordinate.latitude)")
-        print("test 2 \(RealmManager.shared.readCoordinate().coordinate.longitude)")
+
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else { return }
         let latitude = currentLocation.coordinate.latitude
         let longitude = currentLocation.coordinate.longitude
-        print("latitude: \(latitude), longitude: \(longitude)")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
