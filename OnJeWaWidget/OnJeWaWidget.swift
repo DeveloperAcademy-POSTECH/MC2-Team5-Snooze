@@ -37,7 +37,7 @@ struct Provider: TimelineProvider {
        }
 
     let currentAnimalHour = UserDefaults.shared.integer(forKey: "animalHour")
-    print("??? current")
+    let animalType = UserDefaults.shared.string(forKey: "petTypeKey")
     
     let entry = SimpleEntry(date: entryDate, animalTime: currentAnimalHour, widgetTitle: widgetTitle, lockWidgetTitle: lockWidgetTitle)
     entries.append(entry)

@@ -54,28 +54,16 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     tapButtonVC.delegate = self // 내가 대신 하겠다
     navigationView.delegate = self
     weekCollectionView.delegate = self
-    
-    
-    
-//    guard let cell = weekCollectionView.weekCollectionView.cellForItem(at: IndexPath(item: 1, section: 0)) as?
-//            WeekCollectionViewCell else {
-//      print("sibal")
-//      return // 원하는 형식의 셀로 캐스팅이 실패하면 종료
-//    }
-//    cell.testChange()
+  
   }
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let currentLocation = locations.last else { return }
-    let latitude = currentLocation.coordinate.latitude
-    let longitude = currentLocation.coordinate.longitude
+   
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
     if status == .authorizedAlways {
-      // 범위를 설정하는 기준좌표 -> 예를 들어 우리 앱에서는 집 혹은 회사
-      
-      //            let center = CLLocationCoordinate2D(latitude: RealmManager.shared.readCoordinate().coordinate.latitude, longitude: RealmManager.shared.readCoordinate().coordinate.longitude)
       
       // C5 좌표
       let center = CLLocationCoordinate2D(latitude: 36.01438502747284, longitude: 129.32562437615857)

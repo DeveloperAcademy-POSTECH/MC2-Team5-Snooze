@@ -30,7 +30,6 @@ class WeekCollectionView: BaseView {
     private let weekTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "이번주 \(RealmManager.shared.readName())와 함께한 시간"
-        //MARK: 수정 - 색상 변경 필요
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16.adjusted, weight: .bold)
         return label
@@ -117,7 +116,6 @@ extension WeekCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
         return CGSize(width: 35.adjusted, height: 66.adjusted)
         
     }
@@ -137,7 +135,6 @@ extension WeekCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      print("?? \(indexPath.section)")
         guard let collectionCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: WeekCollectionViewCell.identifier,
                                                    for: indexPath) as? WeekCollectionViewCell else { return UICollectionViewCell() }

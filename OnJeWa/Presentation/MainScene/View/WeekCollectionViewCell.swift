@@ -64,8 +64,6 @@ extension WeekCollectionViewCell {
   }
   
   private func setLayout() {
-    let screenWidth = UIScreen.main.bounds.width
-    let contentViewHeight = contentView.frame.height
     
     NSLayoutConstraint.activate([
       missionGaugeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -107,9 +105,5 @@ extension WeekCollectionViewCell {
       dayLabel.textColor = hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
       dayLabel.font = .systemFont(ofSize: 14, weight: .bold)
     }
-  }
-  
-  func testChange() {
-    print("!!!")
   }
 }

@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
 //                let mainViewController = OnboardingViewController()
-        let mainViewController = MainViewController()
+        let mainViewController = OnboardingViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -60,7 +60,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidEnterBackground(_ scene: UIScene) {
         NotificationCenter.default.post(name: NSNotification.Name("sceneDidEnterBackground"), object: nil)
         guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
-        let interval = Double(Date().timeIntervalSince(start))
         UserDefaults.standard.setValue(start, forKey: "sceneDidEnterBackground")
     }
     

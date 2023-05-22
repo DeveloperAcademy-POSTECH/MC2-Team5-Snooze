@@ -296,8 +296,6 @@ class TapButtonViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("??? UserDefaultsSetting.mainType \(UserDefaultsSetting.mainType)")
-    
     let dogArray = ["d_1", "d_2", "d_3", "d_4"]
     let catArray = ["c_1", "c_2", "c_3", "c_4"]
     let parrotArray = ["p_1", "p_2", "p_3", "p_4"]
@@ -317,7 +315,6 @@ class TapButtonViewController: BaseViewController {
       }
       break
     case "parrot":
-      print("??? DispatchQueue.main")
       DispatchQueue.main.async {
         self.inClockAnimalImageView.animate(withGIFNamed: parrotArray.randomElement()!,
                                             animationBlock:  { })
@@ -343,9 +340,7 @@ class TapButtonViewController: BaseViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(stopTimer), name: NSNotification.Name("sceneDidEnterBackground"), object: nil)
     
     if UserDefaultsSetting.mainType == "work" { // 출근상태
-      
-      //            homeOutButton.setImage(UIImage(named: "homeoutClicked"), for: .normal)
-      print("??? UserDefaultsSetting.mainPet \(UserDefaultsSetting.mainPet)")
+    
       switch UserDefaultsSetting.mainPet {
       case "dog":
         homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
@@ -363,11 +358,8 @@ class TapButtonViewController: BaseViewController {
         break
       }
       
-      print("??? 11")
       guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
-      print("??? 22")
       let interval = Double(Date().timeIntervalSince(start))
-      print("??? 33")
       NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time" : interval])
       
     } else if UserDefaultsSetting.mainType == "leave" { // 퇴근상태
