@@ -1,8 +1,10 @@
 # MC2 - Snooze
 Group2 Team5 - 여사님과 하네스
 
+![Group 213](https://github.com/DeveloperAcademy-POSTECH/MC2-Team5-Snooze/assets/81157265/1338e4d4-435c-4d74-8825-105308d6ca06)
+
 ## 🐤 About Snooze
-저희 팀은 반려동물이 더 행복하게 시간을 보낼 수 있는 서비스를 만들자는 취지를 가지고 모인 팀입니다.<br>
+여사님과 하네스는 반려동물이 더 행복하게 시간을 보낼 수 있는 서비스를 만들자는 취지를 가지고 모인 팀입니다.<br>
 저희는 반려동물의 시간과 사람의 시간은 다르다는 것을 알게되었고, 이를 많은 사람들이 인지하지 못하다는 사실을 알게되었습니다.<br>
 그래서 만들어진 Snooze는 `반려동물이 집에서 홀로 기다리고 있는 순간을 주인이 익숙해지지 않도록 각인시켜주는 앱` 입니다.<br>
 
@@ -31,7 +33,7 @@ Group2 Team5 - 여사님과 하네스
 ## 🐹 Convention
 <details>
 <summary>Code Convention</summary><br>
-<a href="https://github.com/StyleShare/swift-style-guide"> StyleShare/swift-style-guide</a> 에 맞춰서 작성했습니다.
+<a href="https://github.com/StyleShare/swift-style-guide"> StyleShare/swift-style-guide</a> 에 맞춰서 작성
 </details>
 
 <details>
