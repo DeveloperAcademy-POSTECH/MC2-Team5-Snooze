@@ -100,6 +100,7 @@ final class SetProfileViewController: BaseViewController {
 extension SetProfileViewController: SetProfileViewDelegate {
     func didTapNextButton() {
         guard let profile else { return }
+        view.endEditing(true)
         let setBackgroundViewController = SetBackgroundViewController(profile: profile)
         self.navigationController?.pushViewController(setBackgroundViewController, animated: true)
     }
