@@ -37,8 +37,7 @@ final class SetProfileViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        setupNavigationBarAppearance()
+		configureNavigationBar()
         registerKeyboardNotifications()
     }
     
@@ -118,34 +117,10 @@ extension SetProfileViewController: SetProfileViewDelegate {
 
 extension SetProfileViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
+        super.touchesBegan(touches, with: event)    
         view.endEditing(true)
     }
-    
-    private func setupNavigationBarAppearance() {
-        
-        self.navigationItem.hidesBackButton = true
-        
-        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
-            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
-                                         style: .done, target: self, action: #selector(back))
-        backbutton.tintColor = .black
-        self.navigationItem.leftBarButtonItem = backbutton
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.shadowImage = UIImage()
-    }
-    
-    @objc func back() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
+	
     private func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
                                                name: UIResponder.keyboardWillShowNotification, object: nil)
