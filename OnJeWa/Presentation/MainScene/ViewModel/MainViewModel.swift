@@ -45,6 +45,10 @@ final class MainViewModel: BaseViewModel {
         self?.output.inResult.onNext(value)
       }
       .disposed(by: disposeBag)
-    
   }
+	
+	//MARK: - UseCase
+	
+	let userUseCase: UserUseCase = DefaultUserUseCase()
+	let petUseCase: PetUseCase = DefaultPetUseCase()
 }
