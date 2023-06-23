@@ -19,7 +19,8 @@ protocol KakaoAddressViewDelegate: AnyObject {
 final class RegisterAddressViewController: BaseViewController {
     
     //MARK: - Properteis
-    
+	
+	private let viewModel = RegisterAddressViewModel()
     private let kakaoAddressUrlString = "https://ungchun.github.io/Kakao-Postcode/"
     private var profile: Profile?
     
@@ -74,20 +75,30 @@ final class RegisterAddressViewController: BaseViewController {
 
 extension RegisterAddressViewController: RegisterAddressViewDelegate {
     
-    func didTapNextButton() {
-        do {
-            try RealmManager.shared.createProfile(profile: self.profile!) {
-                UserDefaultsSetting.isRegister = true
-                UserDefaultsSetting.awayTime = 0
-                
-                let mainViewController = MainViewController()
-                let navigationController = UINavigationController(rootViewController: mainViewController)
-                navigationController.modalPresentationStyle = .fullScreen
-                self.present(navigationController, animated: true, completion: nil)
-            }
-        } catch let error {
-            print("Failed to create profile: \(error)")
-        }
+	func didTapNextButton() {
+		viewModel.createProfile(profile: self.profile!)
+		UserDefaultsSetting.isRegister = true
+		UserDefaultsSetting.awayTime = 0
+
+		let mainViewController = MainViewController()
+		let navigationController = UINavigationController(rootViewController: mainViewController)
+		navigationController.modalPresentationStyle = .fullScreen
+		self.present(navigationController, animated: true, completion: nil)
+		
+//        do {
+//			viewModel.createProfile(profile: self.profile!)
+//            try RealmManager.shared.createProfile(profile: self.profile!) {
+//                UserDefaultsSetting.isRegister = true
+//                UserDefaultsSetting.awayTime = 0
+//
+//                let mainViewController = MainViewController()
+//                let navigationController = UINavigationController(rootViewController: mainViewController)
+//                navigationController.modalPresentationStyle = .fullScreen
+//                self.present(navigationController, animated: true, completion: nil)
+//            }
+//        } catch let error {
+//            print("Failed to create profile: \(error)")
+//        }
     }
     
     func didSetAddress() {
