@@ -17,7 +17,9 @@ protocol TapButtonViewDelegate: AnyObject {
   func homeInTap()
 }
 
-class TapButtonViewController: BaseViewController {
+final class TapButtonViewController: BaseViewController {
+	
+  let viewModel = MainViewModel()
   
   // 델리게이트는 무조건 weak var
   weak var delegate: TapButtonViewDelegate?
@@ -37,7 +39,7 @@ class TapButtonViewController: BaseViewController {
   
   private let titleLabel: UILabel = {
     let label = UILabel()
-    label.text = "\(RealmManager.shared.readName())의 하루"
+//    label.text = "\(RealmManager.shared.readName())의 하루"
     label.textColor = .white
     label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     return label
@@ -148,7 +150,7 @@ class TapButtonViewController: BaseViewController {
   
   let inClockTitleLabel: UILabel = {
     let label = UILabel()
-    label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName()) 나와 함께한지" : "\(RealmManager.shared.readName()) 나를 기다린지"
+//    label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName()) 나와 함께한지" : "\(RealmManager.shared.readName()) 나를 기다린지"
     label.font = UIFont.systemFont(ofSize: 14)
     label.textColor = .black
     return label
@@ -192,7 +194,8 @@ class TapButtonViewController: BaseViewController {
   }()
   
   func homeOutButtonTappedDemo() {
-    let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
+//    let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
+	  let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: viewModel.userUseCase.readProfileImage(), notificationAvatarName: viewModel.petUseCase.readName())
     localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
     localNotificationBuilder.build(secondAfter: 60)
     
@@ -202,7 +205,7 @@ class TapButtonViewController: BaseViewController {
     startAnimation()
     counter = 0.0
     animalCounter = 0.0
-    inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나를 기다린지"
+    inClockTitleLabel.text = "\(viewModel.petUseCase.readName())가 나를 기다린지"
     
     UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
     UserDefaults.shared.set(0, forKey: "animalHour")
@@ -223,7 +226,7 @@ class TapButtonViewController: BaseViewController {
     startAnimation()
     counter = 0.0
     animalCounter = 0.0
-    inClockTitleLabel.text = "\(RealmManager.shared.readName())가 나와 함께한지"
+    inClockTitleLabel.text = "\(viewModel.petUseCase.readName())가 나와 함께한지"
     UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
     UserDefaults.shared.set(0, forKey: "animalHour")
     UserDefaults.shared.set(true, forKey: "homeOutKey")
@@ -297,6 +300,10 @@ class TapButtonViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("??? UserDefaultsSetting.mainType \(UserDefaultsSetting.mainType)")
+	  
+	  inClockTitleLabel.text = UserDefaultsSetting.mainType == "leave" ? "\(viewModel.petUseCase.readName()) 나와 함께한지" : "\(viewModel.petUseCase.readName()) 나를 기다린지"
+	  
+	  titleLabel.text = "\(viewModel.petUseCase.readName())의 하루"
     
     let dogArray = ["d_1", "d_2", "d_3", "d_4"]
     let catArray = ["c_1", "c_2", "c_3", "c_4"]
