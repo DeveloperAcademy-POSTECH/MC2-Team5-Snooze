@@ -8,9 +8,25 @@
 import UIKit
 
 import OnJeWaCore
+import OnJeWaNetwork
 import RxSwift
 import RxCocoa
 
 final class RegisterAddressViewModel: BaseViewModel {
-    
+	
+	//MARK: - UseCase
+	
+	let userUseCase: UserUseCase = DefaultUserUseCase()
+	
+	// MARK: - Task
+	
+	private var userTask: Task<Void, Error>?
+	
+	func createProfile(profile: Profile) {
+		self.userTask = Task {
+			do {
+				try await userUseCase.createProfile(profile: profile)
+			} catch (_) { }
+		}
+	}
 }
