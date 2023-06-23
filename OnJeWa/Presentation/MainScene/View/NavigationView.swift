@@ -52,10 +52,9 @@ final class NavigationView: BaseView {
     return button
   }()
   
-  private lazy var profileButton: UIButton = {
+  lazy var profileButton: UIButton = {
     let button = UIButton()
-//    button.setImage(UIImage(named: "profilebutton"), for: .normal)
-      button.setImage(UIImage(data: RealmManager.shared.readProfileImage()), for: .normal)
+//      button.setImage(UIImage(data: Data()), for: .normal)
     button.contentMode = .scaleAspectFit
       button.layer.cornerRadius = 14
       button.clipsToBounds = true
