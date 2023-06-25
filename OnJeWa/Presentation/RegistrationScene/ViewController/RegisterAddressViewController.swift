@@ -76,14 +76,19 @@ final class RegisterAddressViewController: BaseViewController {
 extension RegisterAddressViewController: RegisterAddressViewDelegate {
     
 	func didTapNextButton() {
-		viewModel.createProfile(profile: self.profile!)
-		UserDefaultsSetting.isRegister = true
-		UserDefaultsSetting.awayTime = 0
-
-		let mainViewController = MainViewController()
-		let navigationController = UINavigationController(rootViewController: mainViewController)
-		navigationController.modalPresentationStyle = .fullScreen
-		self.present(navigationController, animated: true, completion: nil)
+    do {
+      try RealmManager.shared.createProfile(profile: self.profile!) {
+        UserDefaultsSetting.isRegister = true
+        UserDefaultsSetting.awayTime = 0
+        
+        let mainViewController = MainViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+      }
+    } catch _ {
+      print("error")
+    }
 		
 //        do {
 //			viewModel.createProfile(profile: self.profile!)

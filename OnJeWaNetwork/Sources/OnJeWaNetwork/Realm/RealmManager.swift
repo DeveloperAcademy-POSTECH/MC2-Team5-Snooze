@@ -10,7 +10,7 @@ import RealmSwift
 import CoreLocation
 
 protocol Realmable {
-    func createProfile(profile: Profile) async throws -> Void
+  func createProfile(profile: Profile, completion: @escaping (() -> Void)) throws -> Void
     func readPetType() -> String
     func readProfileImage() -> Data
     func readName() -> String
@@ -35,13 +35,14 @@ public class RealmManager: Realmable {
         }
     }
     
-    public func createProfile(profile: Profile) async throws {
+  public func createProfile(profile: Profile, completion: @escaping (() -> Void)) throws {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         do {
-			let realm = try await Realm()
+			let realm = try Realm()
             try realm.write {
                 realm.deleteAll()
                 realm.add(profile)
+              completion()
             }
         } catch _ {
             throw RealmError.createProfile

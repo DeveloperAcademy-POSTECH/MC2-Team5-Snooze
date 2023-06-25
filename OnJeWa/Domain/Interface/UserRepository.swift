@@ -11,7 +11,6 @@ import CoreLocation
 import OnJeWaNetwork
 
 protocol UserRepository {
-	func createProfile(profile: Profile) async throws
 	func getUserDates() -> [Profile]
 	func readProfileImage() -> Data
 	func readBackgroundImage() -> Data

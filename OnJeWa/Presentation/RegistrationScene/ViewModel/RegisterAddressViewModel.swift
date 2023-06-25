@@ -21,12 +21,4 @@ final class RegisterAddressViewModel: BaseViewModel {
 	// MARK: - Task
 	
 	private var userTask: Task<Void, Error>?
-	
-	func createProfile(profile: Profile) {
-		self.userTask = Task {
-			do {
-				try await userUseCase.createProfile(profile: profile)
-			} catch (_) { }
-		}
-	}
 }

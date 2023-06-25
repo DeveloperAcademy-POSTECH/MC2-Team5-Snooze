@@ -11,11 +11,7 @@ import CoreLocation
 import OnJeWaNetwork
 
 final class DefaultUserRepository: UserRepository {
-	
-	func createProfile(profile: Profile) async throws {
-		try await RealmManager.shared.createProfile(profile: profile)
-	}
-	
+
 	func getUserDates() -> [Profile] {
 		RealmManager.shared.getUserDatas()
 	}

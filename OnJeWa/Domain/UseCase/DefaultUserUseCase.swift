@@ -11,7 +11,6 @@ import CoreLocation
 import OnJeWaNetwork
 
 protocol UserUseCase {
-	func createProfile(profile: Profile) async throws
 	func getUserDates() -> [Profile]
 	func readProfileImage() -> Data
 	func readBackgroundImage() -> Data
@@ -24,10 +23,6 @@ protocol UserUseCase {
 final class DefaultUserUseCase: UserUseCase {
 
 	let userRepository: UserRepository = DefaultUserRepository()
-	
-	func createProfile(profile: Profile) async throws {
-		try await userRepository.createProfile(profile: profile)
-	}
 	
 	func getUserDates() -> [Profile] {
 		return userRepository.getUserDates()
