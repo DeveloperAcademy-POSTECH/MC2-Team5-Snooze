@@ -201,8 +201,10 @@ final class ChoosePetTypeView: BaseView {
     }
     
     @objc func nextButtonTapGesture(_ sender: UITapGestureRecognizer) {
+      print("click1")
         delegate?.didTapNextButton()
         WidgetCenter.shared.reloadAllTimelines()
+      print("click2")
     }
     
     func setupPetType(_ passedPetType: String) {

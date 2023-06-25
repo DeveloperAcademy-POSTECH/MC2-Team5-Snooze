@@ -9,12 +9,10 @@ import UIKit
 import OnJeWaUI
 import OnJeWaCore
 import OnJeWaNetwork
-import Gifu
 import WidgetKit
 
 protocol TapButtonViewDelegate: AnyObject {
   func didTapButton(value: String)
-  func homeInTap()
 }
 
 class TapButtonViewController: BaseViewController {
@@ -130,22 +128,6 @@ class TapButtonViewController: BaseViewController {
     }
   }
   
-  private let carrotNumber: UILabel = {
-    let label = UILabel()
-    var labelData = 2
-    label.text = "🥕x\(labelData)"
-    label.font = UIFont.systemFont(ofSize: 16)
-    label.textColor = .black
-    return label
-  }()
-  
-  private let inClockAnimalImageView: GIFImageView = {
-    let imageView = GIFImageView()
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.contentMode = .scaleAspectFit
-    return imageView
-  }()
-  
   let inClockTitleLabel: UILabel = {
     let label = UILabel()
     label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName()) 나와 함께한지" : "\(RealmManager.shared.readName()) 나를 기다린지"
@@ -230,9 +212,7 @@ class TapButtonViewController: BaseViewController {
     WidgetCenter.shared.reloadAllTimelines()
     
     timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    
-    delegate?.homeInTap()
-    
+        
   }
   
   @objc private func homeOutButtonTapped(_ sender: UIButton) {
@@ -304,26 +284,22 @@ class TapButtonViewController: BaseViewController {
     switch UserDefaultsSetting.mainPet {
     case "dog":
       DispatchQueue.main.async {
-        self.inClockAnimalImageView.animate(withGIFNamed: dogArray.randomElement()!,
-                                            animationBlock:  { })
+        
       }
       break
     case "cat":
       DispatchQueue.main.async {
-        self.inClockAnimalImageView.animate(withGIFNamed: catArray.randomElement()!,
-                                            animationBlock:  { })
+        
       }
       break
     case "parrot":
       DispatchQueue.main.async {
-        self.inClockAnimalImageView.animate(withGIFNamed: parrotArray.randomElement()!,
-                                            animationBlock:  { })
+        
       }
       break
     case "rabbit":
       DispatchQueue.main.async {
-        self.inClockAnimalImageView.animate(withGIFNamed: rabbitArray.randomElement()!,
-                                            animationBlock:  { })
+        
       }
       break
     default:
@@ -401,10 +377,9 @@ class TapButtonViewController: BaseViewController {
   
   
   override func setupView() {
-    
     view.backgroundColor = .clear
     [titleLabel, dateLabel, popupButton, clockImageView,animalTimeImageView, humanTimeImageView,
-     carrotNumber, inClockAnimalImageView, inClockTitleLabel, inClockHumanTimeLabel,
+     inClockTitleLabel, inClockHumanTimeLabel,
      inClockAnimalTimeLabel, homeOutButton, homeInButton].forEach {
       view.addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -450,20 +425,7 @@ class TapButtonViewController: BaseViewController {
     ])
     
     NSLayoutConstraint.activate([
-      carrotNumber.topAnchor.constraint(equalTo: animalTimeImageView.topAnchor, constant: 65.adjusted),
-      carrotNumber.centerXAnchor.constraint(equalTo: animalTimeImageView
-        .centerXAnchor)
-    ])
-    
-    NSLayoutConstraint.activate([
-      inClockAnimalImageView.topAnchor.constraint(equalTo: carrotNumber.bottomAnchor, constant: 2),
-      inClockAnimalImageView.centerXAnchor.constraint(equalTo: carrotNumber.centerXAnchor),
-      inClockAnimalImageView.heightAnchor.constraint(equalToConstant: 60.adjusted),
-      inClockAnimalImageView.widthAnchor.constraint(equalToConstant: 80.adjusted),
-    ])
-    
-    NSLayoutConstraint.activate([
-      inClockTitleLabel.topAnchor.constraint(equalTo: inClockAnimalImageView.bottomAnchor, constant: 2),
+      inClockTitleLabel.topAnchor.constraint(equalTo: clockImageView.topAnchor, constant: 2),
       inClockTitleLabel.centerXAnchor.constraint(equalTo: clockImageView.centerXAnchor)
     ])
     

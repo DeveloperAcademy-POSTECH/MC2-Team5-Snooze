@@ -23,7 +23,6 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   
   private let backgroundView = BackgroundView()
   private let navigationView = NavigationView()
-  private let weekCollectionView = WeekCollectionView()
   private let tapButtonVC = TapButtonViewController()
   
   
@@ -53,7 +52,6 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     
     tapButtonVC.delegate = self // 내가 대신 하겠다
     navigationView.delegate = self
-    weekCollectionView.delegate = self
   
   }
   
@@ -177,9 +175,8 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   }
   
   override func setupView() {
-    //MARK: 수정 - 배경 색상 변경 필요
     view.backgroundColor = .white
-    [navigationView, tapButtonVC.view, weekCollectionView].forEach {
+    [navigationView, tapButtonVC.view].forEach {
       backgroundView.addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -205,24 +202,14 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     
     NSLayoutConstraint.activate([
       tapButtonVC.view.topAnchor.constraint(equalTo: navigationView.bottomAnchor, constant: 63.adjusted),
-      tapButtonVC.view.bottomAnchor.constraint(equalTo: weekCollectionView.topAnchor, constant: -65.adjusted),
+      tapButtonVC.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200.adjusted),
       tapButtonVC.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 45.adjusted),
       tapButtonVC.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -39.adjusted),
-    ])
-    NSLayoutConstraint.activate([
-      weekCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 42.adjusted),
-      weekCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -42.adjusted),
-      weekCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16.adjusted),
-      weekCollectionView.heightAnchor.constraint(equalToConstant: 64.adjusted)
     ])
   }
 }
 
 extension MainViewController: TapButtonViewDelegate {
-  
-  func homeInTap() {
-    weekCollectionView.test()
-  }
   
   func didTapButton(value: String) {
     
@@ -253,24 +240,11 @@ extension MainViewController: TapButtonViewDelegate {
   }
 }
 
-extension MainViewController: NavigationViewDelegate, WeekCollectionViewDelegate {
-  func didTapAlbum() {
-    let drawerViewController = DrawerViewController()
-    self.navigationController?.pushViewController(drawerViewController, animated: true)
-  }
-  
-  func didTapNoti() {
-    let notificationViewController = NotificationViewController()
-    self.navigationController?.pushViewController(notificationViewController, animated: true)
-  }
+extension MainViewController: NavigationViewDelegate {
   
   func didTapProfile() {
     let settingViewController = SettingViewController()
     self.navigationController?.pushViewController(settingViewController, animated: true)
   }
   
-  func didTapMission() {
-    let mission = MissionViewController()
-    self.navigationController?.pushViewController(mission, animated: true)
-  }
 }
