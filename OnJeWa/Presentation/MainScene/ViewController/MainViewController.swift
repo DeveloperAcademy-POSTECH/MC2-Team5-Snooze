@@ -27,7 +27,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   
   
   //MARK: - Life Cycle
-	
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -63,8 +63,9 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
     if status == .authorizedAlways {
-      // 범위를 설정하는 기준좌표 -> 예를 들어 우리 앱에서는 집 혹은 회사
-		let center = CLLocationCoordinate2D(latitude: viewModel.userUseCase.readCoordinate().coordinate.latitude, longitude: viewModel.userUseCase.readCoordinate().coordinate.longitude)
+      
+      // C5 좌표
+      let center = CLLocationCoordinate2D(latitude: 36.01438502747284, longitude: 129.32562437615857)
       
       // 100m의 원형 영역
       let region = CLCircularRegion(center: center, radius: 75.0, identifier: "Geofence")
@@ -77,6 +78,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   }
   
   // 지정한 지역에 들어왔을 때 수행할 작업
+  
   func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
     print("사용자가 지정한 지역에 들어왔습니다.")
     
@@ -90,6 +92,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   }
   
   // 지정한 지역을 벗어났을 때 수행할 작업
+  
   func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
     print("사용자가 지정한 지역을 벗어났습니다.")
     
@@ -169,7 +172,6 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
             }
           }
         }
-        
       }
       .disposed(by: disposeBag)
   }
@@ -182,14 +184,12 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     }
     backgroundView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(backgroundView)
-	  
-	  navigationView.profileButton.setImage(UIImage(data: viewModel.userUseCase.readProfileImage()), for: .normal)
-	  weekCollectionView.weekTitleLabel.text = "이번주 \(viewModel.petUseCase.readName())와 함께한 시간"
-	  backgroundView.backgroundImageView.image = UIImage(data: viewModel.userUseCase.readBackgroundImage())
+    
+    navigationView.profileButton.setImage(UIImage(data: viewModel.userUseCase.readProfileImage()), for: .normal)
+    backgroundView.backgroundImageView.image = UIImage(data: viewModel.userUseCase.readBackgroundImage())
   }
   
   override func setLayout() {
-    
     NSLayoutConstraint.activate([
       backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
       backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -214,9 +214,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
 }
 
 extension MainViewController: TapButtonViewDelegate {
-  
   func didTapButton(value: String) {
-    
     if value == "in" {
       let sheet = UIAlertController(title: "집에 돌아오셨나요?", message: "나의 반려동물과\n 즐거운 시간을 보내세요!", preferredStyle: .alert)
       sheet.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { _ in

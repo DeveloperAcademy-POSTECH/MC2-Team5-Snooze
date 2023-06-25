@@ -36,7 +36,7 @@ final class NavigationView: BaseView {
     return imageView
   }()
   
-  private lazy var profileButton: UIButton = {
+  lazy var profileButton: UIButton = {
     let button = UIButton()
     button.setImage(UIImage(data: RealmManager.shared.readProfileImage()), for: .normal)
     button.contentMode = .scaleAspectFit

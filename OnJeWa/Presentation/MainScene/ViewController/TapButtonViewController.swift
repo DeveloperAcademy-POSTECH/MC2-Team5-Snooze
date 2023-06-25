@@ -16,10 +16,8 @@ protocol TapButtonViewDelegate: AnyObject {
 }
 
 final class TapButtonViewController: BaseViewController {
-	
-  let viewModel = MainViewModel()
   
-  // 델리게이트는 무조건 weak var
+  let viewModel = MainViewModel()
   weak var delegate: TapButtonViewDelegate?
   //타이머
   var timer = Timer()
@@ -37,7 +35,7 @@ final class TapButtonViewController: BaseViewController {
   
   private let titleLabel: UILabel = {
     let label = UILabel()
-//    label.text = "\(RealmManager.shared.readName())의 하루"
+    //    label.text = "\(RealmManager.shared.readName())의 하루"
     label.textColor = .white
     label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     return label
@@ -104,7 +102,6 @@ final class TapButtonViewController: BaseViewController {
     return imageView
   }()
   
-  //   애니메이션 시작
   func startAnimation() {
     guard !isAnimating else { return }
     
@@ -115,12 +112,10 @@ final class TapButtonViewController: BaseViewController {
     rotateView(view: humanTimeImageView, angle: 12.0)
   }
   
-  //애니메이션 중단
   func stopAnimation() {
     isAnimating = false
   }
   
-  //   컴포넌트 회전 애니메이션
   func rotateView(view: UIView, angle: Double) {
     UIView.animate(withDuration: 2.0, animations: {
       view.transform = view.transform.rotated(by: angle / 36.0)
@@ -132,7 +127,7 @@ final class TapButtonViewController: BaseViewController {
   
   let inClockTitleLabel: UILabel = {
     let label = UILabel()
-//    label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName()) 나와 함께한지" : "\(RealmManager.shared.readName()) 나를 기다린지"
+    //    label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName()) 나와 함께한지" : "\(RealmManager.shared.readName()) 나를 기다린지"
     label.font = UIFont.systemFont(ofSize: 14)
     label.textColor = .black
     return label
@@ -161,7 +156,6 @@ final class TapButtonViewController: BaseViewController {
   
   lazy var homeOutButton: UIButton = {
     let button = UIButton()
-    //        button.setImage(UIImage(named: "homeoutUnClicked"), for: .normal)
     button.contentMode = .scaleAspectFit
     button.addTarget(self, action: #selector(homeOutButtonTapped), for: .touchUpInside)
     return button
@@ -176,8 +170,7 @@ final class TapButtonViewController: BaseViewController {
   }()
   
   func homeOutButtonTappedDemo() {
-//    let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: RealmManager.shared.readProfileImage(), notificationAvatarName: RealmManager.shared.readName())
-	  let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: viewModel.userUseCase.readProfileImage(), notificationAvatarName: viewModel.petUseCase.readName())
+    let localNotificationBuilder = LocalNotificationBuilder(notificationAvatarImage: viewModel.userUseCase.readProfileImage(), notificationAvatarName: viewModel.petUseCase.readName())
     localNotificationBuilder.setContent(content: normalNotificationMessages.values.randomElement() ?? "")
     localNotificationBuilder.build(secondAfter: 60)
     
@@ -194,7 +187,8 @@ final class TapButtonViewController: BaseViewController {
     UserDefaults.shared.set(true, forKey: "homeOutKey")
     WidgetCenter.shared.reloadAllTimelines()
     
-    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
+                                 selector: #selector(updateTimer), userInfo: nil, repeats: true)
     
   }
   
@@ -214,8 +208,9 @@ final class TapButtonViewController: BaseViewController {
     UserDefaults.shared.set(true, forKey: "homeOutKey")
     WidgetCenter.shared.reloadAllTimelines()
     
-    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
+                                 selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    
   }
   
   @objc private func homeOutButtonTapped(_ sender: UIButton) {
@@ -243,8 +238,6 @@ final class TapButtonViewController: BaseViewController {
     let animalSecond = (animalFlooredCounter % 3600) % 60
     let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, animalMinute, animalSecond)
     inClockAnimalTimeLabel.text = animalTimeString
-    
-    //    UserDefaults.shared.set(minute, forKey: "animalHour")
   }
   
   @objc private func homeInButtonTapped(_ sender: UIButton) {
@@ -257,7 +250,6 @@ final class TapButtonViewController: BaseViewController {
   }
   
   @objc func addbackGroundTime(_ notification: NSNotification) {
-    //노티피케이션센터를 통해 값을 받아옴
     let time = notification.userInfo?["time"] as? Double ?? 0.1
     counter = time
     let flooredCounter = Int(floor(counter))
@@ -269,7 +261,8 @@ final class TapButtonViewController: BaseViewController {
     let animalHour = UserDefaultsSetting.mainPet == "rabbit" ? (humanHour + 24) : UserDefaultsSetting.mainPet == "parrot" ? (humanHour + 6) : (humanHour + 4)
     let animalTimeString = String(format: "%02d:%02d:%02d", animalHour, minute, second)
     inClockAnimalTimeLabel.text = animalTimeString
-    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer),
+                                 userInfo: nil, repeats: true)
   }
   
   @objc func stopTimer() {
@@ -279,11 +272,6 @@ final class TapButtonViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let dogArray = ["d_1", "d_2", "d_3", "d_4"]
-    let catArray = ["c_1", "c_2", "c_3", "c_4"]
-    let parrotArray = ["p_1", "p_2", "p_3", "p_4"]
-    let rabbitArray = ["r_1", "r_2", "r_3", "r_4"]
-    
     switch UserDefaultsSetting.mainPet {
     case "dog":
       DispatchQueue.main.async {
@@ -312,14 +300,13 @@ final class TapButtonViewController: BaseViewController {
     // 이거 나중에 지워~
     UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
     UserDefaultsSetting.mainType = "none"
-    //
-    
+  
     NotificationCenter.default.addObserver(self, selector: #selector(addbackGroundTime(_:)), name: NSNotification.Name("sceneWillEnterForeground"), object: nil)
     //포어그라운드에서 백그라운드로 갈때
     NotificationCenter.default.addObserver(self, selector: #selector(stopTimer), name: NSNotification.Name("sceneDidEnterBackground"), object: nil)
     
     if UserDefaultsSetting.mainType == "work" { // 출근상태
-    
+      
       switch UserDefaultsSetting.mainPet {
       case "dog":
         homeInButton.setImage(UIImage(named: "homeinClicked"), for: .normal)
@@ -365,17 +352,16 @@ final class TapButtonViewController: BaseViewController {
       }
       guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
       let interval = Double(Date().timeIntervalSince(start))
-      NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time" : interval])
+      NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"),
+                                      object: nil, userInfo: ["time" : interval])
     }
     
-    // 이거 나중에 지워~
     UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
     self.homeInButton.setImage(UIImage(named: "homeinUnClicked"), for: .normal)
     self.homeOutButton.setImage(UIImage(named: "homeoutUnClicked"),
                                 for: .normal)
     self.counter = 0.0
     self.timer.invalidate()
-    //
   }
   
   
@@ -390,7 +376,6 @@ final class TapButtonViewController: BaseViewController {
   }
   
   override func setLayout() {
-    
     NSLayoutConstraint.activate([
       titleLabel.topAnchor.constraint(equalTo: view.topAnchor),
       titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)

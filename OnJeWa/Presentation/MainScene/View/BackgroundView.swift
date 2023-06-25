@@ -23,7 +23,6 @@ final class BackgroundView: BaseView {
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(data: RealmManager.shared.readBackgroundImage())
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
