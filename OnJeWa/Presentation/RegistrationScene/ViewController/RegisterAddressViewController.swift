@@ -19,7 +19,8 @@ protocol KakaoAddressViewDelegate: AnyObject {
 final class RegisterAddressViewController: BaseViewController {
     
     //MARK: - Properteis
-    
+	
+	private let viewModel = RegisterAddressViewModel()
     private let kakaoAddressUrlString = "https://ungchun.github.io/Kakao-Postcode/"
     private var profile: Profile?
     
@@ -48,28 +49,7 @@ final class RegisterAddressViewController: BaseViewController {
     private let registerAddressView = RegisterAddressView()
     
     //MARK: - Functions
-    
-    private func configureNavigationBar() {
-        self.navigationItem.hidesBackButton = true
-        
-        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
-            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
-                                         style: .done, target: self, action: #selector(back))
-        backbutton.tintColor = .black
-        self.navigationItem.leftBarButtonItem = backbutton
-        
-        navigationController?.navigationBar.shadowImage = UIImage()
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-    }
-    
-    @objc func back() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
+	
     override func setupView() {
         
         registerAddressView.delegate = self
@@ -95,20 +75,30 @@ final class RegisterAddressViewController: BaseViewController {
 
 extension RegisterAddressViewController: RegisterAddressViewDelegate {
     
-    func didTapNextButton() {
-        do {
-            try RealmManager.shared.createProfile(profile: self.profile!) {
-                UserDefaultsSetting.isRegister = true
-                UserDefaultsSetting.awayTime = 0
-                
-                let mainViewController = MainViewController()
-                let navigationController = UINavigationController(rootViewController: mainViewController)
-                navigationController.modalPresentationStyle = .fullScreen
-                self.present(navigationController, animated: true, completion: nil)
-            }
-        } catch let error {
-            print("Failed to create profile: \(error)")
-        }
+	func didTapNextButton() {
+		viewModel.createProfile(profile: self.profile!)
+		UserDefaultsSetting.isRegister = true
+		UserDefaultsSetting.awayTime = 0
+
+		let mainViewController = MainViewController()
+		let navigationController = UINavigationController(rootViewController: mainViewController)
+		navigationController.modalPresentationStyle = .fullScreen
+		self.present(navigationController, animated: true, completion: nil)
+		
+//        do {
+//			viewModel.createProfile(profile: self.profile!)
+//            try RealmManager.shared.createProfile(profile: self.profile!) {
+//                UserDefaultsSetting.isRegister = true
+//                UserDefaultsSetting.awayTime = 0
+//
+//                let mainViewController = MainViewController()
+//                let navigationController = UINavigationController(rootViewController: mainViewController)
+//                navigationController.modalPresentationStyle = .fullScreen
+//                self.present(navigationController, animated: true, completion: nil)
+//            }
+//        } catch let error {
+//            print("Failed to create profile: \(error)")
+//        }
     }
     
     func didSetAddress() {

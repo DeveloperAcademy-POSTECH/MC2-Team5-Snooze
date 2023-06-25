@@ -79,7 +79,11 @@ final class SetProfileViewController: BaseViewController {
   
   override func bindViewModel() {
     
-    // Input
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+		configureNavigationBar()
+        registerKeyboardNotifications()
+    }
     
     viewModel.input.profileImageTrigger.onNext(true)
     self.profile?.profileImage = UIImage(named: "setBackgroundImage")?.jpegData(compressionQuality: 0.5)
@@ -97,39 +101,36 @@ final class SetProfileViewController: BaseViewController {
 }
 
 extension SetProfileViewController: SetProfileViewDelegate {
-  func didTapNextButton() {
-    guard let profile else { return }
-    let setBackgroundViewController = SetBackgroundViewController(profile: profile)
-    self.navigationController?.pushViewController(setBackgroundViewController, animated: true)
-  }
-  
-  func didSetProfileImageView(image: UIImage) {
-    self.profile?.profileImage = image.jpegData(compressionQuality: 0.5)
-    self.viewModel.input.profileImageTrigger.onNext(true)
-  }
-  
-  func changedTextField(nameValue: String) {
-    self.viewModel.input.nameTrigger.onNext(nameValue)
-    self.profile?.name = nameValue
-  }
+    func didTapNextButton() {
+        guard let profile else { return }
+        view.endEditing(true)
+        let setBackgroundViewController = SetBackgroundViewController(profile: profile)
+        self.navigationController?.pushViewController(setBackgroundViewController, animated: true)
+    }
+    
+    func didSetProfileImageView(image: UIImage) {
+        self.profile?.profileImage = image.jpegData(compressionQuality: 0.5)
+        self.viewModel.input.profileImageTrigger.onNext(true)
+    }
+    
+    func changedTextField(nameValue: String) {
+        self.viewModel.input.nameTrigger.onNext(nameValue)
+        self.profile?.name = nameValue
+    }
 }
 
 extension SetProfileViewController {
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesBegan(touches, with: event)
-    
-    view.endEditing(true)
-  }
-  
-  private func setupNavigationBarAppearance() {
-    
-    self.navigationItem.hidesBackButton = true
-    
-    let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
-      .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
-                                     style: .done, target: self, action: #selector(back))
-    backbutton.tintColor = .black
-    self.navigationItem.leftBarButtonItem = backbutton
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)    
+        view.endEditing(true)
+    }
+	
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     let appearance = UINavigationBarAppearance()
     appearance.configureWithOpaqueBackground()

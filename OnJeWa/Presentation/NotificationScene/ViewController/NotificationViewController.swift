@@ -9,7 +9,7 @@ import UIKit
 
 import OnJeWaCore
 
-final class NotificationViewController: UIViewController {
+final class NotificationViewController: BaseViewController {
     
     // MARK: - View Components
     
@@ -39,28 +39,8 @@ final class NotificationViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        self.navigationItem.hidesBackButton = true
-        
-        let backbutton = UIBarButtonItem(image: UIImage(named: "backbutton")?
-            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)),
-                                         style: .done, target: self, action: #selector(back))
-        backbutton.tintColor = .black
-        self.navigationItem.leftBarButtonItem = backbutton
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.shadowImage = UIImage()
-    }
-    
-    @objc func back() {
-        self.navigationController?.popViewController(animated: true)
-    }
+		configureNavigationBar()
+	}
     
     // MARK: - Functions
     

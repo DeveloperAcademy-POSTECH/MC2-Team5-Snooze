@@ -74,8 +74,59 @@ final class OnboardingViewController: BaseViewController {
     navigationController?.navigationBar.scrollEdgeAppearance = appearance
     navigationController?.navigationBar.shadowImage = UIImage()
     
-    self.navigationController?.navigationBar.isHidden = true
-  }
+    //MARK: - Views
+    
+    private let scrollView = UIScrollView()
+    private let pageControl = OnJeWaPageControl(frame: CGRect.zero, entirePage: 2, currentPage: 1)
+    private var onboardingPages: [UIView] = []
+    
+    //MARK: - Functions
+    
+    override func setupView() {
+        setupSlideScrollView()
+        view.addSubview(pageControl)
+    }
+    
+    override func setLayout() {
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pageControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
+            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupSlideScrollView() {
+        let fourOnboardingView = FourOnboardingView()
+        fourOnboardingView.delegate = self
+		onboardingPages = [FirstOnboardingView(), fourOnboardingView]
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.isDirectionalLockEnabled = true
+        scrollView.delegate = self
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(onboardingPages.count),
+                                        height: view.frame.height)
+        scrollView.isPagingEnabled = true
+        
+        for i in 0 ..< onboardingPages.count {
+            onboardingPages[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0,
+                                              width: view.frame.width, height: view.frame.height)
+            scrollView.addSubview(onboardingPages[i])
+        }
+        view.addSubview(scrollView)
+    }
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 extension OnboardingViewController: UIScrollViewDelegate {

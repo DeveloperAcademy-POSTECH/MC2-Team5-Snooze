@@ -27,6 +27,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   
   
   //MARK: - Life Cycle
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -62,9 +63,8 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
     if status == .authorizedAlways {
-      
-      // C5 좌표
-      let center = CLLocationCoordinate2D(latitude: 36.01438502747284, longitude: 129.32562437615857)
+      // 범위를 설정하는 기준좌표 -> 예를 들어 우리 앱에서는 집 혹은 회사
+		let center = CLLocationCoordinate2D(latitude: viewModel.userUseCase.readCoordinate().coordinate.latitude, longitude: viewModel.userUseCase.readCoordinate().coordinate.longitude)
       
       // 100m의 원형 영역
       let region = CLCircularRegion(center: center, radius: 75.0, identifier: "Geofence")
@@ -182,6 +182,10 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     }
     backgroundView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(backgroundView)
+	  
+	  navigationView.profileButton.setImage(UIImage(data: viewModel.userUseCase.readProfileImage()), for: .normal)
+	  weekCollectionView.weekTitleLabel.text = "이번주 \(viewModel.petUseCase.readName())와 함께한 시간"
+	  backgroundView.backgroundImageView.image = UIImage(data: viewModel.userUseCase.readBackgroundImage())
   }
   
   override func setLayout() {
