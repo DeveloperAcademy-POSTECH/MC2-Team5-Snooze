@@ -8,6 +8,7 @@
 import UIKit
 
 final class SettingViewProfileCell: SettingViewCell {
+	
     // MARK: - Life Cycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -66,7 +67,7 @@ final class SettingViewProfileCell: SettingViewCell {
         self.addSubview(profile)
         self.addSubview(containerView)
         
-        [name, desc].map {
+		[name, desc].forEach {
             containerView.addArrangedSubview($0)
         }
         containerView.addSubview(name)

@@ -152,7 +152,6 @@ final class RegisterAddressView: BaseView {
         setAddressSubTitle.isHidden = true
         addressTitle.text = address
         setAddressTitle.attributedText = updateTitle()
-        nextButton.setTitle("snooze 시작하기", for: .normal)
     }
     
     func updateTitle() -> NSMutableAttributedString {
