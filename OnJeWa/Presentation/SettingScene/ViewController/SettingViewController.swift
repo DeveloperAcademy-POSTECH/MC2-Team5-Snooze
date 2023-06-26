@@ -125,6 +125,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 			let controller = RegisterAddressViewController(profile: profile)
 			controller.updateChk = true
 			navigationController?.pushViewController(controller, animated: true)
+		} else if indexPath.row == 2 {
+			UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
 		}
 	}
 }
