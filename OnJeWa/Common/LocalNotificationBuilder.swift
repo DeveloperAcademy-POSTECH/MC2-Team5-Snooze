@@ -103,11 +103,9 @@ final class LocalNotificationBuilder {
                                             content: self.notificationContent,
                                             trigger: trigger)
         notificationCenter.add(request, withCompletionHandler: nil)
-        print("Notification ID \(uuidString) Completely Added.")
     }
     
     func cancelAllPendingRequests() {
         notificationCenter.removeAllPendingNotificationRequests()
-        print("All pending notification requests canceled.")
     }
 }

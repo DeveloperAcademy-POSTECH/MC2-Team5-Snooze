@@ -147,7 +147,6 @@ extension SetBackgroundView: UIImagePickerControllerDelegate & UINavigationContr
         if setBackgroundImageStatus {
             delegate?.didTapNextButton()
         } else {
-            // UIViewController에서 present와 비슷한 기능으로 UIView에도 표시할 수 있도록 window에서 호출
             if let viewController = window?.rootViewController {
                 viewController.present(imagePickerController, animated: true, completion: nil)
             }

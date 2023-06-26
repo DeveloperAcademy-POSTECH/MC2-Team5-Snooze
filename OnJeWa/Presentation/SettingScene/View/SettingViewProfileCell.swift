@@ -79,12 +79,5 @@ final class SettingViewProfileCell: SettingViewCell {
         
         containerView.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo:self.profile.trailingAnchor, constant: 16).isActive = true
-//        containerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-//        name.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 10).isActive = true
-//        name.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        
-//        desc.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -10).isActive = true
-//        name.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
 }

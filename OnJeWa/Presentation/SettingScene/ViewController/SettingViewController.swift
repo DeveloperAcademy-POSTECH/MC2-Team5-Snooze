@@ -76,11 +76,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		switch cellModel.menuType {
 		case .profile:
-			print("Profile Menu()")
-			
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
 					as? SettingViewProfileCell else {
-				print("Failed to dequeue SettingViewProfileCell.")
 				return UITableViewCell()
 			}
 			
@@ -91,11 +88,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 			
 		case .general:
-			print("General Menu()")
-			
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "GeneralCell", for: indexPath)
 					as? SettingViewGeneralCell else {
-				print("Failed to dequeue SettingViewGeneralCell.")
 				return UITableViewCell()
 			}
 			

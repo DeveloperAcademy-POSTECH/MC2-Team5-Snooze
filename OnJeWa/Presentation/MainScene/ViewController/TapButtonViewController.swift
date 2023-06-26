@@ -19,14 +19,12 @@ final class TapButtonViewController: BaseViewController {
   
   let viewModel = MainViewModel()
   weak var delegate: TapButtonViewDelegate?
-  //타이머
   var timer = Timer()
   var startTime: Date?
   deinit {
     timer.invalidate()
   }
-  //현재 시간
-  var counter = 0.0
+  var counter = 0.0 //현재 시간
   var animalCounter = 0.0
   private var isAnimating = false
   private var initialAngle: CGFloat = 0.0
@@ -35,7 +33,6 @@ final class TapButtonViewController: BaseViewController {
   
   private let titleLabel: UILabel = {
     let label = UILabel()
-    //    label.text = "\(RealmManager.shared.readName())의 하루"
     label.textColor = .white
     label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     return label
@@ -127,7 +124,6 @@ final class TapButtonViewController: BaseViewController {
   
   let inClockTitleLabel: UILabel = {
     let label = UILabel()
-    //    label.text = UserDefaultsSetting.mainType == "leave" ? "\(RealmManager.shared.readName()) 나와 함께한지" : "\(RealmManager.shared.readName()) 나를 기다린지"
     label.font = UIFont.systemFont(ofSize: 14)
     label.textColor = .black
     return label
@@ -297,7 +293,6 @@ final class TapButtonViewController: BaseViewController {
       break
     }
     
-    // 이거 나중에 지워~
     UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
     UserDefaultsSetting.mainType = "none"
   
