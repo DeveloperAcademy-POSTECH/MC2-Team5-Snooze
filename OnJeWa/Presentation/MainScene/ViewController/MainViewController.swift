@@ -51,7 +51,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     // 위치 서비스 업데이트 시작
     locationManager.startUpdatingLocation()
     
-    tapButtonVC.delegate = self // 내가 대신 하겠다
+    tapButtonVC.delegate = self
     navigationView.delegate = self
   
   }
@@ -106,7 +106,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    navigationController?.setNavigationBarHidden(true, animated: true) // 뷰 컨트롤러가 나타날 때 숨기기
+    navigationController?.setNavigationBarHidden(true, animated: true)
   }
   
   override func bindViewModel() {

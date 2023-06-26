@@ -33,8 +33,6 @@ final class MainViewModel: BaseViewModel {
     
     self.input.outTrigger
       .bind { [weak self] value in
-        // value -> 가공
-        // 가공한 데이터를
         self?.output.outResult.onNext(value)
       }
       .disposed(by: disposeBag)
