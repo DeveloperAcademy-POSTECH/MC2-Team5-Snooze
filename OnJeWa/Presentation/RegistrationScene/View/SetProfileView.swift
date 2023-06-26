@@ -48,6 +48,9 @@ final class SetProfileView: BaseView {
             profileImageView.image = UIImage(named: "myimage")
             break
         }
+		
+		self.onJeWaTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+
     }
     
     required init?(coder: NSCoder) {
@@ -80,7 +83,7 @@ final class SetProfileView: BaseView {
         return label
     }()
     
-    private let profileImageView: UIImageView = {
+    let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 125.0 / 2
@@ -98,7 +101,7 @@ final class SetProfileView: BaseView {
         return imageView
     }()
     
-    private let onJeWaTextField = OnJeWaTextField()
+    let onJeWaTextField = OnJeWaTextField()
     
     private lazy var dropDownStackView: UIStackView = {
         let stackView = UIStackView()
@@ -112,7 +115,6 @@ final class SetProfileView: BaseView {
     let nextButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("다음", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 14
@@ -135,6 +137,10 @@ final class SetProfileView: BaseView {
     @objc func nextButtonTapGesture(_ sender: UITapGestureRecognizer) {
         delegate?.didTapNextButton()
     }
+	
+	@objc func textFieldDidChange(_ sender: Any?) {
+		delegate?.changedTextField(nameValue: onJeWaTextField.text!)
+	}
 }
 
 extension SetProfileView: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -157,14 +163,6 @@ extension SetProfileView: UIImagePickerControllerDelegate & UINavigationControll
 }
 
 extension SetProfileView: UITextFieldDelegate {
-
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        let currentText = textField.text ?? ""
-        delegate?.changedTextField(nameValue: currentText)
-        return true
-    }
-    
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         delegate?.changedTextField(nameValue: "")
         return true

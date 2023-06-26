@@ -22,7 +22,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
   //MARK: - View Components
   
   private let backgroundView = BackgroundView()
-  private let navigationView = NavigationView()
+  let navigationView = NavigationView()
   private let tapButtonVC = TapButtonViewController()
   
   
