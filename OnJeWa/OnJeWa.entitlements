@@ -5,6 +5,8 @@
 	<key>com.apple.developer.usernotifications.communication</key>
 	<true/>
 	<key>com.apple.security.application-groups</key>
-	<array/>
+	<array>
+		<string>group.OnjewaAzhy</string>
+	</array>
 </dict>
 </plist>
