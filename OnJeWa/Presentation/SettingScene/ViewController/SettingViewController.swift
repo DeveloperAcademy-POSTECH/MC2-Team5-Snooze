@@ -120,6 +120,11 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 			let controller = SetProfileViewController(profile: profile)
 			controller.updateChk = true
 			navigationController?.pushViewController(controller, animated: true)
+		} else if indexPath.row == 1 {
+			let profile = Profile(value: RealmManager.shared.getUserDatas().first!)
+			let controller = RegisterAddressViewController(profile: profile)
+			controller.updateChk = true
+			navigationController?.pushViewController(controller, animated: true)
 		}
 	}
 }

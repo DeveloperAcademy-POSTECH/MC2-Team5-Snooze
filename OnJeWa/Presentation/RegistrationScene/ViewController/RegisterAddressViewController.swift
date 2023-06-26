@@ -23,6 +23,7 @@ final class RegisterAddressViewController: BaseViewController {
 	private let viewModel = RegisterAddressViewModel()
 	private let kakaoAddressUrlString = "https://ungchun.github.io/Kakao-Postcode/"
 	private var profile: Profile?
+	var updateChk = false
 	
 	//MARK: - Life Cycle
 	
@@ -54,10 +55,12 @@ final class RegisterAddressViewController: BaseViewController {
 		
 		registerAddressView.delegate = self
 		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
-		pageControl.pageControlStackView.subviews[3].backgroundColor =
-		hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
-		
+		if !updateChk {
+			navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pageControl)
+			pageControl.pageControlStackView.subviews[3].backgroundColor =
+			hexStringToUIColor(hex: UserDefaultsSetting.mainColor)
+		}
+
 		[registerAddressView].forEach {
 			view.addSubview($0)
 		}
@@ -76,18 +79,37 @@ final class RegisterAddressViewController: BaseViewController {
 extension RegisterAddressViewController: RegisterAddressViewDelegate {
 	
 	func didTapNextButton() {
-		do {
-			try RealmManager.shared.createProfile(profile: self.profile!) {
-				UserDefaultsSetting.isRegister = true
-				UserDefaultsSetting.awayTime = 0
-				
-				let mainViewController = MainViewController()
-				let navigationController = UINavigationController(rootViewController: mainViewController)
-				navigationController.modalPresentationStyle = .fullScreen
-				self.present(navigationController, animated: true, completion: nil)
+		if updateChk {
+			let alert = UIAlertController(title: "알림", message: "주소를 변경하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+			let defaultAction =  UIAlertAction(title: "변경하기", style: UIAlertAction.Style.default) { _ in
+				do {
+					try RealmManager.shared.createProfile(profile: self.profile!) {
+						self.navigationController?.popToRootViewController(animated: true)
+					}
+				} catch _ {
+					print("error")
+				}
 			}
-		} catch _ {
-			print("error")
+			let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.destructive, handler: nil)
+			
+			alert.addAction(defaultAction)
+			alert.addAction(cancelAction)
+			
+			self.present(alert, animated: false)
+		} else {
+			do {
+				try RealmManager.shared.createProfile(profile: self.profile!) {
+					UserDefaultsSetting.isRegister = true
+					UserDefaultsSetting.awayTime = 0
+					
+					let mainViewController = MainViewController()
+					let navigationController = UINavigationController(rootViewController: mainViewController)
+					navigationController.modalPresentationStyle = .fullScreen
+					self.present(navigationController, animated: true, completion: nil)
+				}
+			} catch _ {
+				print("error")
+			}
 		}
 	}
 	
@@ -105,5 +127,6 @@ extension RegisterAddressViewController: KakaoAddressViewDelegate {
 		self.profile?.longitude = coordinates.longitude
 		self.profile?.latitude = coordinates.latitude
 		registerAddressView.updateRegisterAddressView(address: address)
+		registerAddressView.nextButton.setTitle(updateChk ? "변경하기" : "snooze 시작하기", for: .normal)
 	}
 }
