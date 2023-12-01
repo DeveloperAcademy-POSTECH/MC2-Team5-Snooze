@@ -25,7 +25,7 @@ final class OnboardingViewController: BaseViewController {
     //MARK: - Views
     
     private let scrollView = UIScrollView()
-    private let pageControl = OnJeWaPageControl(frame: CGRect.zero, entirePage: 2, currentPage: 1)
+    private let pageControl = OnJeWaPageControl(frame: CGRect.zero, entirePage: 4, currentPage: 1)
     private var onboardingPages: [UIView] = []
     
     //MARK: - Functions
@@ -44,9 +44,12 @@ final class OnboardingViewController: BaseViewController {
     }
     
     private func setupSlideScrollView() {
+		let firstOnboardingView = FirstOnboardingView()
+		let secondOnboardingView = SecondOnboardingView()
+		let thirdOnboardingView = ThirdOnboardingView()
         let fourOnboardingView = FourOnboardingView()
         fourOnboardingView.delegate = self
-    onboardingPages = [FirstOnboardingView(), fourOnboardingView]
+    onboardingPages = [firstOnboardingView, secondOnboardingView, thirdOnboardingView, fourOnboardingView]
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.isDirectionalLockEnabled = true
         scrollView.delegate = self
